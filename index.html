@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081425">
+  <meta name="description" content="Solcita: laboratorio de mercados y puente seguro entre GitHub y Debian.">
+  <title>Solcita | Centro de operaciones · Sitio público</title>
+  <style>
+    :root {color-scheme:dark;--bg:#071221;--surface:#0d1a2a;--card:#101f32;--line:#25374d;--txt:#eaf4ff;--sub:#8ea6bf;--mint:#63ebcd;--lav:#b7adff;--blue:#66b9ff;--amber:#ffc67f}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse 65% 35% at 85% 2%,#1c3450 0,transparent 76%),radial-gradient(ellipse 60% 22% at 6% 12%,#162b46 0,transparent 75%),var(--bg);font:15px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--txt)}
+    a{color:inherit;text-decoration:none}button{font:inherit}button,a{transition:transform .2s,border-color .2s,color .2s}a:hover{color:var(--mint)}
+    .shell{max-width:1190px;padding:0 26px;margin:auto}.topbar{min-height:86px;display:flex;gap:24px;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff10}
+    .brand{display:flex;gap:13px;align-items:center;font-size:20px;font-weight:850;letter-spacing:2.6px}.mark{width:43px;height:43px;background:linear-gradient(135deg,#163b52,#293960);border:1px solid #56cbb8;border-radius:14px;display:grid;place-items:center;box-shadow:0 0 25px #38bda52b;color:var(--mint);font-size:23px}
+    nav{display:flex;gap:27px;color:#a9bed3;font-size:13px;font-weight:650}nav a:hover{color:#fff}.top-right{font-size:12px;border:1px solid #38546b;border-radius:50px;padding:8px 14px;color:#afcce1;white-space:nowrap}
+    .dot{display:inline-block;width:7px;height:7px;background:#63e6cc;border-radius:50%;box-shadow:0 0 14px #63e6cc66;margin-right:7px}
+    .hero{padding:80px 0 76px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+    .eyebrow,.kicker{color:var(--mint);letter-spacing:2px;text-transform:uppercase;font-weight:750;font-size:11px}
+    h1{font-size:clamp(46px,7vw,83px);line-height:1.06;letter-spacing:-3.7px;margin:16px 0 20px;font-weight:850}
+    h1 span{background:linear-gradient(90deg,#80f2da,#b6b0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:17px;color:#aec4d9;max-width:535px;line-height:1.75;margin-bottom:26px}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;gap:10px;align-items:center;border-radius:13px;padding:12px 19px;font-weight:750;font-size:13px;border:1px solid var(--line)}
+    .btn.primary{color:#071e21;background:linear-gradient(120deg,#63e4cf,#a0e6d7);border-color:transparent;box-shadow:0 10px 35px #44dabc22}.btn:hover{transform:translateY(-2px)}.btn.secondary{background:#152740;color:#d2e4f4}
+    .meta{margin-top:24px;color:#829ab4;font-size:12px}.meta b{color:#b0cce0}
+    .illustration{min-height:350px;position:relative;display:grid;place-items:center;border:1px solid #ffffff15;border-radius:27px;background:linear-gradient(155deg,#18304866,#0b1a2a77);overflow:hidden}
+    .illustration:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:29px 29px;mask-image:linear-gradient(90deg,transparent,black)}
+    .orb{position:absolute;width:245px;height:245px;background:#55ecdc1e;border-radius:50%;filter:blur(42px)}.robo{position:relative;z-index:1;width:180px;height:172px;background:linear-gradient(140deg,#21465a,#1d2846);border:2px solid #76e8d5;border-radius:39px;box-shadow:0 22px 70px #0007,0 0 50px #56dfcb20;display:grid;place-items:center;transform:rotate(-4deg)}
+    .robo:before{content:"";position:absolute;top:-25px;left:87px;width:4px;height:24px;background:var(--mint)}.antenna{position:absolute;top:-35px;left:81px;width:16px;height:16px;border-radius:50%;background:#82f2df;box-shadow:0 0 22px #82f2df}
+    .face{width:135px;height:112px;border-radius:30px;background:#071728;display:flex;align-items:center;justify-content:center;gap:24px;border:1px solid #6d8fc0}.eye{width:19px;height:24px;border-radius:8px;background:#72f0db;box-shadow:0 0 25px #72f0db85}
+    .smile{position:absolute;width:42px;height:20px;border-bottom:4px solid #a3affc;border-radius:0 0 38px 38px;bottom:47px}
+    .orbit{position:absolute;border:1px dashed #6cded358;width:330px;height:330px;border-radius:50%;transform:rotate(-25deg)}.orbit:after{content:"";position:absolute;left:23px;top:50px;width:11px;height:11px;background:var(--lav);border-radius:50%;box-shadow:0 0 12px #adabff}.float{position:absolute;z-index:2;background:#14283d;border:1px solid #39566b;border-radius:15px;padding:11px 14px;font-size:11px;color:#d7e8fa;box-shadow:0 13px 30px #0005}.float.one{top:29px;right:21px}.float.two{bottom:31px;left:22px}
+    .small{font-size:11px;color:var(--sub)}.mint{color:var(--mint)}.lav{color:var(--lav)}
+    .notice{display:flex;align-items:center;gap:15px;padding:17px 19px;background:#12253a;border:1px solid #34536b;border-radius:16px;color:#bed2e5;font-size:13px}
+    .notice strong{color:var(--txt)}.notice i{font-style:normal;font-size:21px}
+    section{padding:45px 0}h2{font-size:clamp(27px,4vw,37px);margin:8px 0 11px;line-height:1.18;letter-spacing:-1.15px}.section-desc{color:var(--sub);margin:0 0 27px;max-width:660px}
+    .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:linear-gradient(150deg,#14263a,#0e1b2c);border:1px solid #273b51;border-radius:20px;padding:24px;min-height:184px}.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:29px}.card-icon{font-size:24px}.tag{font-size:10px;padding:6px 9px;border-radius:99px;border:1px solid #3e566b;color:#bdd1e3;letter-spacing:.4px}.card h3{margin:0;font-size:19px;letter-spacing:-.4px}.card p{color:#99b1ca;margin:8px 0 0;font-size:13px}
+    .progress-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{border:1px solid #273b51;border-radius:21px;background:#102033;padding:27px}
+    .status-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid #ffffff12;gap:15px}.status-row:last-child{border-bottom:0}.status-label{color:#b7cbdf}.status-right{font-size:12px;color:#95e2d1;font-weight:700;white-space:nowrap}
+    .step{display:flex;align-items:flex-start;gap:14px;padding:14px 0}.step+ .step{border-top:1px solid #ffffff11}.check{width:25px;height:25px;flex:0 0 25px;border-radius:8px;background:#1d534a;color:#8bf7dc;display:grid;place-items:center;font-size:14px;font-weight:bold}.check.todo{background:#28354c;color:#95aac7}.step b{font-size:14px}.step p{margin:4px 0 0;font-size:12px;color:var(--sub)}
+    .endpoint{display:inline-block;color:#cbddf1;font:12px ui-monospace,SFMono-Regular,Menlo,monospace;background:#091829;border:1px solid #294158;padding:9px 12px;border-radius:9px;margin:5px 6px 5px 0}
+    .footer{border-top:1px solid #2a3b50;margin-top:60px;padding:28px 0 40px;display:flex;justify-content:space-between;align-items:center;color:#7894ad;font-size:12px;gap:12px}
+    @media(max-width:850px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:48px}.illustration{min-height:330px}.cards{grid-template-columns:1fr 1fr}.progress-grid{grid-template-columns:1fr}.shell{padding:0 18px}}
+    @media(max-width:540px){.top-right{font-size:0;padding:9px 12px}.top-right .dot{margin:0}h1{letter-spacing:-2.2px}.hero{gap:26px}.illustration{min-height:300px}.robo{transform:scale(.9) rotate(-4deg)}.cards{grid-template-columns:1fr}.footer{display:block}.btn{width:100%;justify-content:center}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Volver al inicio de Solcita"><span class="mark">◉</span>SOLCITA</a>
+      <nav aria-label="Navegación"><a href="#tablero">Tablero</a><a href="#sistema">Sistema</a><a href="#mercados">Mercados</a><a href="#progreso">Hoja de ruta</a></nav>
+      <span class="top-right"><span class="dot"></span>Sitio público · vista inicial</span>
+    </header>
+    <main id="inicio">
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Bull Market Lab / Proyecto Solcita</div>
+          <h1>Una pequeña máquina.<br><span>Grandes ideas.</span></h1>
+          <p class="lead">Un laboratorio de mercados que vive en una HP Mini con Debian. Recopilamos datos, estudiamos oportunidades y preparamos estrategias con los pies sobre la tierra.</p>
+          <div class="hero-buttons">
+            <a class="btn primary" href="#sistema">◈ Explorar los módulos</a>
+            <a class="btn secondary" href="#progreso">Ver próximos pasos ↓</a>
+          </div>
+          <p class="meta"><b>Debian 13</b> · Python / SQLite · Kraken / Pionex · Sin operaciones reales</p>
+        </div>
+        <div class="illustration" role="img" aria-label="Ilustración de Solcita: un pequeño robot turquesa en un panel futurista">
+          <span class="orb"></span><span class="orbit"></span>
+          <div class="float one"><span class="mint">●</span> Sistemas de mercado<br><span class="small">Recolección programada</span></div>
+          <div class="robo"><span class="antenna"></span><div class="face"><span class="eye"></span><span class="eye"></span></div><span class="smile"></span></div>
+          <div class="float two"><span class="lav">◆</span> Puente GitHub<br><span class="small">Diagnósticos de solo lectura</span></div>
+        </div>
+      </div>
+      <div class="notice" role="note"><i>🔐</i><div><strong>Seguridad primero.</strong> Este sitio es una presentación pública, no muestra información en vivo ni solicita claves. Los datos reales permanecerán privados hasta definir qué métricas publicar y cómo protegerlas.</div></div>
+
+      <section id="tablero" style="padding-top:48px;padding-bottom:20px">
+        <div class="kicker">Vista pública / Próximamente</div>
+        <h2>El futuro tablero en vivo.</h2>
+        <p class="section-desc">Estos indicadores todavía no reciben datos del servidor. Nunca mostramos porcentajes o precios ficticios como si fueran reales.</p>
+        <div class="cards">
+          <article class="card" aria-label="Indicador futuro de batería"><div class="card-head"><span class="card-icon">🔋</span><span class="tag">PENDIENTE</span></div><h3 style="font-size:30px">— %</h3><p>Batería de Solcita · sin datos públicos</p></article>
+          <article class="card" aria-label="Indicador futuro de bitcoin"><div class="card-head"><span class="card-icon">₿</span><span class="tag">PENDIENTE</span></div><h3 style="font-size:30px">BTC · —</h3><p>Cotización y variación · integración pendiente</p></article>
+          <article class="card" aria-label="Indicador futuro de ethereum"><div class="card-head"><span class="card-icon">Ξ</span><span class="tag">PENDIENTE</span></div><h3 style="font-size:30px">ETH · —</h3><p>Cotización y variación · integración pendiente</p></article>
+        </div>
+      </section>
+
+      <section id="sistema">
+        <div class="kicker">01 / Centro de operaciones</div>
+        <h2>La nave, por dentro.</h2>
+        <p class="section-desc">Cada módulo cumple una misión. Por ahora todos trabajan para investigar y aprender, nunca para enviar órdenes reales.</p>
+        <div class="cards">
+          <article class="card"><div class="card-head"><span class="card-icon">🔋</span><span class="tag">CONSULTA PRIVADA</span></div><h3>Batería y sistema</h3><p>Estado de carga, memoria, almacenamiento y tiempo de actividad. Su publicación pública todavía no está habilitada.</p></article>
+          <article class="card"><div class="card-head"><span class="card-icon">📡</span><span class="tag">CADA 5 MIN</span></div><h3>Mercado</h3><p>Captura periódica de precios de Kraken y Pionex, almacenados localmente para análisis.</p></article>
+          <article class="card"><div class="card-head"><span class="card-icon">🌊</span><span class="tag">CADA 5 MIN</span></div><h3>Flujo y liquidez</h3><p>Volúmenes, spreads, operaciones y profundidad. Buscamos contexto, no señales mágicas.</p></article>
+          <article class="card"><div class="card-head"><span class="card-icon">🧠</span><span class="tag">EN DESARROLLO</span></div><h3>Análisis</h3><p>Datos históricos, tendencias, volatilidad y pruebas de ideas con costes realistas.</p></article>
+          <article class="card"><div class="card-head"><span class="card-icon">🛡️</span><span class="tag">SOLO LECTURA</span></div><h3>Puente seguro</h3><p>GitHub transmite consultas con acciones permitidas. Sin terminal remota libre.</p></article>
+          <article class="card"><div class="card-head"><span class="card-icon">💌</span><span class="tag">CADA HORA</span></div><h3>Telegram</h3><p>Reporte de batería, conectividad y monitoreo local, sin compartir claves financieras.</p></article>
+        </div>
+      </section>
+
+      <section id="mercados">
+        <div class="kicker">02 / Observatorio</div>
+        <h2>Los mercados bajo la lupa.</h2>
+        <p class="section-desc">El universo inicial incluye criptoactivos y futuros análisis de acciones tokenizadas. Esta web no publica nuestras posiciones ni cotizaciones en tiempo real.</p>
+        <div class="progress-grid">
+          <div class="panel">
+            <div class="status-row"><span class="status-label">₿ &nbsp; Bitcoin (BTC)</span><span class="status-right">Seguimiento local</span></div>
+            <div class="status-row"><span class="status-label">Ξ &nbsp; Ethereum (ETH)</span><span class="status-right">Seguimiento local</span></div>
+            <div class="status-row"><span class="status-label">◎ &nbsp; Solana (SOL)</span><span class="status-right">Seguimiento local</span></div>
+            <div class="status-row"><span class="status-label">◈ &nbsp; Polkadot (DOT)</span><span class="status-right">Seguimiento local</span></div>
+          </div>
+          <div class="panel">
+            <div class="kicker">Nuestro criterio</div>
+            <h3 style="font-size:23px;line-height:1.35;margin:16px 0">Primero observar.<br>Después simular.<br><span class="mint">Recién entonces decidir.</span></h3>
+            <p style="color:var(--sub);font-size:13px">Sin promesas de rentabilidad. Antes de operar, medimos comisiones, profundidad, slippage y escenarios adversos.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="progreso">
+        <div class="kicker">03 / Roadmap</div>
+        <h2>Lo que ya hicimos. Lo que viene.</h2>
+        <p class="section-desc">Una hoja de ruta para construir algo útil, paso a paso y sin apurarnos con plata real.</p>
+        <div class="progress-grid">
+          <div class="panel">
+            <div class="step"><span class="check">✓</span><div><b>Debian y red protegida</b><p>HP Mini liviana, SSH, Tailscale y firewall.</p></div></div>
+            <div class="step"><span class="check">✓</span><div><b>Captura de mercados</b><p>Precios, volumen y profundidad en SQLite.</p></div></div>
+            <div class="step"><span class="check">✓</span><div><b>Mensajería con Sol</b><p>Consultas de solo lectura mediante GitHub.</p></div></div>
+          </div>
+          <div class="panel">
+            <div class="step"><span class="check todo">1</span><div><b>Histórico y simulaciones</b><p>Aprender con datos, sin arriesgar capital.</p></div></div>
+            <div class="step"><span class="check todo">2</span><div><b>Auditoría de seguridad</b><p>Permisos, credenciales y copias de respaldo.</p></div></div>
+            <div class="step"><span class="check todo">3</span><div><b>Evaluar una fase real</b><p>Solo con pruebas suficientes y aprobación expresa.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section style="padding-bottom:10px">
+        <div class="panel">
+          <div class="kicker">Consultas permitidas</div>
+          <h2>Una comunicación que prioriza la seguridad.</h2>
+          <p class="section-desc">La HP solo interpreta estos títulos exactos. No ejecuta el texto libre de un mensaje.</p>
+          <code class="endpoint">[solcita] health</code><code class="endpoint">[solcita] timers</code><code class="endpoint">[solcita] network</code>
+          <p class="small" style="margin-top:22px">El código operativo y las consultas reales se mantienen en un repositorio privado, separado de esta web.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><span>© 2026 SOLCITA · Bull Market Lab · Hecho con curiosidad y cuidado.</span><span>Proyecto de Hugo &amp; Sol ❤️</span></footer>
+  </div>
+</body>
+</html>

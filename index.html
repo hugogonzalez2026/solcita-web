@@ -152,7 +152,7 @@
     (() => {
       "use strict";
       const q = id => document.getElementById(id);
-      const labels = { charging: "Cargando", discharging: "Descargando", full: "Carga completa", unknown: "Estado de carga no disponible" };
+      const labels = { charging: "Cargando", discharging: "Descargando", not_charging: "No está cargando", full: "Carga completa", unknown: "Estado de carga no disponible" };
       const percentage = n => typeof n === "number" && Number.isInteger(n) && n >= 0 && n <= 100 ? n + " %" : "— %";
       const clear = (headline, detail) => {
         q("live-status").textContent = headline;

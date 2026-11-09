@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "updated_at_utc": null,
+  "battery_pct": null,
+  "power_state": "unknown",
+  "memory_used_pct": null,
+  "disk_used_pct": null
+}

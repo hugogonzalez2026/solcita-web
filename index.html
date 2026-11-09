@@ -82,7 +82,7 @@
           <article class="card"><div class="card-head"><span class="card-icon">🧠</span><span class="tag">MEMORIA</span></div><h3 id="live-memory" style="font-size:30px">— %</h3><p>Uso aproximado de RAM</p></article>
           <article class="card"><div class="card-head"><span class="card-icon">💾</span><span class="tag">DISCO</span></div><h3 id="live-disk" style="font-size:30px">— %</h3><p>Ocupación de almacenamiento</p></article>
         </div>
-        <p class="small" style="margin-top:18px">Actualización automática de la pantalla cada 2 minutos. La HP enviará datos con menor frecuencia. Si la última señal tiene más de 45 minutos, se marcará como desactualizada.</p>
+        <p class="small" style="margin-top:18px">Actualización automática de la pantalla cada 2 minutos. Por ahora, las lecturas se publicarán aproximadamente cada hora, mediante ChatGPT y GitHub. Si la última señal tiene más de 90 minutos, se marcará como desactualizada.</p>
       </section>
 
       <section id="sistema">
@@ -174,7 +174,7 @@
           }
           const time = new Date(data.updated_at_utc);
           const age = Date.now() - time.getTime();
-          if (!Number.isFinite(age) || age < -3*60*1000 || age > 45*60*1000) {
+          if (!Number.isFinite(age) || age < -3*60*1000 || age > 90*60*1000) {
             clear("Señal desactualizada", "Último registro: " + (Number.isFinite(time.getTime()) ? time.toLocaleString("es-AR", {dateStyle:"short",timeStyle:"short"}) : "no disponible") + ". No implica necesariamente que la HP esté apagada.");
             return;
           }

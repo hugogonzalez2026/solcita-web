@@ -1,19 +1,27 @@
 # SOLCITA · Centro de operaciones público 🤖
 
-Web: https://hugogonzalez2026.github.io/solcita-web/
+Sitio: https://hugogonzalez2026.github.io/solcita-web/
 
-La interfaz muestra **únicamente** los campos públicos de `status.json`:
-- Último reporte recibido (hora, no IP).
+Esta web muestra **únicamente** el contenido permitido de `status.json`:
+
 - Porcentaje de batería y estado de carga.
-- Porcentaje de RAM usada.
-- Porcentaje del disco ocupado.
+- Porcentaje aproximado de RAM ocupada.
+- Porcentaje de disco ocupado.
+- Hora UTC de la última medición.
 
-**Todavía no hay lecturas reales públicas** hasta que se active en Debian el publicador limitado. Por ahora la interfaz muestra "Esperando primera lectura".
+## ¿De dónde vienen los datos?
 
-## Protección
+Un proceso programado en ChatGPT, llamado **Actualizar web Solcita**, consulta por GitHub el agente de Debian a través de un Issue en el repositorio **privado**. Luego extrae solo las métricas autorizadas y reemplaza `status.json` en este repositorio **público** usando el conector GitHub ya conectado.
 
-No se publican IPs, usuarios, versiones internas, puertos, claves, cuentas, saldos, base de datos financiera ni logs. El navegador solo descarga un archivo estático de GitHub Pages; **no se conecta directamente a la HP Mini**.
+**No se usa ningún token nuevo ni se publican IPs, hostnames, credenciales, datos de cuentas, registros o detalles financieros personales.** La web tampoco se conecta a Debian directamente.
 
-El código de Debian está en otro repositorio privado. El publicador solo tendrá una credencial de GitHub con permiso de escritura para **este** repositorio público, sin acceso al privado.
+- **Actualización programada:** cada hora, comenzando el 9 de noviembre de 2026 a las 20:00 (Argentina).
+- **Consulta desde navegador:** cada dos minutos.
+- **Control de antigüedad:** si el dato es mayor a 90 minutos, la web lo marca como desactualizado y oculta cifras.
+- Si el sensor de la batería reporta 101 o 102 %, se normaliza a 100 % sin inventar que está cargando. El texto del estado de carga se conserva aparte.
 
-La pantalla busca actualizaciones cada 2 minutos. Debian generará una nueva lectura aproximadamente cada 15 minutos. Si el archivo no se actualiza por 45 minutos, las cifras se ocultan para no presentar datos viejos como actuales.
+La primera actualización se hizo manualmente desde ChatGPT. La ejecución autónoma horaria quedó programada y requiere comprobar su primera corrida.
+
+## Futuras mejoras
+
+Incorporar datos financieros agregados y públicos, cada tipo revisado y autorizado por separado. El repositorio operativo de Debian sigue siendo privado.

@@ -1,23 +1,19 @@
-# SOLCITA · Web pública 🤖
+# SOLCITA · Centro de operaciones público 🤖
 
-Página de presentación del proyecto de Hugo y Sol.
+Web: https://hugogonzalez2026.github.io/solcita-web/
 
-- **Sitio estático:** `index.html`, sin dependencias externas ni claves.
-- **Datos actuales:** por ahora solamente presentación; los indicadores de batería y cotizaciones aparecen como pendientes.
-- **Seguridad:** el código del bot, la SQLite local, las credenciales y los informes privados están en un repositorio distinto, no publicado.
+La interfaz muestra **únicamente** los campos públicos de `status.json`:
+- Último reporte recibido (hora, no IP).
+- Porcentaje de batería y estado de carga.
+- Porcentaje de RAM usada.
+- Porcentaje del disco ocupado.
 
-## Activar GitHub Pages
+**Todavía no hay lecturas reales públicas** hasta que se active en Debian el publicador limitado. Por ahora la interfaz muestra "Esperando primera lectura".
 
-En este repositorio público: **Settings → Pages**.
+## Protección
 
-En *Build and deployment* elegir **Deploy from a branch**, seleccionar **main** y **/(root)**, y presionar **Save**.
+No se publican IPs, usuarios, versiones internas, puertos, claves, cuentas, saldos, base de datos financiera ni logs. El navegador solo descarga un archivo estático de GitHub Pages; **no se conecta directamente a la HP Mini**.
 
-Cuando GitHub termine de publicar, abrir:
+El código de Debian está en otro repositorio privado. El publicador solo tendrá una credencial de GitHub con permiso de escritura para **este** repositorio público, sin acceso al privado.
 
-https://hugogonzalez2026.github.io/solcita-web/
-
-Esta dirección solo funcionará cuando GitHub Pages esté activado y el despliegue haya terminado.
-
-## Próximas mejoras
-
-Agregar un archivo JSON de información pública seleccionada, con marca de tiempo, protección contra datos viejos y sin datos privados.
+La pantalla busca actualizaciones cada 2 minutos. Debian generará una nueva lectura aproximadamente cada 15 minutos. Si el archivo no se actualiza por 45 minutos, las cifras se ocultan para no presentar datos viejos como actuales.

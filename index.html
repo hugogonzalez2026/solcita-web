@@ -93,7 +93,7 @@
           <article class="card"><div class="card-head"><span class="card-icon">🧠</span><span class="tag">MEMORIA</span></div><h3 id="live-memory" style="font-size:30px">— %</h3><p>Uso aproximado de RAM</p></article>
           <article class="card"><div class="card-head"><span class="card-icon">💾</span><span class="tag">DISCO</span></div><h3 id="live-disk" style="font-size:30px">— %</h3><p>Ocupación de almacenamiento</p></article>
         </div>
-        <p class="small" style="margin-top:18px">Actualización automática de la pantalla cada 2 minutos. Por ahora, las lecturas se publicarán aproximadamente cada hora, mediante ChatGPT y GitHub. Si la última señal tiene más de 90 minutos, se marcará como desactualizada.</p>
+        <p class="small" style="margin-top:18px">Actualización automática de la pantalla cada 2 minutos. Por ahora, las lecturas se publicarán aproximadamente cada hora, mediante ChatGPT y GitHub. Si la última señal tiene más de 90 minutos, se marcará como histórica, sin ocultar los últimos porcentajes recibidos.</p>
       </section>
 
       <section id="cotizaciones" style="padding-top:40px;padding-bottom:26px" aria-labelledby="cotizaciones-titulo">
@@ -199,16 +199,17 @@
           }
           const time = new Date(data.updated_at_utc);
           const age = Date.now() - time.getTime();
-          if (!Number.isFinite(age) || age < -3*60*1000 || age > 90*60*1000) {
-            clear("Señal desactualizada", "Último registro: " + (Number.isFinite(time.getTime()) ? time.toLocaleString("es-AR", {dateStyle:"short",timeStyle:"short"}) : "no disponible") + ". No implica necesariamente que la HP esté apagada.");
+          if (!Number.isFinite(age) || age < -3*60*1000) {
+            clear("Lectura no válida", "La hora informada por el servidor no se pudo validar.");
             return;
           }
-          const power = Object.hasOwn(labels, data.power_state) ? labels[data.power_state] : labels.unknown;
-          q("live-status").textContent = "Señal reciente de Solcita";
-          q("live-led").textContent = "●";
-          q("live-updated").textContent = "Última lectura: " + time.toLocaleString("es-AR", {timeZone:"America/Argentina/Buenos_Aires",dateStyle:"short",timeStyle:"short"}) + " (Argentina)";
+          const stale = age > 90*60*1000;
+          const power = Object.prototype.hasOwnProperty.call(labels, data.power_state) ? labels[data.power_state] : labels.unknown;
+          q("live-status").textContent = stale ? "Último dato disponible · desactualizado" : "Señal reciente de Solcita";
+          q("live-led").textContent = stale ? "◌" : "●";
+          q("live-updated").textContent = "Última lectura: " + time.toLocaleString("es-AR", {timeZone:"America/Argentina/Buenos_Aires",dateStyle:"short",timeStyle:"short"}) + " (Argentina)." + (stale ? " Son valores históricos, no confirman el estado actual." : "");
           q("live-battery").textContent = percentage(data.battery_pct);
-          q("live-power").textContent = power;
+          q("live-power").textContent = power + (stale ? " · última lectura" : "");
           q("live-memory").textContent = percentage(data.memory_used_pct);
           q("live-disk").textContent = percentage(data.disk_used_pct);
         } catch (_) {

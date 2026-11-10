@@ -10,7 +10,7 @@ La tarea programada de ChatGPT consulta el bridge de Debian en el repositorio **
 
 - Actualización programada del estado: aproximadamente **cada hora**.
 - La web consulta `status.json` cada **2 minutos**.
-- Cuando la última señal supera **90 minutos**, oculta los números y marca la señal como desactualizada.
+- Cuando la última señal supera **90 minutos**, conserva los últimos números registrados, pero los identifica claramente como históricos y no como mediciones actuales.
 
 ## Cotizaciones cripto públicas
 

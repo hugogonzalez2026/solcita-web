@@ -1,27 +1,30 @@
 # SOLCITA · Centro de operaciones público 🤖
 
-Sitio: https://hugogonzalez2026.github.io/solcita-web/
+Web: https://hugogonzalez2026.github.io/solcita-web/
 
-Esta web muestra **únicamente** el contenido permitido de `status.json`:
+## Estado de la HP Mini
 
-- Porcentaje de batería y estado de carga.
-- Porcentaje aproximado de RAM ocupada.
-- Porcentaje de disco ocupado.
-- Hora UTC de la última medición.
+El tablero de Solcita muestra **únicamente** el contenido autorizado de `status.json`: porcentaje de batería, carga, RAM y disco, y última señal.
 
-## ¿De dónde vienen los datos?
+La tarea programada de ChatGPT consulta el bridge de Debian en el repositorio **privado** y publica en este repositorio **público** exclusivamente un JSON filtrado. No necesita nuevos tokens ni que Windows esté encendido.
 
-Un proceso programado en ChatGPT, llamado **Actualizar web Solcita**, consulta por GitHub el agente de Debian a través de un Issue en el repositorio **privado**. Luego extrae solo las métricas autorizadas y reemplaza `status.json` en este repositorio **público** usando el conector GitHub ya conectado.
+- Actualización programada del estado: aproximadamente **cada hora**.
+- La web consulta `status.json` cada **2 minutos**.
+- Cuando la última señal supera **90 minutos**, oculta los números y marca la señal como desactualizada.
 
-**No se usa ningún token nuevo ni se publican IPs, hostnames, credenciales, datos de cuentas, registros o detalles financieros personales.** La web tampoco se conecta a Debian directamente.
+## Cotizaciones cripto públicas
 
-- **Actualización programada:** cada hora, comenzando el 9 de noviembre de 2026 a las 20:00 (Argentina).
-- **Consulta desde navegador:** cada dos minutos.
-- **Control de antigüedad:** si el dato es mayor a 90 minutos, la web lo marca como desactualizado y oculta cifras.
-- Si el sensor de la batería reporta 101 o 102 %, se normaliza a 100 % sin inventar que está cargando. El texto del estado de carga se conserva aparte.
+Se incorporaron **BTC, ETH, SOL y DOT** en USD, con variación en 24 horas cuando la fuente la proporciona.
 
-La primera actualización se hizo manualmente desde ChatGPT. La ejecución autónoma horaria quedó programada y requiere comprobar su primera corrida.
+- El navegador consulta directamente el endpoint público de **CoinGecko** al abrir la página y luego cada **5 minutos** mientras está abierta.
+- Si CoinGecko falla o devuelve datos viejos, intenta obtener el último precio negociado de **Kraken**; en ese caso la variación de 24 h aparece como no disponible, y la hora corresponde a la consulta (no a la operación).
+- No se utilizan tokens API, ni credenciales del exchange, ni datos de la SQLite de la HP.
+- Se indica fuente y hora. Si ambas fuentes fallan, se muestran guiones; no se inventan valores.
+- El precio es **indicativo** y no una cotización ejecutable garantizada.
+- Si se cierra la página, no se continúan las consultas de cotizaciones; se reanudan al abrirla.
 
-## Futuras mejoras
+**Importante:** las cotizaciones públicas NO son todavía las mediciones del proceso local de Kraken/Pionex en Debian. Esa integración requerirá ampliar de forma controlada el bridge privado.
 
-Incorporar datos financieros agregados y públicos, cada tipo revisado y autorizado por separado. El repositorio operativo de Debian sigue siendo privado.
+## Seguridad
+
+No se publican IPs, hostnames, puertos, credenciales, carteras, saldos, posiciones, información personal, bases de datos ni logs. El navegador no se conecta directamente a la HP Mini.

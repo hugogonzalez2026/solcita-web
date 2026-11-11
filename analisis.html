@@ -245,7 +245,7 @@
           return {
             kind:"crypto",ticker,realTicker:ticker==="XBT"?"BTC":ticker,name:safeText(market.name)||conf.name,
             currency:"USD",source:"CoinGecko",url:"https://www.coingecko.com/es/monedas/"+conf.id,
-            updatedAt:Number.isFinite(stamp)?stamp:Date.now(),current:+market.current_price,
+            updatedAt:Number.isFinite(stamp)?stamp:null,current:+market.current_price,
             dayChange:Number.isFinite(market.price_change_percentage_24h)?market.price_change_percentage_24h:null,
             marketCap:Number.isFinite(market.market_cap)?market.market_cap:null,
             volume24:Number.isFinite(market.total_volume)?market.total_volume:null,
@@ -279,7 +279,7 @@
         return {
           kind:"crypto",ticker,realTicker:ticker==="XBT"?"BTC":ticker,name:conf.name,
           currency:"USD",source:"Kraken (respaldo)",url:"https://www.kraken.com/prices",
-          updatedAt:Date.now(),current:price,dayChange:valid(open)?100*(price/open-1):null,
+          updatedAt:Date.now(),timeType:"consulted",current:price,dayChange:valid(open)?100*(price/open-1):null,
           series,periods:365,sourceNote:"CoinGecko no respondió ("+safeText(marketError,75)+"). Respaldo Kraken: variación aproximada desde la apertura del día del exchange; no es una variación móvil de 24 h. No hay datos de capitalización. Histórico diario Kraken si está disponible."
         };
       }
@@ -391,7 +391,7 @@
         );
         $("chart-window").textContent=st.historyDays>=60?"Hasta 90 días":st.historyDays>0?"Historial parcial":"Sin historial";
         trend(near(d.series,90));
-        $("market-source").textContent="Fuente: "+d.source+" · Fecha informada: "+when(d.updatedAt)+" (Argentina). "+d.sourceNote;
+        $("market-source").textContent="Fuente: "+d.source+" · "+(d.timeType==="consulted"?"Hora de consulta (no de última operación)":"Fecha informada por la fuente")+": "+when(d.updatedAt)+" (Argentina). "+d.sourceNote;
         const L=[];
         const pos52=valid(d.high52)?100*(d.current/d.high52-1):null;
         L.push(layer(1,"Precio y contexto",

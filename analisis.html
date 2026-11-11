@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081425">
+  <meta name="description" content="Solcita: investigá activos con siete capas, datos públicos e incertidumbre explícita.">
+  <title>Solcita | Laboratorio de las 7 capas</title>
+  <style>
+    :root{color-scheme:dark;--bg:#071221;--card:#102036;--soft:#14283d;--line:#29445c;--txt:#eaf4ff;--sub:#a3b8cc;--mint:#63ebcd;--blue:#89c9ff;--warn:#ffd18b;--bad:#ff9eac}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--txt);background:radial-gradient(ellipse 70% 35% at 80% 5%,#203852 0,transparent 72%),var(--bg);font:15px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:var(--mint)}a:hover{color:#b7fff1}.shell{max-width:1100px;margin:auto;padding:0 22px}
+    header{display:flex;justify-content:space-between;align-items:center;gap:15px;min-height:79px;border-bottom:1px solid #ffffff16}
+    .brand{font-weight:850;letter-spacing:2px;color:#fff;text-decoration:none;font-size:20px}.back{border:1px solid var(--line);border-radius:30px;padding:9px 15px;color:#c4e2f3;text-decoration:none;font-size:12px}
+    .kicker{letter-spacing:2px;color:var(--mint);font-size:11px;text-transform:uppercase;font-weight:800}
+    h1{font-size:clamp(31px,5vw,56px);line-height:1.08;letter-spacing:-1.8px;margin:14px 0 18px}h1 span{color:var(--mint)}
+    .lead,.hint{color:var(--sub)}.lead{max-width:780px;font-size:16px}
+    main{padding:54px 0 30px}.panel{background:linear-gradient(150deg,#152a3f,#0e1b2d);border:1px solid var(--line);border-radius:23px;padding:25px}
+    .formline{display:flex;flex-wrap:wrap;gap:10px;align-items:end}.field{flex:1 1 200px;min-width:0}.field label{display:block;font-size:12px;font-weight:750;color:#bdd4e6;margin-bottom:8px}
+    input,select{background:#091827;border:1px solid #466079;border-radius:12px;color:#fff;padding:12px 14px;width:100%;font:inherit;min-height:47px}
+    input:focus,select:focus,button:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+    button{background:linear-gradient(120deg,#63e4cf,#91d8ce);border:0;border-radius:12px;padding:13px 22px;color:#052624;font:inherit;font-weight:800;min-height:47px;cursor:pointer}
+    button:disabled{opacity:.55;cursor:wait}.samples{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+    .sample{background:#173146;border:1px solid #38566b;color:#c5e6f4;min-height:34px;border-radius:99px;padding:5px 11px;font-weight:700;font-size:12px}
+    .muted{font-size:12px;color:var(--sub)}.notice{margin:18px 0 0;border:1px solid #426077;border-radius:15px;background:#12273b;padding:15px 18px;color:#c1d8ea;font-size:13px}
+    .notice.good{border-color:#346a68}.notice.warning{border-color:#886e40;background:#332b22;color:#ffe1ae}
+    .summary{margin-top:26px}.summary h2{font-size:clamp(26px,4vw,36px);margin:10px 0 5px;letter-spacing:-.8px}
+    .headline{display:flex;flex-wrap:wrap;gap:16px;align-items:start;justify-content:space-between}
+    .right{text-align:right}.price{font-size:clamp(26px,4vw,38px);font-weight:850;letter-spacing:-1px}.change{font-size:14px;font-weight:700}
+    .up{color:var(--mint)}.down{color:var(--bad)}.pill{display:inline-block;padding:4px 9px;border:1px solid #516979;border-radius:99px;color:#d3e8f5;font-size:11px;font-weight:700;vertical-align:middle;margin:0 6px 5px 0}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-top:18px}
+    .metric{min-width:0;background:#091c2d;border:1px solid #2c4560;border-radius:14px;padding:13px}.metric dt{font-size:11px;color:var(--sub);margin-bottom:4px}.metric dd{font-size:19px;font-weight:800;margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+    .chart{margin-top:21px;background:#0a1a2a;border:1px solid #2a4358;border-radius:16px;padding:16px}.chart h3{font-size:14px;margin:0 0 10px}
+    svg{display:block;width:100%;height:auto;max-height:230px}.chart-foot{display:flex;justify-content:space-between;color:var(--sub);font-size:11px;gap:8px}
+    h2.section-heading{font-size:clamp(24px,4vw,31px);margin:35px 0 5px;letter-spacing:-.8px}
+    .layer{border:1px solid var(--line);background:linear-gradient(155deg,#14283d,#0f1d2d);border-radius:17px;margin:12px 0;overflow:hidden}
+    .layer summary{cursor:pointer;list-style:none;padding:18px 20px;display:flex;gap:12px;align-items:center}
+    .layer summary::-webkit-details-marker{display:none}.counter{background:#1e514e;color:#9cffe1;border-radius:9px;min-width:30px;height:30px;display:grid;place-items:center;font-weight:850}
+    .layer-head{flex:1;min-width:0}.layer-title{font-weight:800}.layer-short{font-size:13px;color:#bdd0e1;margin-top:2px}.layer-status{font-size:10px;font-weight:800;white-space:nowrap;letter-spacing:.5px;color:var(--warn)}
+    .layer-status.fact{color:var(--mint)}.layer summary:after{content:"⌄";font-weight:900;color:#8dacc2}.layer[open] summary:after{content:"⌃"}
+    .layer-content{border-top:1px solid #ffffff15;padding:15px 20px 19px 62px;font-size:13px;color:#c6d7e8}
+    .layer-content p{margin:0 0 9px}.layer-content .critical{color:var(--warn)}
+    .after{margin-top:30px}.links{display:flex;flex-wrap:wrap;gap:14px;font-size:13px}.fine{margin:20px 0 0;font-size:12px;color:var(--sub)}
+    footer{border-top:1px solid #ffffff1a;padding:24px 0 50px;color:#8099b0;font-size:12px}
+    [hidden]{display:none!important}
+    @media(max-width:790px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.right{text-align:left}.headline{display:block}}
+    @media(max-width:500px){.shell{padding:0 15px}main{padding-top:28px}.panel{padding:16px}.formline>*{flex:1 1 100%}.grid{gap:8px}.metric{padding:10px}.metric dd{font-size:17px}.layer summary{padding:13px}.layer-content{padding:13px}.layer-status{font-size:9px}.price{margin-top:8px}.back{font-size:11px;padding:7px 11px}}
+    @media print{body{background:#fff;color:#111}.shell{max-width:none}.form-panel,.back,.links{display:none!important}.layer,.panel,.metric{background:#fff;color:#111;border-color:#bbb}.layer-content,.layer-short,.fine,.muted{color:#444}.layer summary:after{display:none}.kicker{color:#137d73}footer{color:#444}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header><a class="brand" href="index.html">◉ SOLCITA</a><a class="back" href="index.html">← Volver al tablero</a></header>
+    <main>
+      <div class="kicker">Bull Market Lab / Investigación guiada</div>
+      <h1>Un ticker.<br><span>Siete capas de análisis.</span></h1>
+      <p class="lead">Precio y contexto, catalizadores, fundamentos, valuación, comparación, riesgos y estrategia de entrada. La ficha separa lo que se puede calcular de lo que todavía requiere investigación. No es una recomendación de compra o venta.</p>
+
+      <section class="panel form-panel" aria-label="Consultar activo">
+        <form id="asset-form">
+          <div class="formline">
+            <div class="field"><label for="ticker">Ticker del activo</label><input id="ticker" name="ticker" maxlength="24" spellcheck="false" autocapitalize="characters" autocomplete="off" placeholder="BTC, AAPL, MOLA.BA, IVV…" required></div>
+            <div class="field" style="flex:0 1 230px"><label for="asset-type">Tipo de instrumento</label>
+              <select id="asset-type" name="tipo"><option value="auto">Reconocer automáticamente</option><option value="crypto">Criptomoneda</option><option value="equity">Acción / ETF / CEDEAR</option></select>
+            </div>
+            <button id="search" type="submit">Analizar ↗</button>
+          </div>
+        </form>
+        <div class="samples" aria-label="Ejemplos">
+          <button type="button" class="sample" data-symbol="BTC" data-type="crypto">₿ BTC</button>
+          <button type="button" class="sample" data-symbol="ETH" data-type="crypto">Ξ ETH</button>
+          <button type="button" class="sample" data-symbol="SOL" data-type="crypto">◎ SOL</button>
+          <button type="button" class="sample" data-symbol="DOT" data-type="crypto">◈ DOT</button>
+          <button type="button" class="sample" data-symbol="AAPL" data-type="equity">AAPL</button>
+          <button type="button" class="sample" data-symbol="MOLA.BA" data-type="equity">MOLA.BA</button>
+          <button type="button" class="sample" data-symbol="IVV" data-type="equity">IVV</button>
+        </div>
+        <p class="muted">Para acciones argentinas probá el ticker con sufijo <b>.BA</b>. Los CEDEAR pueden tener distintas especies: verificá mercado y moneda. No se solicitan claves ni datos de tu cartera.</p>
+      </section>
+
+      <div id="message" class="notice" role="status" aria-live="polite">Elegí un ticker y presioná Enter. Las consultas se hacen en el momento desde tu navegador.</div>
+
+      <section id="results" class="summary" hidden>
+        <div class="panel">
+          <div class="kicker">Ficha de investigación · Datos indicativos</div>
+          <div class="headline">
+            <div><h2 id="asset-name">—</h2><div id="asset-meta" class="muted">—</div></div>
+            <div class="right"><div id="asset-price" class="price">—</div><div id="asset-change" class="change">—</div></div>
+          </div>
+          <div class="grid" id="metrics"></div>
+          <div class="chart">
+            <h3>Historial disponible <span class="pill" id="chart-window">—</span></h3>
+            <svg id="chart" viewBox="0 0 860 200" role="img" aria-label="Historial de precios del activo"></svg>
+            <div class="chart-foot"><span id="chart-start">—</span><span id="chart-end">—</span></div>
+          </div>
+          <div class="fine" id="market-source">—</div>
+        </div>
+        <h2 class="section-heading">Evaluación en siete capas</h2>
+        <p class="hint">Cada tarjeta muestra una conclusión breve. Tocala para ver números, límites y qué habría que verificar antes de invertir.</p>
+        <div id="layers"></div>
+        <div class="panel after">
+          <div class="kicker">Lectura responsable</div>
+          <h2 style="margin:9px 0 10px">¿Qué podemos concluir?</h2>
+          <p id="conclusion" class="hint"></p>
+          <p class="fine" id="limitations">—</p>
+          <div class="links" id="source-links"></div>
+          <p class="fine">Investigación educativa, sin recomendación personalizada. Los rendimientos pasados no garantizan los futuros. Una caída grande no demuestra que un activo esté barato.</p>
+          <button id="print" type="button" style="margin-top:17px">Imprimir / guardar en PDF</button>
+        </div>
+      </section>
+    </main>
+    <footer>© 2026 SOLCITA · Fuentes públicas · Sin acceso a billeteras ni órdenes de inversión.</footer>
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const CRYPTO = Object.freeze({
+        BTC:{id:"bitcoin",name:"Bitcoin",kraken:"XBTUSD"},
+        XBT:{id:"bitcoin",name:"Bitcoin",kraken:"XBTUSD"},
+        ETH:{id:"ethereum",name:"Ethereum",kraken:"ETHUSD"},
+        SOL:{id:"solana",name:"Solana",kraken:"SOLUSD"},
+        DOT:{id:"polkadot",name:"Polkadot",kraken:"DOTUSD"},
+        ADA:{id:"cardano",name:"Cardano",kraken:"ADAUSD"},
+        XRP:{id:"ripple",name:"XRP",kraken:"XRPUSD"},
+        LTC:{id:"litecoin",name:"Litecoin",kraken:"LTCUSD"},
+        DOGE:{id:"dogecoin",name:"Dogecoin",kraken:"DOGEUSD"},
+        LINK:{id:"chainlink",name:"Chainlink",kraken:"LINKUSD"},
+        AVAX:{id:"avalanche-2",name:"Avalanche",kraken:"AVAXUSD"},
+        ATOM:{id:"cosmos",name:"Cosmos",kraken:"ATOMUSD"},
+        SUI:{id:"sui",name:"Sui",kraken:"SUIUSD"},
+        BCH:{id:"bitcoin-cash",name:"Bitcoin Cash",kraken:"BCHUSD"},
+        UNI:{id:"uniswap",name:"Uniswap",kraken:"UNIUSD"},
+        XLM:{id:"stellar",name:"Stellar",kraken:"XLMUSD"},
+        TRX:{id:"tron",name:"TRON",kraken:"TRXUSD"},
+        NEAR:{id:"near",name:"NEAR",kraken:"NEARUSD"}
+      });
+      const $ = id => document.getElementById(id);
+      const num = (n,d=2) => typeof n==="number"&&Number.isFinite(n)?new Intl.NumberFormat("es-AR",{minimumFractionDigits:d,maximumFractionDigits:d}).format(n):"N/D";
+      const money = (n,currency="USD") => typeof n==="number"&&Number.isFinite(n)?"$ "+num(n,n<1?5:2)+" "+currency:"Sin cotización";
+      const pct = n => typeof n==="number"&&Number.isFinite(n)?(n>0?"+":"")+num(n)+" %":"N/D";
+      const compact = n => typeof n==="number"&&Number.isFinite(n)?new Intl.NumberFormat("es-AR",{notation:"compact",maximumFractionDigits:2}).format(n):"N/D";
+      const valid = n => typeof n==="number"&&Number.isFinite(n)&&n>0&&n<1e11;
+      const when = ms => Number.isFinite(ms)?new Date(ms).toLocaleString("es-AR",{timeZone:"America/Argentina/Buenos_Aires",dateStyle:"short",timeStyle:"short"}):"no disponible";
+      const dateOnly = ms => Number.isFinite(ms)?new Date(ms).toLocaleDateString("es-AR",{timeZone:"UTC",day:"2-digit",month:"2-digit",year:"2-digit"}):"—";
+      const safeText = (x,max=90)=>typeof x==="string"?x.slice(0,max):"";
+      const array = x=>Array.isArray(x)?x:[];
+      const average = a=>a.length?a.reduce((s,x)=>s+x,0)/a.length:null;
+      const mark = (good)=>good?"fact":"pending";
+
+      function feedback(message,warning=false){
+        $("message").textContent=message;
+        $("message").className="notice"+(warning?" warning":"");
+      }
+      async function json(url,timeoutMs=14000){
+        const controller=new AbortController();
+        const timer=setTimeout(()=>controller.abort(),timeoutMs);
+        try{
+          const r=await fetch(url,{cache:"no-store",credentials:"omit",signal:controller.signal});
+          if(!r.ok)throw new Error("HTTP "+r.status);
+          return await r.json();
+        } finally{clearTimeout(timer);}
+      }
+      function targetFromSeries(series,days,tolerance=5){
+        if(!series.length)return null;
+        const newest=series[series.length-1];
+        const target=newest[0]-days*86400000;
+        let match=null;
+        for(const x of series){if(x[0]<=target)match=x;else break;}
+        return match && target-match[0]<=tolerance*86400000 && valid(match[1])?match[1]:null;
+      }
+      function trailingChange(series,days){
+        const anchor=targetFromSeries(series,days);
+        const current=series.length?series[series.length-1][1]:null;
+        return valid(anchor)&&valid(current)?100*(current/anchor-1):null;
+      }
+      function dailyReturns(series){
+        const all=series.filter(x=>valid(x[1]));
+        const dayMap=new Map();
+        for(const item of all)dayMap.set(new Date(item[0]).toISOString().slice(0,10),item);
+        const points=Array.from(dayMap.values()).sort((a,b)=>a[0]-b[0]);
+        const out=[];
+        for(let i=1;i<points.length;i++){
+          const days=(points[i][0]-points[i-1][0])/86400000;
+          if(days>=.9&&days<5)out.push(Math.log(points[i][1]/points[i-1][1]));
+        }
+        return out;
+      }
+      function volatility(series,periods){
+        const vals=dailyReturns(series);
+        if(vals.length<15)return null;
+        const m=average(vals);
+        const variance=vals.reduce((s,x)=>s+(x-m)**2,0)/(vals.length-1);
+        return Math.sqrt(variance)*Math.sqrt(periods)*100;
+      }
+      function maxDrawdown(series){
+        if(series.length<10)return null;
+        let peak=0,worst=0;
+        for(const row of series){const p=row[1];if(!valid(p))continue;peak=Math.max(peak,p);worst=Math.min(worst,(p/peak-1)*100);}
+        return worst;
+      }
+      function near(series,days){
+        if(!series.length)return [];
+        const cut=series[series.length-1][0]-days*86400000;
+        return series.filter(x=>x[0]>=cut);
+      }
+      function stats(series,periods){
+        const last90=near(series,90);
+        const last30=near(series,30);
+        return {
+          d7:trailingChange(series,7),
+          d30:trailingChange(series,30),
+          d90:trailingChange(series,90),
+          vol:volatility(last90,periods),
+          dd:maxDrawdown(last90),
+          low30:last30.length?Math.min(...last30.map(x=>x[1])):null,
+          low90:last90.length?Math.min(...last90.map(x=>x[1])):null,
+          high90:last90.length?Math.max(...last90.map(x=>x[1])):null,
+          historyDays:series.length?Math.round((series[series.length-1][0]-series[0][0])/86400000):0
+        };
+      }
+      function normalizeSeries(rows){
+        const entries=array(rows).filter(x=>Array.isArray(x)&&x.length>=2&&Number.isFinite(+x[0])&&valid(+x[1]))
+          .map(x=>[+x[0],+x[1]]).sort((a,b)=>a[0]-b[0]);
+        return entries.filter((x,i)=>i===0||x[0]!==entries[i-1][0]);
+      }
+      async function crypto(ticker){
+        const conf=CRYPTO[ticker];
+        if(!conf)throw new Error("Criptomoneda sin identificación inequívoca. Por ahora probá BTC, ETH, SOL, DOT, ADA, XRP, LINK, LTC u otra de la lista soportada.");
+        let market=null,benchmark=null,series=[],source="CoinGecko",marketError="";
+        try{
+          const other=conf.id==="bitcoin"?"ethereum":"bitcoin";
+          const raw=await json("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids="+encodeURIComponent(conf.id+","+other)+"&price_change_percentage=7d%2C30d%2C1y");
+          market=array(raw).find(x=>x.id===conf.id);
+          benchmark=array(raw).find(x=>x.id===other);
+          if(!market||!valid(market.current_price))throw new Error("Precio no válido");
+        }catch(e){marketError=e.message;market=null;}
+        if(market){
+          try{
+            const hist=await json("https://api.coingecko.com/api/v3/coins/"+encodeURIComponent(conf.id)+"/market_chart?vs_currency=usd&days=90");
+            series=normalizeSeries(hist.prices);
+          }catch(_){}
+          const stamp=Date.parse(market.last_updated);
+          return {
+            kind:"crypto",ticker,realTicker:ticker==="XBT"?"BTC":ticker,name:safeText(market.name)||conf.name,
+            currency:"USD",source:"CoinGecko",url:"https://www.coingecko.com/es/monedas/"+conf.id,
+            updatedAt:Number.isFinite(stamp)?stamp:Date.now(),current:+market.current_price,
+            dayChange:Number.isFinite(market.price_change_percentage_24h)?market.price_change_percentage_24h:null,
+            marketCap:Number.isFinite(market.market_cap)?market.market_cap:null,
+            volume24:Number.isFinite(market.total_volume)?market.total_volume:null,
+            supply:Number.isFinite(market.circulating_supply)?market.circulating_supply:null,
+            totalSupply:Number.isFinite(market.total_supply)?market.total_supply:null,
+            maxSupply:Number.isFinite(market.max_supply)?market.max_supply:null,
+            ath:Number.isFinite(market.ath)?market.ath:null,
+            d7:Number.isFinite(market.price_change_percentage_7d_in_currency)?market.price_change_percentage_7d_in_currency:null,
+            d30:Number.isFinite(market.price_change_percentage_30d_in_currency)?market.price_change_percentage_30d_in_currency:null,
+            benchmark:benchmark?{name:benchmark.symbol.toUpperCase(),d30:benchmark.price_change_percentage_30d_in_currency}:null,
+            series,periods:365,sourceNote:"Datos globales agregados por CoinGecko; precios indicativos. Histórico de 90 días si la API lo permite."
+          };
+        }
+        // Kraken fallback: no market-cap or fundamental metrics are guessed.
+        const [tickRes,histRes]=await Promise.allSettled([
+          json("https://api.kraken.com/0/public/Ticker?pair="+encodeURIComponent(conf.kraken)),
+          json("https://api.kraken.com/0/public/OHLC?pair="+encodeURIComponent(conf.kraken)+"&interval=1440")
+        ]);
+        let tick=null;
+        if(tickRes.status==="fulfilled" && tickRes.value && !array(tickRes.value.error).length) {
+          const obj=tickRes.value.result||{};tick=Object.values(obj)[0]||null;
+        }
+        if(histRes.status==="fulfilled" && histRes.value && !array(histRes.value.error).length){
+          const obj=histRes.value.result||{};
+          const rows=Object.entries(obj).find(x=>Array.isArray(x[1]));
+          if(rows)series=normalizeSeries(rows[1].filter(x=>Array.isArray(x)&&x.length>=6).map(x=>[Number(x[0])*1000,Number(x[4])]));
+        }
+        const price=Number(tick && tick.c && tick.c[0]);
+        if(!valid(price))throw new Error("No pudimos consultar datos verificables de CoinGecko ni de Kraken. Probá otra vez más tarde.");
+        const open=Number(tick.o);
+        return {
+          kind:"crypto",ticker,realTicker:ticker==="XBT"?"BTC":ticker,name:conf.name,
+          currency:"USD",source:"Kraken (respaldo)",url:"https://www.kraken.com/prices",
+          updatedAt:Date.now(),current:price,dayChange:valid(open)?100*(price/open-1):null,
+          series,periods:365,sourceNote:"CoinGecko no respondió ("+safeText(marketError,75)+"). Respaldo Kraken: variación aproximada desde la apertura del día del exchange; no es una variación móvil de 24 h. No hay datos de capitalización. Histórico diario Kraken si está disponible."
+        };
+      }
+      async function equity(ticker){
+        // A third-party proxy is required because Yahoo's chart endpoint
+        // does not expose CORS directly. Only a public ticker is sent.
+        const url="https://proxy.cors.dev/https://query1.finance.yahoo.com/v8/finance/chart/"+encodeURIComponent(ticker)+"?range=1y&interval=1d";
+        let data;
+        try{data=await json(url,16000);}catch(_){throw new Error("No pudimos acceder al historial de ese ticker. El proveedor o su pasarela pública puede estar limitado. Verificá símbolo, sufijo de bolsa y volvé a intentar.");}
+        const result=data && data.chart && array(data.chart.result)[0];
+        if(!result||!result.meta)throw new Error("La fuente no reconoció ese ticker; para Argentina probá por ejemplo MOLA.BA.");
+        const meta=result.meta;
+        const closes=array(result.indicators && result.indicators.quote && result.indicators.quote[0] && result.indicators.quote[0].close);
+        const series=normalizeSeries(array(result.timestamp).map((t,i)=>[Number(t)*1000,Number(closes[i])]));
+        const regular=Number(meta.regularMarketPrice);
+        const current=valid(regular)?regular:series.length?series[series.length-1][1]:null;
+        if(!valid(current))throw new Error("El ticker no tiene una cotización verificable en la fuente consultada.");
+        let time=Number(meta.regularMarketTime)*1000;
+        if(!Number.isFinite(time)||time<1e12)time=series.length?series[series.length-1][0]:null;
+        const prev=Number(meta.chartPreviousClose);
+        const dayChange=valid(prev)?100*(current/prev-1):null;
+        const safeName=safeText(meta.longName||meta.shortName||meta.symbol||ticker,100);
+        const rawCurrency=safeText(meta.currency||"",6).toUpperCase();
+        const currency=/^[A-Z]{3}$/.test(rawCurrency)?rawCurrency:"moneda N/D";
+        return {
+          kind:"equity",ticker,realTicker:safeText(meta.symbol||ticker,30),name:safeName,
+          source:"Yahoo Finance (vía proxy público)",url:"https://finance.yahoo.com/quote/"+encodeURIComponent(ticker)+"/",
+          currency,updatedAt:time,current,dayChange,series,periods:252,
+          dailyVolume:Number.isFinite(meta.regularMarketVolume)?meta.regularMarketVolume:null,
+          high52:Number.isFinite(meta.fiftyTwoWeekHigh)?meta.fiftyTwoWeekHigh:null,
+          low52:Number.isFinite(meta.fiftyTwoWeekLow)?meta.fiftyTwoWeekLow:null,
+          exchange:safeText(meta.fullExchangeName||meta.exchangeName,50),
+          sourceNote:"Serie diaria de un año de Yahoo Finance consultada mediante un proxy externo (solo se envía el ticker). Fuente no oficial y sujeta a disponibilidad. Variaciones sobre precios de cierre sin sumar dividendos; no representa retorno total."
+        };
+      }
+      function metric(label,value){
+        const dl=document.createElement("dl");dl.className="metric";
+        const dt=document.createElement("dt");dt.textContent=label;
+        const dd=document.createElement("dd");dd.textContent=value;
+        dl.append(dt,dd);return dl;
+      }
+      function layer(n,title,brief,explanation,need,dataAvailable){
+        const details=document.createElement("details");details.className="layer";
+        details.open=n===1||n===7;
+        const summary=document.createElement("summary");
+        const counter=document.createElement("span");counter.className="counter";counter.textContent=n;
+        const head=document.createElement("span");head.className="layer-head";
+        const t=document.createElement("span");t.className="layer-title";t.textContent=title;
+        const br=document.createElement("div");br.className="layer-short";br.textContent=brief;
+        head.append(t,br);
+        const st=document.createElement("span");st.className="layer-status"+(dataAvailable?" fact":"");
+        st.textContent=dataAvailable?"DATOS":"A VERIFICAR";
+        summary.append(counter,head,st);
+        const content=document.createElement("div");content.className="layer-content";
+        const p=document.createElement("p");p.textContent=explanation;
+        const rest=document.createElement("p");rest.className="critical";rest.textContent=need;
+        content.append(p,rest);details.append(summary,content);
+        return details;
+      }
+      function addLink(name,url){
+        const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener noreferrer";a.textContent=name;return a;
+      }
+      function trend(prices){
+        const svg=$("chart");while(svg.firstChild)svg.removeChild(svg.firstChild);
+        if(prices.length<3){
+          const label=document.createElementNS("http://www.w3.org/2000/svg","text");
+          label.setAttribute("x","20");label.setAttribute("y","100");label.setAttribute("fill","#a3b8cc");
+          label.setAttribute("font-size","18");label.textContent="Historial insuficiente para dibujar una curva fiable";
+          svg.append(label);$("chart-start").textContent="—";$("chart-end").textContent="—";return;
+        }
+        const sample=prices.length>360?prices.filter((_,i)=>i%Math.ceil(prices.length/350)===0||i===prices.length-1):prices;
+        const low=Math.min(...sample.map(x=>x[1])),high=Math.max(...sample.map(x=>x[1]));
+        const pad=Math.max((high-low)*.08,high*.01);
+        const lo=low-pad,hi=high+pad,xmin=sample[0][0],xmax=sample[sample.length-1][0];
+        const x=t=>15+830*(t-xmin)/Math.max(1,xmax-xmin);
+        const y=p=>181-160*(p-lo)/Math.max(.000001,hi-lo);
+        const path=document.createElementNS("http://www.w3.org/2000/svg","path");
+        const d=sample.map((v,i)=>(i?"L":"M")+x(v[0]).toFixed(1)+","+y(v[1]).toFixed(1)).join(" ");
+        path.setAttribute("d",d);path.setAttribute("stroke","#63ebcd");path.setAttribute("stroke-width","2.5");
+        path.setAttribute("fill","none");path.setAttribute("stroke-linejoin","round");
+        svg.append(path);
+        const baseline=document.createElementNS("http://www.w3.org/2000/svg","line");
+        baseline.setAttribute("x1","15");baseline.setAttribute("x2","845");
+        baseline.setAttribute("y1","183");baseline.setAttribute("y2","183");
+        baseline.setAttribute("stroke","#37536b");svg.append(baseline);
+        $("chart-start").textContent=dateOnly(xmin)+" · "+money(sample[0][1],lastCurrency);
+        $("chart-end").textContent=dateOnly(xmax)+" · "+money(sample[sample.length-1][1],lastCurrency);
+      }
+      let lastCurrency="USD";
+      function report(d){
+        const current=Date.now();
+        const age=Number.isFinite(d.updatedAt)?current-d.updatedAt:null;
+        const stale=age===null||age < -600000||age>(d.kind==="crypto"?90*60000:7*86400000);
+        const st=stats(d.series,d.periods);
+        const d7=d.d7??st.d7,d30=d.d30??st.d30;
+        const tick=d.realTicker||d.ticker;
+        lastCurrency=d.currency;
+        $("results").hidden=false;
+        $("asset-name").textContent=d.name+" · "+tick;
+        $("asset-meta").textContent=(d.kind==="crypto"?"Cripto":"Acción / ETF / instrumento bursátil")+(d.exchange?" · "+d.exchange:"")+" · "+d.source;
+        $("asset-price").textContent=money(d.current,d.currency);
+        $("asset-change").textContent="Cambio diario indicativo: "+pct(d.dayChange)+(stale?" · DATO DESACTUALIZADO":"");
+        $("asset-change").className="change "+(d.dayChange>0?"up":d.dayChange<0?"down":"");
+        $("metrics").replaceChildren(
+          metric("Variación 7 días",pct(d7)),
+          metric("Variación 30 días",pct(d30)),
+          metric("Variación 90 días",pct(st.d90)),
+          metric("Volatilidad anualizada (90 d)",pct(st.vol))
+        );
+        $("chart-window").textContent=st.historyDays>=60?"Hasta 90 días":st.historyDays>0?"Historial parcial":"Sin historial";
+        trend(near(d.series,90));
+        $("market-source").textContent="Fuente: "+d.source+" · Fecha informada: "+when(d.updatedAt)+" (Argentina). "+d.sourceNote;
+        const L=[];
+        const pos52=valid(d.high52)?100*(d.current/d.high52-1):null;
+        L.push(layer(1,"Precio y contexto",
+          "7 días: "+pct(d7)+" · 30 días: "+pct(d30)+(pos52===null?"":" · desde máximo anual: "+pct(pos52)),
+          "El precio actual es "+money(d.current,d.currency)+". "+(st.historyDays>=30?"Hay historial para estudiar la tendencia reciente.":"El historial es corto o no está disponible; la tendencia no puede comprobarse.")+(d.kind==="equity"?" Cuidado: el cierre no incluye dividendos.":" Los precios cripto operan durante todo el día."),
+          "A verificar: causa de movimientos bruscos, fechas corporativas o eventos de mercado y condiciones de liquidez.",true));
+        L.push(layer(2,"Catalizadores",
+          "¿Qué noticia o acontecimiento podría cambiar las expectativas?",
+          "Los precios por sí solos NO revelan la causa de una caída ni permiten afirmar qué ocurrirá después. Un catalizador puede ser una decisión regulatoria, resultados, política monetaria o cambios del proyecto.",
+          "Pendiente: revisar noticias fechadas, documentos oficiales y próximos eventos específicos del activo.",false));
+        L.push(layer(3,"Negocio frente al precio",
+          d.kind==="crypto"?(valid(d.supply)?"Circulación: "+compact(d.supply)+" tokens · emisiones por estudiar":"Modelo y tokenomics sin verificar"):"La cotización no reemplaza el análisis del negocio",
+          d.kind==="crypto"
+          ?"La cantidad circulante es "+compact(d.supply)+" tokens y la oferta máxima informada es "+(valid(d.maxSupply)?compact(d.maxSupply):"no disponible")+". Esto es contexto de oferta, no una medida de ingresos o calidad de la red."
+          :"La fuente ofrece precios y algunas métricas de mercado, pero no estados contables verificados. No podemos deducir que el negocio esté sano porque la acción haya subido.",
+          d.kind==="crypto"?"Pendiente: adopción, seguridad de red, ingresos por comisiones, calendario de desbloqueos, concentración y sostenibilidad.":"Pendiente: ingresos, márgenes, resultados, flujo de caja, deuda, dividendos y balances oficiales.",false));
+        L.push(layer(4,"Valuación",
+          d.kind==="crypto"&&valid(d.marketCap)?"Capitalización: US$ "+compact(d.marketCap)+" · NO es valor justo":"No hay valuación fundamental verificada",
+          d.kind==="crypto"
+          ?"Capitalización de mercado: "+(valid(d.marketCap)?"US$ "+compact(d.marketCap):"N/D")+". Volumen de 24 horas: "+(valid(d.volume24)?"US$ "+compact(d.volume24):"N/D")+". Ninguna de estas cifras demuestra si el token está barato o caro."
+          :"Para estimar valor razonable necesitamos múltiplos (P/E, EV/EBITDA, P/B cuando corresponda), resultados normalizados, perspectivas y flujo de caja. El gráfico no alcanza.",
+          "Pendiente: construir un rango de valoración con fundamentos y supuestos explícitos; hoy NO se calcula un precio objetivo.",false));
+        let compare="No se cargó un grupo comparable automático.";
+        let compareDetail="Comparar exige instrumentos de riesgo, sector y moneda similares, y considerar dividendos y diferencias de negocio.";
+        let haveComparison=false;
+        if(d.kind==="crypto" && d.benchmark && Number.isFinite(d30) && Number.isFinite(d.benchmark.d30)){
+          const delta=d30-d.benchmark.d30;
+          compare="30 días vs "+d.benchmark.name+": "+pct(delta)+" de diferencia";
+          compareDetail="En el mismo plazo, "+d.realTicker+" cambió "+pct(d30)+" y "+d.benchmark.name+" cambió "+pct(d.benchmark.d30)+". La diferencia de rendimientos no prueba mejor valuación ni menor riesgo.";
+          haveComparison=true;
+        }
+        L.push(layer(5,"Comparación con alternativas",compare,compareDetail,
+          "A verificar: pares adecuados, riesgo comparable, impuestos, liquidez, comisiones y horizonte.",haveComparison));
+        L.push(layer(6,"Riesgos y contra-tesis",
+          st.vol===null?"Historial insuficiente para medir volatilidad":"Volatilidad estimada: "+pct(st.vol)+" anual · caída máxima reciente: "+pct(st.dd),
+          "La volatilidad anualizada se estima a partir de rendimientos diarios disponibles (en cripto se usa 365 días y en acciones 252 ruedas). La caída máxima se mide en la ventana observada de hasta 90 días; no es una pérdida máxima posible.",
+          "A verificar: riesgo de negocio, liquidez, regulación, tipo de cambio, custodia, concentración y escenarios adversos. Estos cálculos NO sustituyen una evaluación de solvencia.",st.vol!==null));
+        L.push(layer(7,"Precio de entrada y tamaño de posición",
+          valid(st.low90)?"Mínimo observado en 90 días: "+money(st.low90,d.currency):"No hay zona de entrada justificada",
+          "Un mínimo histórico o una caída porcentual no son el valor intrínseco ni una señal de compra. La elección del precio y el tamaño dependen de tu horizonte, la cartera y cuánto estás dispuesto a perder. "+(valid(st.low30)?"El mínimo observado en 30 días fue "+money(st.low30,d.currency)+".":"Sin mínimo de 30 días verificable."),
+          "Pendiente: tesis fundamental completa, catalizador, criterio de invalidación, costos y límite de exposición. No se propone comprar o vender.",false));
+        $("layers").replaceChildren(...L);
+        $("conclusion").textContent=(st.historyDays>=30?
+          "Hay una base cuantitativa inicial para estudiar la tendencia y algunos riesgos. ":"Los datos históricos no alcanzan para evaluar con solidez la tendencia. ")+
+          "Faltan noticias verificadas y fundamentos para concluir si está barato, caro o si conviene entrar. El resultado es una investigación preliminar, no un dictamen de inversión.";
+        $("limitations").textContent="Historial utilizado: "+(st.historyDays?st.historyDays+" días observables":"no disponible")+
+          ". Datos de la HP Mini: todavía NO integrados a esta consulta. Esta herramienta no lee nuestra SQLite privada, no conoce nuestra cartera y no realiza operaciones.";
+        $("source-links").replaceChildren(
+          addLink("Fuente de precios ↗",d.url),
+          addLink("Noticias recientes (verificar fechas) ↗","https://www.google.com/search?tbm=nws&q="+encodeURIComponent(d.realTicker+" mercado finanzas")),
+          addLink("Buscar información oficial ↗","https://www.google.com/search?q="+encodeURIComponent(d.realTicker+" investor relations annual report"))
+        );
+        feedback(stale?
+          "La fuente devolvió una cotización antigua. Se muestra solamente como referencia histórica; no utilizar como precio actual.":
+          "Ficha calculada con datos de "+d.source+". Las capas sin información verificada se marcan como pendientes.",stale);
+        $("results").scrollIntoView({behavior:"smooth",block:"start"});
+      }
+
+      let busy=false;
+      async function analyze(ticker,type){
+        if(busy)return;
+        const clean=String(ticker||"").trim().toUpperCase();
+        if(!/^[A-Z0-9^._=-]{1,24}$/.test(clean)){feedback("Ingresá un ticker válido, sin espacios ni enlaces (por ejemplo BTC, AAPL o MOLA.BA).",true);return;}
+        const resolved=type==="auto"?(Object.prototype.hasOwnProperty.call(CRYPTO,clean)?"crypto":"equity"):type;
+        $("ticker").value=clean;
+        $("asset-type").value=resolved;
+        const params=new URLSearchParams({ticker:clean,tipo:resolved});
+        history.replaceState(null,"","analisis.html?"+params.toString());
+        busy=true;$("search").disabled=true;$("results").hidden=true;
+        feedback("Consultando "+clean+" y calculando las siete capas. Puede tardar unos segundos…");
+        try{const result=resolved==="crypto"?await crypto(clean):await equity(clean);report(result);}
+        catch(e){feedback(safeText(e&&e.message,280)||"No fue posible consultar el activo. Probá nuevamente más tarde.",true);}
+        finally{busy=false;$("search").disabled=false;}
+      }
+      $("asset-form").addEventListener("submit",e=>{e.preventDefault();analyze($("ticker").value,$("asset-type").value);});
+      document.querySelectorAll(".sample").forEach(btn=>btn.addEventListener("click",()=>analyze(btn.dataset.symbol,btn.dataset.type)));
+      $("print").addEventListener("click",()=>window.print());
+      const initial=new URLSearchParams(location.search);
+      if(initial.has("ticker"))analyze(initial.get("ticker"),initial.get("tipo")==="crypto"?"crypto":initial.get("tipo")==="equity"?"equity":"auto");
+    })();
+  </script>
+</body>
+</html>

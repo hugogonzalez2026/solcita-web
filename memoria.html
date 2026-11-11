@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081425">
+  <meta name="description" content="Solcita: memoria de análisis financieros con hipótesis y resultados verificables.">
+  <title>Solcita | Memoria financiera</title>
+  <style>
+    :root{color-scheme:dark;--bg:#071221;--surface:#112239;--line:#29435a;--txt:#edf6ff;--sub:#a2bad0;--mint:#6df0d0;--warn:#ffd095;--bad:#ff9da9}
+    *{box-sizing:border-box}body{margin:0;color:var(--txt);background:radial-gradient(ellipse 70% 30% at 86% 1%,#1e3750 0,transparent 74%),var(--bg);font:15px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:var(--mint)}.shell{max-width:1060px;margin:auto;padding:0 22px}
+    header{min-height:82px;border-bottom:1px solid #ffffff20;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .brand{font-weight:850;font-size:20px;letter-spacing:2px;color:#fff;text-decoration:none}.go-back{font-size:12px;text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:25px}
+    main{padding:50px 0}.kicker{font-size:11px;letter-spacing:2px;color:var(--mint);text-transform:uppercase;font-weight:800}
+    h1{font-size:clamp(34px,6vw,56px);line-height:1.08;letter-spacing:-2px;margin:13px 0}h1 span{color:var(--mint)}
+    h2{font-size:clamp(23px,4vw,31px);margin:0 0 9px;letter-spacing:-.6px}.lead{font-size:16px;color:var(--sub);max-width:770px}
+    .panel,.entry{border:1px solid var(--line);border-radius:20px;background:linear-gradient(150deg,#152b40,#0e1d2e);padding:23px}
+    .notice{border:1px solid #3b6171;border-radius:15px;background:#142b3b;padding:14px 16px;color:#c7e1ed;margin:18px 0;font-size:13px}
+    .warn{border-color:#836c41;background:#342a24;color:#ffe3b8}.small{font-size:12px;color:var(--sub)}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:30px 0}
+    .stat{border:1px solid var(--line);border-radius:17px;background:#101f33;padding:17px}.stat .val{font-size:29px;font-weight:850;font-variant-numeric:tabular-nums}.stat .label{font-size:12px;color:var(--sub)}
+    .actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:17px 0 24px}
+    button,.button{border:1px solid #468277;background:#66e8cd;color:#062d2b;border-radius:11px;padding:10px 15px;min-height:43px;font:inherit;font-size:13px;font-weight:800;cursor:pointer;text-decoration:none}
+    button.secondary,.button.secondary{border-color:#42617c;background:#1a344a;color:#dceefa}
+    button:disabled{opacity:.55;cursor:wait}select,textarea{background:#0a1b2b;border:1px solid #43617b;color:#ecf6ff;padding:10px 12px;border-radius:10px;font:inherit;min-height:43px}
+    select{min-width:160px}.entries{display:grid;gap:15px}.entry{min-width:0}
+    .entry-top{display:flex;justify-content:space-between;align-items:start;flex-wrap:wrap;gap:16px}
+    .entry-title{font-size:22px;font-weight:850;line-height:1.2}.entry-title a{text-decoration:none;color:#fff}.entry-meta{color:var(--sub);font-size:12px;margin-top:5px}
+    .price{font-weight:850;font-size:22px}.pills{margin:13px 0;display:flex;flex-wrap:wrap;gap:8px}
+    .pill{border:1px solid #4a6478;background:#102b40;border-radius:99px;padding:5px 10px;font-size:11px;color:#cde1ef}
+    .pill.good{border-color:#447a69;color:#9ff2d3}.pill.bad{border-color:#8a4652;color:#ffb1bf}.pill.wait{border-color:#877445;color:#ffe0a5}
+    .fact{font-size:13px;color:#c7d9e7}.entry p{margin:8px 0}
+    .outcome{background:#0b1d2e;border:1px solid #385871;border-radius:12px;padding:13px 16px;margin-top:17px;font-size:13px}
+    .thesis{border-top:1px solid #ffffff17;padding-top:14px;margin-top:17px}
+    .thesis label{display:block;color:#bbd2e3;font-size:12px;font-weight:700;margin:8px 0}
+    .thesis textarea{width:100%;min-height:72px;resize:vertical}
+    .entry-actions{margin:12px 0 0;display:flex;gap:8px;flex-wrap:wrap}
+    .placeholder{padding:36px;text-align:center;color:var(--sub);border:1px dashed #45637b;border-radius:18px;background:#11243b}
+    footer{color:#8199af;border-top:1px solid #ffffff18;padding:24px 0 45px;font-size:12px}
+    @media(max-width:760px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.shell{padding:0 15px}main{padding:28px 0}.panel,.entry{padding:16px}}
+    @media(max-width:480px){.actions>*{flex:1 1 auto}.stat{padding:12px}.stat .val{font-size:24px}.price{font-size:20px}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header><a class="brand" href="index.html">◉ SOLCITA</a><a class="go-back" href="analisis.html">← Analizar ticker</a></header>
+  <main>
+    <div class="kicker">Bull Market Lab / Cuaderno de hipótesis</div>
+    <h1>La memoria de <span>Solcita.</span></h1>
+    <p class="lead">Cada consulta nueva en el analizador deja una fotografía de lo que sabíamos entonces. A los 30 días contrastamos esa hipótesis con el precio histórico, sin reescribir el pasado.</p>
+
+    <div class="notice"><b>🔐 Memoria local, sin nuevas claves.</b> Por ahora estos registros viven <b>solo en este navegador y dispositivo</b>, no en la HP Mini ni en GitHub. No se sincronizan entre el celular y Windows. Podés exportar una copia para importarla en otro dispositivo. No guardamos tu cartera ni tus operaciones.</div>
+
+    <section aria-label="Resumen de evaluaciones" class="stats">
+      <div class="stat"><div class="val" id="stat-records">0</div><div class="label">Análisis registrados</div></div>
+      <div class="stat"><div class="val" id="stat-due">0</div><div class="label">Pendientes de verificar</div></div>
+      <div class="stat"><div class="val" id="stat-tested">0</div><div class="label">Hipótesis comprobadas</div></div>
+      <div class="stat"><div class="val" id="stat-rate">—</div><div class="label">Acierto de regla experimental</div></div>
+    </section>
+
+    <section class="panel" aria-labelledby="learn-title">
+      <div class="kicker">Nuestra primera prueba</div>
+      <h2 id="learn-title">¿La tendencia de 30 días continúa?</h2>
+      <p class="small">Solcita registra automáticamente una regla <b>experimental</b>: si un activo subió más de 3 % en los 30 días previos, plantea continuidad alcista; si cayó más de 3 %, continuidad bajista; en los demás casos, lateral. A los 30 días mide el movimiento posterior. Consideramos acierto una suba superior a 2 %, una baja inferior a −2 % o mantenerse dentro de ±2 % para la hipótesis lateral.</p>
+      <p class="small">Esta regla <b>no es el análisis de las siete capas</b>, no anticipa noticias ni demuestra valor justo. Sirve como referencia ingenua para aprender a medir, y sus aciertos no garantizan capacidad predictiva. Para acciones/ETF se mide variación de precio sin dividendos, comisiones ni ajustes fiscales.</p>
+      <p id="learning-insight" class="notice">Todavía no hay observaciones suficientes para evaluar el método.</p>
+    </section>
+
+    <div class="actions">
+      <a class="button" href="analisis.html">＋ Registrar un análisis</a>
+      <button class="secondary" id="review-all" type="button">⟳ Revisar hipótesis vencidas</button>
+      <button class="secondary" id="export" type="button">↓ Exportar memoria</button>
+      <button class="secondary" id="import-button" type="button">↑ Importar copia</button>
+      <input id="import-file" type="file" accept="application/json,.json" hidden>
+      <button class="secondary" id="clear" type="button">Vaciar memoria</button>
+    </div>
+    <div id="feedback" class="notice" aria-live="polite" role="status">Preparada para registrar la primera consulta.</div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin:27px 0 15px">
+      <div><h2>Historial de ideas</h2><div class="small">El registro inicial conserva qué números y límites conocíamos, no una recomendación de inversión.</div></div>
+      <select id="filter" aria-label="Filtrar registros">
+        <option value="all">Todos los registros</option>
+        <option value="due">Esperando verificación</option>
+        <option value="verified">Ya verificados</option>
+        <option value="future">En seguimiento</option>
+      </select>
+    </div>
+    <section id="entries" class="entries" aria-label="Observaciones guardadas"></section>
+  </main>
+  <footer>SOLCITA · Registro local de investigaciones, sin trading ni valoración garantizada. Para revisiones de calidad hacen falta numerosas muestras y análisis fundamental contrastado.</footer>
+</div>
+<script src="memoria.js"></script>
+<script>
+(() => {
+  "use strict";
+  const M=window.SolcitaJournal;
+  const $=id=>document.getElementById(id);
+  const DAY=86400000;
+  const CRYPTO={
+    BTC:["bitcoin","XBTUSD"],XBT:["bitcoin","XBTUSD"],ETH:["ethereum","ETHUSD"],
+    SOL:["solana","SOLUSD"],DOT:["polkadot","DOTUSD"],ADA:["cardano","ADAUSD"],
+    XRP:["ripple","XRPUSD"],LINK:["chainlink","LINKUSD"],LTC:["litecoin","LTCUSD"],
+    DOGE:["dogecoin","DOGEUSD"],AVAX:["avalanche-2","AVAXUSD"],
+    ATOM:["cosmos","ATOMUSD"],SUI:["sui","SUIUSD"],BCH:["bitcoin-cash","BCHUSD"],
+    UNI:["uniswap","UNIUSD"],XLM:["stellar","XLMUSD"],TRX:["tron","TRXUSD"],
+    NEAR:["near","NEARUSD"]
+  };
+  const fmt=(n,d=2)=>Number.isFinite(n)?new Intl.NumberFormat("es-AR",{maximumFractionDigits:d,minimumFractionDigits:d}).format(n):"—";
+  const signed=n=>Number.isFinite(n)?(n>0?"+":"")+fmt(n)+" %":"N/D";
+  const date=t=>Number.isFinite(t)?new Date(t).toLocaleString("es-AR",{timeZone:"America/Argentina/Buenos_Aires",dateStyle:"short",timeStyle:"short"}):"—";
+  const status=s=>{ $("feedback").textContent=s; };
+  const label=d=>d==="up"?"Alcista":d==="down"?"Bajista":d==="flat"?"Lateral":"Sin hipótesis";
+  const el=(tag,text,cls)=>{
+    const x=document.createElement(tag);
+    if(typeof text==="string")x.textContent=text;
+    if(cls)x.className=cls;
+    return x;
+  };
+  const button=(text,action,cls="secondary")=>{
+    const x=el("button",text,cls);x.type="button";x.addEventListener("click",action);return x;
+  };
+  const link=(text,url)=>{
+    const x=el("a",text);x.href=url;return x;
+  };
+  function pill(text,className=""){return el("span",text,"pill "+className);}
+  function getEntries(){
+    const entries=M.read(),filter=$("filter").value;
+    if(filter==="verified")return entries.filter(x=>M.result(x));
+    if(filter==="due")return entries.filter(x=>M.isDue(x)&&!M.result(x));
+    if(filter==="future")return entries.filter(x=>!M.isDue(x));
+    return entries;
+  }
+
+  function render() {
+    const all=M.read(),summary=M.summary(all);
+    $("stat-records").textContent=summary.observations;
+    $("stat-due").textContent=summary.due;
+    $("stat-tested").textContent=summary.tested;
+    $("stat-rate").textContent=summary.accuracy===null?"—":fmt(summary.accuracy,1)+" %";
+    $("learning-insight").textContent=summary.tested<10?
+      "Tenemos "+summary.tested+" hipótesis experimentales comprobadas. Para sacar conclusiones razonables necesitamos muchas más muestras, en distintos mercados y condiciones.":
+      "De "+summary.tested+" hipótesis verificadas, "+summary.successes+" coincidieron con el movimiento esperado ("+fmt(summary.accuracy,1)+" %). Es una estadística descriptiva, no una prueba de rentabilidad ni una señal para operar.";
+    const list=$("entries");list.replaceChildren();
+    const selected=getEntries();
+    if(!selected.length){
+      const p=el("div",all.length?"No hay registros para ese filtro.":"Todavía no hay memoria guardada. Probá analizar BTC o ETH y volvé acá.","placeholder");
+      if(!all.length)p.append(el("p","Cada ticker analizado deja una observación por día en este navegador.","small"));
+      list.append(p);return;
+    }
+    for(const entry of selected){
+      const section=el("article",null,"entry");
+      const top=el("div",null,"entry-top");
+      const main=el("div");
+      const title=el("div",null,"entry-title");
+      title.append(link(entry.name+" · "+entry.ticker,"analisis.html?ticker="+encodeURIComponent(entry.ticker)+"&tipo="+encodeURIComponent(entry.kind)));
+      main.append(title,el("div","Observado: "+date(Date.parse(entry.ts))+" · "+entry.source,"entry-meta"));
+      const rhs=el("div");
+      rhs.append(el("div",fmt(entry.price,entry.price<1?5:2)+" "+entry.currency,"price"),
+        el("div","Vencimiento: "+date(M.targetTime(entry)),"entry-meta"));
+      top.append(main,rhs);section.append(top);
+      const flags=el("div",null,"pills");
+      flags.append(pill("30 días previos: "+signed(entry.d30)),
+        pill("Volatilidad: "+signed(entry.vol)),
+        pill("Regla: "+label(entry.ruleDirection)));
+      const outcome=M.result(entry);
+      if(outcome)flags.append(pill("Verificada", "good"));
+      else if(M.isDue(entry))flags.append(pill("Plazo cumplido · falta histórico","wait"));
+      else flags.append(pill("En seguimiento","wait"));
+      section.append(flags);
+      section.append(el("p",entry.factualNote,"fact"));
+      if(entry.note)section.append(el("p","Tu tesis: "+entry.note,"fact"));
+      if(outcome){
+        const o=el("div",null,"outcome");
+        o.append(el("b","Resultado histórico a 30 días: "+signed(outcome.returnPct)),
+          el("p","Precio verificado: "+fmt(entry.resultPrice,entry.resultPrice<1?5:2)+" "+entry.currency+
+            " · fecha de la muestra: "+date(Date.parse(entry.resultTime))+". Fuente: "+entry.resultSource));
+        o.append(el("p","Regla experimental: "+(outcome.ruleVerdict==="acierto"?"acertó":outcome.ruleVerdict==="error"?"falló":"sin hipótesis evaluable")+
+          ". Tu hipótesis: "+(outcome.personalVerdict==="acierto"?"acertó":outcome.personalVerdict==="error"?"falló":"no registrada")+"."));
+        o.append(el("p","Se compara variación de precio, sin dividendos, impuestos ni costos. Un acierto de dirección no valida la tesis fundamental.","small"));
+        section.append(o);
+      } else if(M.isDue(entry)) {
+        const o=el("div",null,"outcome");
+        o.append(el("p","El plazo terminó. Hace falta una cotización histórica próxima a la fecha objetivo para medir el resultado.","small"));
+        const act=button("Verificar con historial ↻",()=>reviewOne(entry,act));
+        o.append(act);section.append(o);
+      } else {
+        const form=el("div",null,"thesis");
+        form.append(el("div","¿Querés agregar tu propia hipótesis antes de los 30 días?","small"));
+        const labelDir=el("label","Expectativa para los próximos 30 días");
+        const select=document.createElement("select");
+        for(const [id,title] of [["none","Sin pronóstico personal"],["up","Sube más de 2 %"],["down","Baja más de 2 %"],["flat","Se mueve dentro de ±2 %"]]){
+          const option=document.createElement("option");option.value=id;option.textContent=title;select.append(option);
+        }
+        select.value=entry.personalDirection;labelDir.append(select);form.append(labelDir);
+        const noteLabel=el("label","Argumento o duda que querés recordar (opcional, máximo 400 caracteres)");
+        const note=document.createElement("textarea");note.maxLength=400;note.value=entry.note;
+        note.placeholder="Ej.: espero resultados de balances, pero me preocupa la deuda…";
+        noteLabel.append(note);form.append(noteLabel);
+        const save=button("Guardar hipótesis",()=>{
+          try{M.edit(entry.id,{personalDirection:select.value,note:note.value});status("Guardé tu hipótesis sin cambiar el precio ni la fecha originales.");render();}
+          catch(err){status("No pude guardar: "+err.message);}
+        });
+        form.append(save);section.append(form);
+      }
+      list.append(section);
+    }
+  }
+
+  async function fetchJSON(url){
+    const ctrl=new AbortController(),handle=setTimeout(()=>ctrl.abort(),14000);
+    try{
+      const r=await fetch(url,{cache:"no-store",credentials:"omit",signal:ctrl.signal});
+      if(!r.ok)throw Error("HTTP "+r.status);
+      return await r.json();
+    } finally {clearTimeout(handle);}
+  }
+  function normalize(raw){
+    return (Array.isArray(raw)?raw:[])
+      .filter(v=>Array.isArray(v)&&v.length>=2&&Number.isFinite(+v[0])&&Number.isFinite(+v[1])&&+v[1]>0)
+      .map(v=>[+v[0],+v[1]]).sort((a,b)=>a[0]-b[0]);
+  }
+  async function getHistorical(entry){
+    if(entry.kind==="crypto"){
+      const cfg=CRYPTO[entry.ticker];
+      if(!cfg)throw Error("No tenemos fuente histórica configurada para ese token.");
+      try{
+        const data=await fetchJSON("https://api.coingecko.com/api/v3/coins/"+encodeURIComponent(cfg[0])+"/market_chart?vs_currency=usd&days=90");
+        const series=normalize(data.prices);
+        const point=M.selectAtHorizon(entry,series);
+        if(point)return {point,source:"CoinGecko (histórico)"};
+      }catch(_){}
+      const d=await fetchJSON("https://api.kraken.com/0/public/OHLC?pair="+encodeURIComponent(cfg[1])+"&interval=1440");
+      if(!d||!Array.isArray(d.error)||d.error.length||!d.result)throw Error("Kraken no devolvió histórico válido");
+      const x=Object.entries(d.result).find(p=>Array.isArray(p[1]));
+      if(!x)throw Error("Kraken no tiene histórico de ese par");
+      const series=normalize(x[1].filter(p=>Array.isArray(p)&&p.length>=6).map(p=>[Number(p[0])*1000,Number(p[4])]));
+      const point=M.selectAtHorizon(entry,series);
+      if(!point)throw Error("Las fuentes no contienen precios cercanos al vencimiento");
+      return {point,source:"Kraken (OHLC diario, USD)"};
+    }
+    const raw=await fetchJSON("https://proxy.cors.dev/https://query1.finance.yahoo.com/v8/finance/chart/"+
+      encodeURIComponent(entry.ticker)+"?range=1y&interval=1d");
+    const data=raw&&raw.chart&&Array.isArray(raw.chart.result)?raw.chart.result[0]:null;
+    const close=data&&data.indicators&&data.indicators.quote&&data.indicators.quote[0]&&data.indicators.quote[0].close;
+    if(!data||!Array.isArray(data.timestamp)||!Array.isArray(close))
+      throw Error("El histórico bursátil no está disponible en este momento");
+    const series=normalize(data.timestamp.map((t,i)=>[Number(t)*1000,Number(close[i])]));
+    const point=M.selectAtHorizon(entry,series);
+    if(!point)throw Error("No se encontró un cierre válido cerca del vencimiento");
+    return {point,source:"Yahoo Finance (histórico diario vía proxy)"};
+  }
+
+  async function reviewOne(entry,btn) {
+    if(btn)btn.disabled=true;
+    status("Verificando el historial de "+entry.ticker+"…");
+    try{
+      const {point,source}=await getHistorical(entry);
+      M.verify(entry.id,point,source);
+      status("Resultado de "+entry.ticker+" verificado contra una cotización histórica y guardado.");
+    }catch(err){
+      status("No pude verificar "+entry.ticker+": "+err.message+". No se inventó ningún resultado.");
+    }finally{render();}
+  }
+  let reviewing=false;
+  async function reviewAll(maxCount=30){
+    if(reviewing)return;reviewing=true;$("review-all").disabled=true;
+    const due=M.read().filter(x=>M.isDue(x)&&!M.result(x)).slice(0,maxCount);
+    if(!due.length){status("No hay hipótesis vencidas pendientes de comprobar.");reviewing=false;$("review-all").disabled=false;return;}
+    let ok=0,fail=0;
+    for(const entry of due){
+      status("Buscando resultados históricos: "+(ok+fail+1)+" de "+due.length+"…");
+      try{const v=await getHistorical(entry);M.verify(entry.id,v.point,v.source);ok++;}
+      catch(_){fail++;}
+    }
+    status("Revisión terminada: "+ok+" comprobadas, "+fail+" sin datos históricos verificables. Las pendientes no se inventaron.");
+    reviewing=false;$("review-all").disabled=false;render();
+  }
+  $("filter").addEventListener("change",render);
+  $("review-all").addEventListener("click",()=>reviewAll(30));
+  $("export").addEventListener("click",()=>{
+    try{
+      const blob=new Blob([M.exportJson()],{type:"application/json"});
+      const url=URL.createObjectURL(blob),a=document.createElement("a");
+      a.href=url;a.download="solcita-memoria-"+new Date().toISOString().slice(0,10)+".json";
+      document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);
+      status("Copia exportada. Guardala en un lugar seguro: contiene tickers y notas tuyas.");
+    }catch(err){status("No pude exportar la memoria: "+err.message);}
+  });
+  $("import-button").addEventListener("click",()=>$("import-file").click());
+  $("import-file").addEventListener("change",async()=>{
+    const file=$("import-file").files[0];if(!file)return;
+    try{if(file.size>2000000)throw Error("Archivo demasiado grande");
+      const count=M.importJson(await file.text());
+      status("Copia importada. Ahora hay "+count+" observaciones en este navegador.");render();
+    }catch(err){status("No pude importar: "+err.message);}
+    $("import-file").value="";
+  });
+  $("clear").addEventListener("click",()=>{
+    if(!window.confirm("¿Borrar todas las observaciones y notas de ESTE navegador? Esta acción no se puede deshacer salvo que tengas una copia exportada."))return;
+    try{M.erase();status("Memoria de este navegador vaciada.");render();}
+    catch(err){status("No pude borrar la memoria: "+err.message);}
+  });
+  render();
+  if(M.summary().due>0)reviewAll(5); // Al abrir: hasta 5 vencimientos sin un proceso en segundo plano.
+})();
+</script>
+</body>
+</html>

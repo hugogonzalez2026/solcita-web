@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "published_at_utc": "2026-11-11T13:25:10Z",
+  "data_asof_utc": "2026-11-11T13:23:01Z",
+  "source": "HP Mini · observaciones públicas Kraken/Pionex",
+  "assets": [
+    {
+      "asset": "BTC",
+      "exchange": "Kraken",
+      "quote_currency": "USDT",
+      "price": 73909.7,
+      "asof_utc": "2026-11-11T13:20:02Z",
+      "stale": false,
+      "change_1h_pct": -0.218,
+      "change_24h_pct": -0.628,
+      "spread_pct": 0.00014,
+      "volume_24h_quote": null
+    },
+    {
+      "asset": "ETH",
+      "exchange": "Kraken",
+      "quote_currency": "USDT",
+      "price": 2054.57,
+      "asof_utc": "2026-11-11T13:20:02Z",
+      "stale": false,
+      "change_1h_pct": -0.171,
+      "change_24h_pct": -2.136,
+      "spread_pct": 0.00049,
+      "volume_24h_quote": null
+    },
+    {
+      "asset": "SOL",
+      "exchange": "Kraken",
+      "quote_currency": "USDT",
+      "price": 84.27,
+      "asof_utc": "2026-11-11T13:20:02Z",
+      "stale": false,
+      "change_1h_pct": 0.465,
+      "change_24h_pct": -0.695,
+      "spread_pct": 0.01186,
+      "volume_24h_quote": null
+    },
+    {
+      "asset": "DOT",
+      "exchange": "Pionex",
+      "quote_currency": "USDT",
+      "price": 0.861,
+      "asof_utc": "2026-11-11T13:20:03Z",
+      "stale": false,
+      "change_1h_pct": 1.056,
+      "change_24h_pct": 0.702,
+      "spread_pct": 0.11621,
+      "volume_24h_quote": null
+    }
+  ],
+  "notes": [
+    "Datos indicativos de fuentes públicas observadas por Debian, sin cartera ni órdenes.",
+    "USDT/USDC no se equiparan a USD. N/D si falta historial.",
+    "Si los recolectores no responden, los datos no se presentan como actuales."
+  ]
+}

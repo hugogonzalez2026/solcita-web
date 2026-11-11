@@ -28,7 +28,7 @@ assert.equal(M.createObservation(current).saved,false,"una observacion por activ
 const edit=M.edit(first.entry.id,{personalDirection:"down",note:"Veremos qué pasa"});
 assert.equal(edit.personalDirection,"down");
 assert.equal(edit.note,"Veremos qué pasa");
-const older={...first.entry,id:"synthetic-one-month-ago",
+const older={...edit,id:"synthetic-one-month-ago",
   ts:new Date(now-31*M.DAY).toISOString(),
   sourceTime:new Date(now-31*M.DAY).toISOString(),
   resultPrice:null,resultTime:null,verifiedAt:null,resultSource:""};

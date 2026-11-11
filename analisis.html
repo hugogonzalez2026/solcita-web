@@ -458,7 +458,8 @@
             const saved=window.SolcitaJournal.createObservation({
               ticker:tick,kind:d.kind,name:d.name,currency:d.currency,source:d.source,
               sourceTime:new Date(d.updatedAt).toISOString(),price:d.current,
-              d7,d30,vol:st.vol,drawdown:st.dd
+              d7,d30,vol:st.vol,drawdown:st.dd,
+              layerBriefs:L.map(item=>item.querySelector(".layer-short")?.textContent||"")
             });
             $("memory-feedback").textContent=saved.saved
               ?"🧠 Memoria: observación de "+tick+" guardada. En 30 días podremos contrastar la hipótesis experimental con el historial."

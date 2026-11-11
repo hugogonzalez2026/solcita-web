@@ -19,10 +19,11 @@ assert.ok(M,"API de memoria disponible");
 const now=Date.now();
 const current={ticker:"BTC",kind:"crypto",name:"Bitcoin",source:"Fixture",
   sourceTime:new Date(now-60000).toISOString(),currency:"USD",
-  price:100,d7:1,d30:8,vol:60,drawdown:-20};
+  price:100,d7:1,d30:8,vol:60,drawdown:-20,layerBriefs:["Precio subió","Catalizadores por verificar","Negocio pendiente","Valor pendiente","Comparables pendientes","Riesgo de caída","Sin precio objetivo"]};
 const first=M.createObservation(current);
 assert.equal(first.saved,true);
 assert.equal(first.entry.ruleDirection,"up","la regla de continuidad usa 30 dias previos");
+assert.equal(first.entry.layerBriefs.length,7,"las siete capas quedan guardadas");
 assert.equal(M.createObservation(current).saved,false,"una observacion por activo y dia");
 const edit=M.edit(first.entry.id,{personalDirection:"down",note:"Veremos qué pasa"});
 assert.equal(edit.personalDirection,"down");

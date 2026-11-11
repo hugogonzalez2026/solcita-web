@@ -1,0 +1,44 @@
+name: Analizador público - pruebas sin datos externos
+on:
+  push:
+    paths:
+      - "analisis.html"
+      - "index.html"
+      - ".github/workflows/analizador-tests.yml"
+  pull_request:
+    paths:
+      - "analisis.html"
+      - "index.html"
+      - ".github/workflows/analizador-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verificar HTML y JS sin red ni claves
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+          const vm = require("vm");
+          const assert = require("assert/strict");
+          const home = fs.readFileSync("index.html","utf8");
+          const page = fs.readFileSync("analisis.html","utf8");
+          assert.match(home,/href="analisis\.html"/);
+          assert.match(page,/<form id="asset-form">/);
+          assert.match(page,/<input id="ticker"/);
+          const js = [...page.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
+          assert.equal(js.length,1);
+          js.forEach(code=>new vm.Script(code));
+          assert.equal((js[0].match(/L\.push\(layer\(/g)||[]).length,7);
+          const known = ["bitcoin","ethereum","solana","polkadot"];
+          known.forEach(id=>assert.ok(js[0].includes("id:\""+id+"\"")));
+          assert.ok(!/github_pat_|ghp_|sk-[A-Za-z0-9]{20,}/.test(page));
+          assert.match(page,/la SQLite privada/i);
+          console.log("OK: siete capas, buscador, JS válido, sin secretos.");
+          NODE

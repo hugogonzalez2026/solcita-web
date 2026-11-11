@@ -1,0 +1,43 @@
+name: Memoria financiera - pruebas locales
+on:
+  push:
+    paths:
+      - "memoria.js"
+      - "memoria.html"
+      - "analisis.html"
+      - "tests/memoria.test.js"
+      - ".github/workflows/memoria-tests.yml"
+  pull_request:
+    paths:
+      - "memoria.js"
+      - "memoria.html"
+      - "analisis.html"
+      - "tests/memoria.test.js"
+      - ".github/workflows/memoria-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  journal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test diario sin APIs ni claves
+        run: node tests/memoria.test.js
+      - name: Validar JavaScript en páginas
+        run: |
+          node <<'NODE'
+          const fs=require("fs"),vm=require("vm"),assert=require("assert/strict");
+          for(const file of ["index.html","analisis.html","memoria.html"]){
+            const txt=fs.readFileSync(file,"utf8");
+            for(const match of txt.matchAll(/<script>([\s\S]*?)<\/script>/g)){
+              new vm.Script(match[1],{filename:file});
+            }
+          }
+          assert.match(fs.readFileSync("analisis.html","utf8"),/src="memoria\.js"/);
+          assert.match(fs.readFileSync("memoria.html","utf8"),/src="memoria\.js"/);
+          console.log("HTML scripts: sintaxis OK");
+          NODE

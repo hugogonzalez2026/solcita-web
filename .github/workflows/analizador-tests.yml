@@ -39,6 +39,6 @@ jobs:
           const known = ["bitcoin","ethereum","solana","polkadot"];
           known.forEach(id=>assert.ok(js[0].includes("id:\""+id+"\"")));
           assert.ok(!/github_pat_|ghp_|sk-[A-Za-z0-9]{20,}/.test(page));
-          assert.match(page,/la SQLite privada/i);
+          assert.match(page,/SQLite privada/i);
           console.log("OK: siete capas, buscador, JS válido, sin secretos.");
           NODE

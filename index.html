@@ -62,6 +62,14 @@
     .crypto-pulse{margin-top:18px}
     .crypto-pulse strong{display:block;margin-bottom:4px}
     @media(max-width:540px){.crypto-card{min-height:222px}.crypto-feel{font-size:10.5px}}
+    .debian-market-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+    .debian-market-item{min-width:0;border:1px solid #37516b;border-radius:16px;background:#0b1c2d;padding:16px;display:flex;flex-direction:column;gap:6px}
+    .debian-market-head{font-weight:800;font-size:13px;color:#a6eedd}
+    .debian-market-price{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+    .debian-market-change{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums}
+    .debian-market-meta{margin-top:9px;font-size:11px;color:var(--sub)}
+    @media(max-width:900px){.debian-market-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:540px){.debian-market-item{padding:12px}.debian-market-price{font-size:17px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto;transition:none!important}}
   </style>
 </head>
@@ -124,6 +132,17 @@
           </div>
         </div>
         <p class="small" style="margin-top:16px">Fuente: <a id="crypto-source-link" class="mint" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">CoinGecko</a> (respaldo: Kraken). La variación de 1 hora se consulta en CoinGecko cuando está disponible; si no, aparece N/D. El «feeling» es una lectura automática de tendencia de 1 y 24 horas, no una predicción, una recomendación ni una conclusión del análisis fundamental. Datos públicos, independientes de la HP Mini.</p>
+      </section>
+
+      <section id="debian-mercado" aria-labelledby="debian-mercado-titulo" style="padding-top:22px;padding-bottom:20px">
+        <div class="panel">
+          <div class="kicker">Desde la HP Mini · Observaciones propias</div>
+          <h2 id="debian-mercado-titulo">Lo que registra Solcita.</h2>
+          <p class="section-desc">En esta sección aparecerán las muestras que Debian recolecta de Kraken y Pionex y publica automáticamente. Se conserva la moneda original de cada par, y los porcentajes de 1 y 24 horas se calculan con su historial local, cuando alcanza.</p>
+          <div id="debian-market-message" class="notice" role="status" aria-live="polite">Esperando información publicada directamente por Debian.</div>
+          <div id="debian-market-cards" class="debian-market-cards" aria-label="Observaciones locales de criptoactivos"></div>
+          <p class="small" style="margin-top:16px">Fuente: mediciones públicas de mercado, sin acceso a la cartera ni a las claves. No son señales para operar. Si Solcita no puede publicar, vas a ver un aviso de datos faltantes o históricos.</p>
+        </div>
       </section>
 
       <section aria-labelledby="research-title" style="padding:20px 0 22px">
@@ -455,5 +474,6 @@
       });
     })();
   </script>
+  <script src="solcita-live.js" defer></script>
 </body>
 </html>

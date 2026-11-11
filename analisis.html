@@ -50,7 +50,7 @@
 </head>
 <body>
   <div class="shell">
-    <header><a class="brand" href="index.html">◉ SOLCITA</a><a class="back" href="index.html">← Volver al tablero</a></header>
+    <header><a class="brand" href="index.html">◉ SOLCITA</a><a class="back" href="memoria.html">🧠 Ver memoria financiera</a></header>
     <main>
       <div class="kicker">Bull Market Lab / Investigación guiada</div>
       <h1>Un ticker.<br><span>Siete capas de análisis.</span></h1>
@@ -104,6 +104,8 @@
           <p id="conclusion" class="hint"></p>
           <p class="fine" id="limitations">—</p>
           <div class="links" id="source-links"></div>
+          <p id="memory-feedback" class="notice" aria-live="polite">🧠 Memoria: lista para registrar observaciones válidas en este navegador.</p>
+          <p class="fine">Cada análisis nuevo guarda una observación diaria con fecha, precio, variaciones y límites. Podés consultar hipótesis, plazos y resultados en <a href="memoria.html">la memoria financiera</a>. Los datos permanecen solamente en este dispositivo, salvo que exportes una copia.</p>
           <p class="fine">Investigación educativa, sin recomendación personalizada. Los rendimientos pasados no garantizan los futuros. Una caída grande no demuestra que un activo esté barato.</p>
           <button id="print" type="button" style="margin-top:17px">Imprimir / guardar en PDF</button>
         </div>
@@ -112,6 +114,7 @@
     <footer>© 2026 SOLCITA · Fuentes públicas · Sin acceso a billeteras ni órdenes de inversión.</footer>
   </div>
 
+  <script src="memoria.js"></script>
   <script>
     (() => {
       "use strict";
@@ -447,6 +450,26 @@
         feedback(stale?
           "La fuente devolvió una cotización antigua. Se muestra solamente como referencia histórica; no utilizar como precio actual.":
           "Ficha calculada con datos de "+d.source+". Las capas sin información verificada se marcan como pendientes.",stale);
+
+        // Memoria de investigación: snapshots con fecha, no recomendaciones.
+        // Una observación nueva por ticker y día. Nunca se almacena una fuente vieja.
+        if(window.SolcitaJournal && !stale){
+          try{
+            const saved=window.SolcitaJournal.createObservation({
+              ticker:tick,kind:d.kind,name:d.name,currency:d.currency,source:d.source,
+              sourceTime:new Date(d.updatedAt).toISOString(),price:d.current,
+              d7,d30,vol:st.vol,drawdown:st.dd
+            });
+            $("memory-feedback").textContent=saved.saved
+              ?"🧠 Memoria: observación de "+tick+" guardada. En 30 días podremos contrastar la hipótesis experimental con el historial."
+              :"🧠 Memoria: ya existe una observación de "+tick+" para hoy. No modificamos su precio ni su fecha.";
+          }catch(error){
+            $("memory-feedback").textContent="🧠 Memoria: la ficha se ve, pero no pudo guardarse ("+safeText(error&&error.message,150)+"). Revisá si este navegador permite almacenamiento local.";
+          }
+        }else{
+          $("memory-feedback").textContent="🧠 Memoria: no se guardó una nueva observación porque la cotización estaba desactualizada o no existe almacenamiento local.";
+        }
+
         $("results").scrollIntoView({behavior:"smooth",block:"start"});
       }
 

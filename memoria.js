@@ -92,6 +92,7 @@
     const entries=read();
     const target=entries.find(x=>x.id===id);
     if (!target) throw new Error("No existe esta observación");
+    if (isDue(target)) throw new Error("No se puede editar una hipótesis después de su vencimiento");
     target.note=cleanText(patch.note,400);
     target.personalDirection=directions.has(patch.personalDirection)?patch.personalDirection:"none";
     persist(entries);

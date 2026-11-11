@@ -169,6 +169,16 @@
       else flags.append(pill("En seguimiento","wait"));
       section.append(flags);
       section.append(el("p",entry.factualNote,"fact"));
+      if(Array.isArray(entry.layerBriefs)&&entry.layerBriefs.length){
+        const frozen=document.createElement("details");frozen.className="thesis";
+        const heading=el("summary","Las siete capas registradas ese día");heading.style.cursor="pointer";
+        const ordered=document.createElement("ol");
+        const names=["Precio y contexto","Catalizadores","Negocio y precio","Valuación","Comparación","Riesgos y contra-tesis","Entrada y posición"];
+        entry.layerBriefs.forEach((brief,i)=>{
+          const li=el("li",names[i]+": "+brief);li.style.margin="6px 0";ordered.append(li);
+        });
+        frozen.append(heading,ordered);section.append(frozen);
+      }
       if(entry.note)section.append(el("p","Tu tesis: "+entry.note,"fact"));
       if(outcome){
         const o=el("div",null,"outcome");

@@ -48,3 +48,18 @@ En [analisis.html](https://hugogonzalez2026.github.io/solcita-web/analisis.html)
 **Seguridad:** no hay registro de usuarios ni claves en la web. Las solicitudes de ticker a proveedores externos están sujetas a sus políticas; no ingreses identificadores privados, claves, documentos o información personal como ticker.
 
 El analizador no califica un activo como "comprar" o "vender" y nunca estima precio objetivo sin fundamentos.
+
+## 🧠 Memoria financiera de las siete capas (primera versión)
+
+Abrí [Memoria financiera](https://hugogonzalez2026.github.io/solcita-web/memoria.html) desde la portada o el analizador.
+
+- Cada vez que el usuario consulta un ticker desde el analizador, si la cotización es válida y suficientemente reciente, se guarda **una observación por ticker y día** en \`localStorage\` del **mismo navegador**. Se preservan la fecha, precio, moneda, fuente, movimiento de 7/30 días, volatilidad histórica, drawdown y lo que no se verificó (catalizadores/balances/valuación).
+- Se registra una hipótesis **experimental y puramente mecánica**: continuación de la tendencia de los últimos 30 días. Suba mayor a 3% ⇒ alcista; baja menor a −3% ⇒ bajista; otro ⇒ lateral; sin variación calculable ⇒ ninguna. **Esto no constituye una conclusión de las siete capas ni una recomendación.**
+- Antes de cumplir 30 días, el usuario puede guardar por separado su **propia hipótesis direccional y una nota**. Después del vencimiento, esa hipótesis queda bloqueada para reducir sesgos retrospectivos.
+- Pasados 30 días, al abrir la memoria se intenta verificar hasta cinco observaciones vencidas. El botón «Revisar hipótesis vencidas» permite revisar más. Para calificar el resultado debe recuperarse una **cotización histórica próxima a la fecha de vencimiento**, no el último precio de hoy. Una variación de ±2% delimita acierto/error según la dirección anunciada; son **movimientos de precio** y no retornos netos.
+- Fuente histórica: CoinGecko o Kraken para cripto y Yahoo Finance vía proxy experimental para acciones/ETF. Si la fuente no responde, el resultado se mantiene **pendiente** sin inventarlo. En activos con dividendos, splits, cambios de ticker o monedas distintas, las métricas no sustituyen un retorno total correctamente ajustado.
+- El registro informa conteo y tasa descriptiva de aciertos de esta regla básica. **No hay aprendizaje automático, reentrenamiento, decisión autónoma ni trading real.** No se inferirá calidad predictiva con muestras insuficientes.
+- La memoria vive **solo en este navegador**. No está conectada a la base SQLite de la HP ni sincroniza entre dispositivos. El usuario puede **exportar/importar un archivo JSON** y borrar el historial local. Borrar cookies/datos del sitio o cambiar de dispositivo sin exportar implica perder la memoria.
+- No se guardan claves, saldos ni posiciones. Evitá escribir datos personales o sensibles en las notas. La exportación puede contener los tickers y las notas, y debe guardarse de forma privada.
+
+**Siguiente etapa:** diseñar almacenamiento privado persistente en la HP y un canal de comunicación limitado y auditado. No se puede completar desde la web pública con el puente GitHub actualmente desplegado (que solo ejecuta acciones predefinidas). Cualquier sincronización debe evitar exponer la memoria privada a visitantes del sitio.

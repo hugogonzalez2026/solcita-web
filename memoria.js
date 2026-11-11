@@ -34,7 +34,9 @@
       ticker,kind,name:cleanText(raw.name,110),currency:cleanText(raw.currency,12).toUpperCase(),
       source:cleanText(raw.source,90),price,
       d7:val(raw.d7),d30:val(raw.d30),vol:val(raw.vol),drawdown:val(raw.drawdown),
-      factualNote:cleanText(raw.factualNote,400),note:cleanText(raw.note,400),
+      factualNote:cleanText(raw.factualNote,400),
+      layerBriefs:Array.isArray(raw.layerBriefs)?raw.layerBriefs.slice(0,7).map(x=>cleanText(x,180)):[],
+      note:cleanText(raw.note,400),
       ruleDirection,personalDirection,horizonDays:30,
       resultPrice:validPrice(raw.resultPrice)?+raw.resultPrice:null,
       resultTime:validDate(raw.resultTime)?new Date(raw.resultTime).toISOString():null,
@@ -81,7 +83,7 @@
       ts:new Date(time).toISOString(),sourceTime:facts.sourceTime,
       ticker,kind:facts.kind,name:facts.name,currency:facts.currency,source:facts.source,
       price:facts.price,d7:facts.d7,d30,vol:facts.vol,drawdown:facts.drawdown,
-      factualNote,ruleDirection,personalDirection:"none"
+      factualNote,layerBriefs:facts.layerBriefs,ruleDirection,personalDirection:"none"
     });
     if (!entry) throw new Error("No se pudo validar la observación");
     entries.unshift(entry);

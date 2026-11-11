@@ -52,6 +52,16 @@
     .crypto-card .card-head .card-icon{font-weight:800}
     @media(max-width:900px){.crypto-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:540px){.crypto-cards{gap:10px}.crypto-card{padding:15px;min-height:160px}.crypto-card .card-head{margin-bottom:18px}.crypto-price{font-size:clamp(17px,4.4vw,23px);letter-spacing:-.6px}.crypto-card .tag{font-size:9px;padding:4px 7px}}
+    .crypto-card{min-height:235px}
+    .crypto-change{display:block;margin-top:5px;font-size:12px;line-height:1.5;font-variant-numeric:tabular-nums}
+    .crypto-change.crypto-hour{margin-top:14px}
+    .crypto-feel{display:block;margin-top:13px;padding-top:10px;border-top:1px solid #ffffff1b;font-size:11px;font-weight:750;line-height:1.45;color:var(--sub)}
+    .crypto-feel.up{color:var(--mint)}
+    .crypto-feel.down{color:#ff9faf}
+    .crypto-feel.mixed{color:#ffda9e}
+    .crypto-pulse{margin-top:18px}
+    .crypto-pulse strong{display:block;margin-bottom:4px}
+    @media(max-width:540px){.crypto-card{min-height:222px}.crypto-feel{font-size:10.5px}}
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto;transition:none!important}}
   </style>
 </head>
@@ -99,15 +109,21 @@
       <section id="cotizaciones" style="padding-top:40px;padding-bottom:26px" aria-labelledby="cotizaciones-titulo">
         <div class="kicker">Cotizaciones / USD</div>
         <h2 id="cotizaciones-titulo">Las cripto que seguimos.</h2>
-        <p class="section-desc">Últimos precios disponibles en dólares y variación de las últimas 24 horas. Consulta pública al abrir la web, con actualización automática cada cinco minutos. No son precios de ejecución garantizados.</p>
+        <p class="section-desc">Últimos precios indicativos en USD, variaciones de 1 y 24 horas y el pulso de corto plazo que interpreta Solcita. Se consulta al abrir la web y cada cinco minutos mientras permanezca abierta.</p>
         <div class="notice" style="margin-bottom:19px" aria-live="polite" role="status"><i id="crypto-led">◌</i><div><strong id="crypto-status">Consultando cotizaciones…</strong><div class="small" id="crypto-updated">Esperando datos del proveedor público</div></div></div>
         <div class="crypto-cards">
-          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">₿</span><span class="tag">BTC</span></div><div class="crypto-price" id="crypto-btc">—</div><div class="crypto-name">Bitcoin</div><span class="crypto-change" id="crypto-btc-change">24 h: —</span></article>
-          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">Ξ</span><span class="tag">ETH</span></div><div class="crypto-price" id="crypto-eth">—</div><div class="crypto-name">Ethereum</div><span class="crypto-change" id="crypto-eth-change">24 h: —</span></article>
-          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">◎</span><span class="tag">SOL</span></div><div class="crypto-price" id="crypto-sol">—</div><div class="crypto-name">Solana</div><span class="crypto-change" id="crypto-sol-change">24 h: —</span></article>
-          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">◈</span><span class="tag">DOT</span></div><div class="crypto-price" id="crypto-dot">—</div><div class="crypto-name">Polkadot</div><span class="crypto-change" id="crypto-dot-change">24 h: —</span></article>
+          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">₿</span><span class="tag">BTC</span></div><div class="crypto-price" id="crypto-btc">—</div><div class="crypto-name">Bitcoin</div><span class="crypto-change crypto-hour" id="crypto-btc-1h">1 h: —</span><span class="crypto-change" id="crypto-btc-change">24 h: —</span><span class="crypto-feel" id="crypto-btc-feel">Pulso: esperando datos</span></article>
+          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">Ξ</span><span class="tag">ETH</span></div><div class="crypto-price" id="crypto-eth">—</div><div class="crypto-name">Ethereum</div><span class="crypto-change crypto-hour" id="crypto-eth-1h">1 h: —</span><span class="crypto-change" id="crypto-eth-change">24 h: —</span><span class="crypto-feel" id="crypto-eth-feel">Pulso: esperando datos</span></article>
+          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">◎</span><span class="tag">SOL</span></div><div class="crypto-price" id="crypto-sol">—</div><div class="crypto-name">Solana</div><span class="crypto-change crypto-hour" id="crypto-sol-1h">1 h: —</span><span class="crypto-change" id="crypto-sol-change">24 h: —</span><span class="crypto-feel" id="crypto-sol-feel">Pulso: esperando datos</span></article>
+          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">◈</span><span class="tag">DOT</span></div><div class="crypto-price" id="crypto-dot">—</div><div class="crypto-name">Polkadot</div><span class="crypto-change crypto-hour" id="crypto-dot-1h">1 h: —</span><span class="crypto-change" id="crypto-dot-change">24 h: —</span><span class="crypto-feel" id="crypto-dot-feel">Pulso: esperando datos</span></article>
         </div>
-        <p class="small" style="margin-top:16px">Fuente: <a id="crypto-source-link" class="mint" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">CoinGecko</a> (respaldo: Kraken). Cotización indicativa de mercado, independiente del registro local de la HP. Si la fuente no responde o la información está desactualizada, se muestran guiones.</p>
+        <div class="notice crypto-pulse" aria-live="polite" role="status">
+          <i aria-hidden="true">🧭</i>
+          <div><strong id="crypto-feeling-title">Feeling de Solcita · esperando mercado</strong>
+            <div class="small" id="crypto-feeling-detail">Voy a contrastar los movimientos de la última hora y del último día.</div>
+          </div>
+        </div>
+        <p class="small" style="margin-top:16px">Fuente: <a id="crypto-source-link" class="mint" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">CoinGecko</a> (respaldo: Kraken). La variación de 1 hora se consulta en CoinGecko cuando está disponible; si no, aparece N/D. El «feeling» es una lectura automática de tendencia de 1 y 24 horas, no una predicción, una recomendación ni una conclusión del análisis fundamental. Datos públicos, independientes de la HP Mini.</p>
       </section>
 
       <section aria-labelledby="research-title" style="padding:20px 0 22px">
@@ -244,16 +260,21 @@
     })();
   </script>
 
+
   <script>
     (() => {
       "use strict";
+
       const symbols = [
         {id:"bitcoin",symbol:"btc",kraken:"XXBTZUSD"},
         {id:"ethereum",symbol:"eth",kraken:"XETHZUSD"},
         {id:"solana",symbol:"sol",kraken:"SOLUSD"},
         {id:"polkadot",symbol:"dot",kraken:"DOTUSD"}
       ];
-      const cg = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Csolana%2Cpolkadot&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true";
+      // /coins/markets admite price_change_percentage=1h,24h.
+      // Los proveedores pueden limitar solicitudes sin API key: nunca inventar valores.
+      const cgMarkets = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Csolana%2Cpolkadot&sparkline=false&price_change_percentage=1h%2C24h";
+      const cgSimple = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Csolana%2Cpolkadot&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true";
       const kr = "https://api.kraken.com/0/public/Ticker?pair=XBTUSD%2CETHUSD%2CSOLUSD%2CDOTUSD";
       const q = id => document.getElementById(id);
       const money = new Intl.NumberFormat("es-AR", {minimumFractionDigits:2,maximumFractionDigits:2});
@@ -262,94 +283,175 @@
         timeZone:"America/Argentina/Buenos_Aires",dateStyle:"short",timeStyle:"short"
       });
       const validPrice = n => typeof n === "number" && Number.isFinite(n) && n > 0 && n < 1e9;
+      const validChange = n => typeof n === "number" && Number.isFinite(n) && Math.abs(n) <= 1000;
+      const cleanChange = n => validChange(n) ? n : null;
+      const freshTime = (raw,now) => {
+        const time = typeof raw === "number" ? raw * 1000 : Date.parse(raw);
+        return Number.isFinite(time) && time <= now+120000 && now-time <= 30*60000 ? time : null;
+      };
       let busy = false;
       let lastRequestedAt = 0;
-      function card(symbol, price, delta) {
-        const priceNode = q("crypto-"+symbol);
-        const changeNode = q("crypto-"+symbol+"-change");
-        if (!validPrice(price)) {
-          priceNode.textContent = "—";
-          changeNode.textContent = "24 h: —";
-          changeNode.className = "crypto-change";
+
+      function pulse(h,day) {
+        if (!validChange(h) || !validChange(day))
+          return {label:"Sin datos suficientes",style:"",detail:"Se necesitan cambios de 1 h y 24 h."};
+        if (h >= .15 && day >= .5)
+          return {label:"Impulso alcista ↗",style:"up",detail:"Subas en ambos plazos."};
+        if (h <= -.15 && day <= -.5)
+          return {label:"Presión bajista ↘",style:"down",detail:"Bajas en ambos plazos."};
+        if (h >= .15 && day <= -.5)
+          return {label:"Intento de rebote ↗",style:"mixed",detail:"Sube en 1 h, pero sigue negativo en 24 h."};
+        if (h <= -.15 && day >= .5)
+          return {label:"Se está enfriando ↘",style:"mixed",detail:"Baja en 1 h, pero sigue positivo en 24 h."};
+        if (day <= -.5) return {label:"Sesgo bajista",style:"down",detail:"Día bajista; última hora poco definida."};
+        if (day >= .5) return {label:"Sesgo alcista",style:"up",detail:"Día alcista; última hora poco definida."};
+        return {label:"Mercado lateral",style:"mixed",detail:"Sin dirección clara en estas ventanas."};
+      }
+      function formatChange(el,interval,change) {
+        const value = cleanChange(change);
+        if (value === null) {
+          el.textContent = interval+": N/D";
+          el.className = "crypto-change"+(interval === "1 h" ? " crypto-hour" : "");
           return;
         }
-        priceNode.textContent = "US$ " + money.format(price);
-        if (typeof delta === "number" && Number.isFinite(delta)) {
-          const deltaFixed = Math.abs(delta) < 0.005 ? 0 : delta;
-          changeNode.textContent = "24 h: " + (deltaFixed > 0 ? "+" : "") + percent.format(deltaFixed) + " %";
-          changeNode.className = "crypto-change" + (deltaFixed > 0 ? " up" : deltaFixed < 0 ? " down" : "");
+        const rounded = Math.abs(value)<.005 ? 0 : value;
+        el.textContent = interval+": "+(rounded>0?"+":"")+percent.format(rounded)+" %";
+        el.className = "crypto-change"+(interval === "1 h"?" crypto-hour":"")
+          +(rounded>0?" up":rounded<0?" down":"");
+      }
+      function card(entry) {
+        const sym=entry.symbol;
+        const priceNode=q("crypto-"+sym);
+        const oneNode=q("crypto-"+sym+"-1h");
+        const dayNode=q("crypto-"+sym+"-change");
+        const feelNode=q("crypto-"+sym+"-feel");
+        priceNode.textContent = validPrice(entry.price)?"US$ "+money.format(entry.price):"—";
+        formatChange(oneNode,"1 h",entry.delta1h);
+        formatChange(dayNode,"24 h",entry.delta24h);
+        const feeling=pulse(entry.delta1h,entry.delta24h);
+        feelNode.textContent = "Pulso: "+feeling.label;
+        feelNode.title = feeling.detail;
+        feelNode.className = "crypto-feel"+(feeling.style?" "+feeling.style:"");
+      }
+      function overall(quotes) {
+        const complete=quotes.filter(x=>validPrice(x.price)&&validChange(x.delta1h)&&validChange(x.delta24h));
+        const headline=q("crypto-feeling-title"),detail=q("crypto-feeling-detail");
+        if (complete.length < 3) {
+          headline.textContent="Feeling de Solcita · lectura incompleta";
+          detail.textContent="Hay cambios de 1 h y 24 h para "+complete.length+" de 4 activos. No voy a adivinar el pulso.";
+          return;
+        }
+        const down24=complete.filter(x=>x.delta24h<=-.5).length;
+        const up24=complete.filter(x=>x.delta24h>=.5).length;
+        const down1=complete.filter(x=>x.delta1h<=-.15).length;
+        const up1=complete.filter(x=>x.delta1h>=.15).length;
+        if (down24>=3 && down1>=3) {
+          headline.textContent="Feeling de Solcita · presión vendedora";
+          detail.textContent=down24+" de "+complete.length+" activos caen en 24 h y "+down1+" en la última hora. Predomina la debilidad de corto plazo.";
+        } else if (down24>=3 && up1>=2) {
+          headline.textContent="Feeling de Solcita · mercado intentando rebotar";
+          detail.textContent="El día sigue mayormente en rojo, pero "+up1+" de "+complete.length+" activos avanzan en la última hora. Todavía no confirma recuperación.";
+        } else if (up24>=3 && up1>=3) {
+          headline.textContent="Feeling de Solcita · impulso comprador";
+          detail.textContent=up24+" de "+complete.length+" activos suben en 24 h y "+up1+" en la última hora. Hay fortaleza en ambos plazos.";
+        } else if (up24>=3 && down1>=2) {
+          headline.textContent="Feeling de Solcita · pausa o toma de ganancias";
+          detail.textContent="El día fue mayormente positivo, pero "+down1+" de "+complete.length+" activos retroceden en la última hora.";
         } else {
-          changeNode.textContent = "24 h: no disponible";
-          changeNode.className = "crypto-change";
+          headline.textContent="Feeling de Solcita · señales mixtas";
+          detail.textContent="BTC, ETH, SOL y DOT no muestran una dirección coincidente entre 1 h y 24 h. Prefiero esperar más confirmación.";
         }
       }
       function empty(message) {
-        symbols.forEach(x => card(x.symbol,null,null));
-        q("crypto-led").textContent = "◌";
-        q("crypto-status").textContent = message;
-        q("crypto-updated").textContent = "No hay cotizaciones verificables en este momento.";
+        symbols.forEach(x=>card({symbol:x.symbol,price:null,delta1h:null,delta24h:null}));
+        q("crypto-led").textContent="◌";
+        q("crypto-status").textContent=message;
+        q("crypto-updated").textContent="No hay cotizaciones verificables en este momento.";
+        overall([]);
       }
       async function withTimeout(url) {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 12000);
+        const controller=new AbortController();
+        const timeout=setTimeout(()=>controller.abort(),12000);
         try {
-          const response = await fetch(url,{cache:"no-store",credentials:"omit",signal:controller.signal});
-          if (!response.ok) throw new Error("Proveedor HTTP " + response.status);
+          const response=await fetch(url,{cache:"no-store",credentials:"omit",signal:controller.signal});
+          if (!response.ok)throw new Error("Proveedor HTTP "+response.status);
           return await response.json();
-        } finally { clearTimeout(timeout); }
+        } finally {clearTimeout(timeout);}
       }
-      async function coinGecko() {
-        const data = await withTimeout(cg);
-        const now = Date.now();
-        const quotes = [];
-        for (const coin of symbols) {
-          const item = data[coin.id];
-          if (!item || !validPrice(item.usd)) throw new Error("Cotización faltante");
-          const time = Number(item.last_updated_at) * 1000;
-          if (!Number.isFinite(time) || time > now+120000 || now-time > 30*60000) throw new Error("Cotización vieja");
-          quotes.push({symbol:coin.symbol,price:item.usd,delta:item.usd_24h_change,updatedAt:time});
+      async function coinGeckoMarkets() {
+        const rows=await withTimeout(cgMarkets);
+        if (!Array.isArray(rows))throw new Error("Formato de mercados no disponible");
+        const now=Date.now(),quotes=[];
+        for(const coin of symbols) {
+          const row=rows.find(x=>x && x.id===coin.id);
+          if(!row || !validPrice(row.current_price))throw new Error("Precio incompleto");
+          const time=freshTime(row.last_updated,now);
+          if(time===null)throw new Error("Precio desactualizado");
+          quotes.push({
+            symbol:coin.symbol,price:row.current_price,
+            delta1h:cleanChange(row.price_change_percentage_1h_in_currency),
+            delta24h:cleanChange(row.price_change_percentage_24h_in_currency)
+              ?? cleanChange(row.price_change_percentage_24h),
+            updatedAt:time
+          });
         }
         return {source:"CoinGecko",url:"https://www.coingecko.com/",quotes};
       }
-      async function kraken() {
-        const data = await withTimeout(kr);
-        if (!data || !Array.isArray(data.error) || data.error.length || !data.result) throw new Error("Respuesta no válida");
-        const quotes = [];
-        for (const coin of symbols) {
-          const tick = data.result[coin.kraken];
-          const value = Number(tick && tick.c && tick.c[0]);
-          if (!validPrice(value)) throw new Error("Cotización de respaldo faltante");
-          quotes.push({symbol:coin.symbol,price:value,delta:null,updatedAt:null});
+      async function coinGeckoSimple() {
+        const data=await withTimeout(cgSimple),now=Date.now(),quotes=[];
+        for(const coin of symbols) {
+          const item=data && data[coin.id];
+          if(!item || !validPrice(item.usd))throw new Error("Precio incompleto");
+          const time=freshTime(item.last_updated_at,now);
+          if(time===null)throw new Error("Precio desactualizado");
+          quotes.push({symbol:coin.symbol,price:item.usd,
+            delta1h:null,delta24h:cleanChange(item.usd_24h_change),updatedAt:time});
         }
-        return {source:"Kraken",url:"https://www.kraken.com/prices",quotes};
+        return {source:"CoinGecko (respaldo)",url:"https://www.coingecko.com/",quotes};
+      }
+      async function kraken() {
+        const data=await withTimeout(kr);
+        if(!data||!Array.isArray(data.error)||data.error.length||!data.result)
+          throw new Error("Respuesta de exchange inválida");
+        const quotes=[];
+        for(const coin of symbols) {
+          const tick=data.result[coin.kraken];
+          const value=Number(tick && tick.c && tick.c[0]);
+          if(!validPrice(value))throw new Error("Precio de respaldo faltante");
+          // Kraken Ticker no informa un cambio móvil exacto de 1 h / 24 h;
+          // no usar el open del día UTC como cambio 24h.
+          quotes.push({symbol:coin.symbol,price:value,delta1h:null,delta24h:null,updatedAt:null});
+        }
+        return {source:"Kraken (solo último precio)",url:"https://www.kraken.com/prices",quotes};
       }
       async function refreshQuotes() {
-        if (busy) return;
-        busy = true;
-        lastRequestedAt = Date.now();
-        try {
+        if(busy)return;
+        busy=true;
+        lastRequestedAt=Date.now();
+        try{
           let payload;
-          try { payload = await coinGecko(); }
-          catch (_) { payload = await kraken(); }
-          payload.quotes.forEach(x => card(x.symbol,x.price,x.delta));
-          q("crypto-source-link").textContent = payload.source;
-          q("crypto-source-link").href = payload.url;
-          q("crypto-led").textContent = "●";
-          q("crypto-status").textContent = "Cotizaciones disponibles en USD";
-          const updated = payload.quotes[0].updatedAt;
-          q("crypto-updated").textContent = payload.source === "CoinGecko"
-            ? "Último dato del proveedor: " + clock(new Date(Math.min(...payload.quotes.map(x=>x.updatedAt)))) + " (Argentina)"
-            : "Consultado: " + clock(new Date()) + " (Argentina). Hora de la última operación no informada.";
-        } catch (_) {
-          empty("No se pudieron obtener precios recientes");
-        } finally {
-          busy = false;
-        }
+          try {payload=await coinGeckoMarkets();}
+          catch(_){
+            try {payload=await coinGeckoSimple();}
+            catch(_) {payload=await kraken();}
+          }
+          payload.quotes.forEach(card);
+          overall(payload.quotes);
+          q("crypto-source-link").textContent=payload.source;
+          q("crypto-source-link").href=payload.url;
+          q("crypto-led").textContent="●";
+          q("crypto-status").textContent="Cotizaciones disponibles en USD";
+          const stamped=payload.quotes.filter(x=>Number.isFinite(x.updatedAt)).map(x=>x.updatedAt);
+          q("crypto-updated").textContent=stamped.length===symbols.length
+            ? "Último dato del proveedor: "+clock(new Date(Math.min(...stamped)))+" (Argentina)"
+            : "Consultado: "+clock(new Date())+" (Argentina). Hora de última operación no informada.";
+        }catch(_){empty("No se pudieron obtener precios recientes");}
+        finally{busy=false;}
       }
       refreshQuotes();
       setInterval(refreshQuotes,300000);
-      document.addEventListener("visibilitychange",() => {
-        if (!document.hidden && Date.now()-lastRequestedAt>240000) refreshQuotes();
+      document.addEventListener("visibilitychange",()=>{
+        if(!document.hidden && Date.now()-lastRequestedAt>240000)refreshQuotes();
       });
     })();
   </script>

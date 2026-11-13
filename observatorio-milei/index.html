@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Observatorio de casos | Gestión Milei</title>
+<style>
+:root { color-scheme:dark; --bg:#0a111c; --shell:#101c2b; --pane:#142236; --line:#293c52; --ink:#f0f5fb; --muted:#a6b9cd; --teal:#54e4c2; --blue:#6cbaff; --orange:#f8bb77; --red:#ff8794; --purple:#b9a9ff; }
+* {box-sizing:border-box} body{margin:0;background:radial-gradient(ellipse 650px 400px at 95% -10%,#164b5b70,transparent),var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5} button,input,select,textarea{font:inherit} button{cursor:pointer} a{color:var(--teal)} a:hover{color:#b0ffea} .wrap{max-width:1450px;margin:auto;padding:28px 24px 36px}
+.brand{display:flex;gap:9px;align-items:center;color:var(--teal);font-weight:750;letter-spacing:.11em;font-size:12px;text-transform:uppercase} .brand .dot{height:9px;width:9px;background:var(--teal);border-radius:50%;box-shadow:0 0 15px #54e4c2} h1{font-size:clamp(25px,3vw,42px);letter-spacing:-.045em;line-height:1.07;margin:14px 0 10px} .lede{max-width:790px;font-size:15px;color:var(--muted);margin:0 0 20px} .top{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap}.datebox{font-size:12px;color:var(--muted);text-align:right}.datebox strong{display:block;color:var(--ink);font-size:15px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.metric{border:1px solid var(--line);padding:14px 17px;border-radius:16px;background:#ffffff06}.metric .number{display:block;font-size:27px;line-height:1.2;font-weight:780;font-variant-numeric:tabular-nums}.metric .sub{font-size:12px;color:var(--muted)}
+.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:18px 0 13px}.input,.select{background:#0e1a28;color:var(--ink);border:1px solid var(--line);border-radius:11px;padding:10px 12px;min-width:0}.input{flex:1;min-width:180px}.select{max-width:220px}.btn{border:1px solid var(--line);border-radius:11px;background:#192a3f;color:var(--ink);padding:10px 12px;font-size:13px;font-weight:650}.btn:hover{border-color:#66ddca;color:#fff}.btn.primary{background:var(--teal);border-color:var(--teal);color:#09231e}.btn.primary:hover{background:#9af9e2}.btn.ghost{background:transparent}.btn.danger{color:var(--red)}.layout{display:grid;grid-template-columns:minmax(290px,390px) minmax(0,1fr);gap:14px;align-items:stretch}.panel{border:1px solid var(--line);border-radius:18px;background:var(--shell);overflow:hidden}.panel-header{padding:14px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between}.caselist{max-height:705px;overflow:auto}.case{background:transparent;border:0;color:var(--ink);width:100%;text-align:left;padding:15px 16px;border-bottom:1px solid #263649;display:flex;gap:12px;justify-content:space-between;align-items:center}.case:hover{background:#1e3445}.case.on{background:#1b3b44;box-shadow:inset 3px 0 var(--teal)}.case .case-name{display:block;font-weight:680;font-size:14px;line-height:1.3}.case .case-sub{font-size:11px;color:var(--muted);display:block;margin-top:5px}.chev{color:#7291a6;font-size:22px}.blank{padding:25px;color:var(--muted)}.detail{padding:27px 30px;min-height:560px}.eyebrow{color:var(--teal);font-weight:730;text-transform:uppercase;letter-spacing:.1em;font-size:11px}.detail h2{font-size:clamp(24px,2.3vw,33px);line-height:1.15;margin:9px 0 14px;letter-spacing:-.03em}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border-radius:25px;padding:5px 10px;font-weight:700;font-size:11px;border:1px solid #405468;background:#22374b}.chip.procesado{color:#ffafb7;border-color:#7b3645;background:#502c39}.chip.indagatoria{color:#ffd0a2;border-color:#755238;background:#49372d}.chip.sobreseimiento{color:#c7baff;border-color:#5b5084;background:#302e4a}.chip.archivado{color:#c7baff;border-color:#514876;background:#282c4a}.chip.investigacion,.chip.denuncia{color:#a7d3ff;border-color:#315a80;background:#21384e}.chip.transparencia,.chip.controversia,.chip.judicial,.chip.mencionado{color:#c3d2df}.sec{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}.sec h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}.sec p{margin:0;font-size:14px;line-height:1.7}.focus{font-size:17px !important;line-height:1.6 !important}.callout{border-left:3px solid var(--teal);padding:14px 17px;background:#17342f7a;border-radius:0 12px 12px 0}.callout small{color:var(--muted);display:block;margin-bottom:5px}.note{background:#392e2077;border:1px solid #6a542e;border-radius:12px;padding:12px 15px;font-size:13px;color:#ffe0af}.sources{display:flex;flex-wrap:wrap;gap:9px}.source{font-size:12px;padding:9px 12px;border-radius:10px;background:#1c3542;text-decoration:none;color:var(--teal);border:1px solid #33556a}.source:hover{background:#264957}.foot{margin:20px 0 5px;color:var(--muted);font-size:12px;line-height:1.7}.stamp{color:#9db1c5;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:25px}
+.modal-cover{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.modal-cover.show{display:flex}.modal{background:#152538;max-width:740px;width:100%;max-height:92vh;overflow:auto;border:1px solid #547084;border-radius:18px;padding:24px}.modal h2{margin-top:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:5px;margin:8px 0}.field.wide{grid-column:1/-1}.field label{font-size:12px;font-weight:650;color:#b5ccdc}.field input,.field select,.field textarea{border:1px solid #3d5368;background:#0c1a2a;color:var(--ink);border-radius:9px;padding:10px 11px;width:100%}.field textarea{min-height:82px;resize:vertical}.modal-actions{display:flex;gap:9px;justify-content:end;margin-top:18px}.toast{position:fixed;bottom:20px;right:20px;border-radius:11px;background:#21463f;color:#d6fff6;padding:12px 18px;border:1px solid #61d5c1;z-index:20;display:none;max-width:340px;font-size:13px}#fileImport{display:none}
+@media(max-width:850px){.wrap{padding:19px 13px}.layout{grid-template-columns:1fr}.caselist{max-height:310px}.detail{padding:23px 19px;min-height:450px}.metrics{grid-template-columns:repeat(2,1fr)}.datebox{text-align:left}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:auto}.toolbar .input{flex-basis:100%}}
+@media print{body{background:white;color:black}.toolbar,.metrics,.caselist,.actions,.datebox{display:none}.layout{display:block}.panel{border:0;background:white}.detail{padding:0}.sec p,.sec h3,.stamp{color:#222}}
+.newsnote{background:#143047;border:1px solid #2b6b72;border-radius:14px;padding:12px 16px;color:#d7eee9;font-size:13px;margin:0 0 16px}.upflag{font-size:10px;background:#2c485b;border:1px solid #4b8a99;border-radius:5px;padding:3px 6px;color:#a9f4e4;margin-left:8px;white-space:nowrap}.changelog{margin:0;padding-left:20px}.changelog li{margin:5px 0} .stale-note{color:var(--muted);font-size:12px}
+</style>
+</head><body>
+<div class="wrap"><div class="top"><div><div class="brand"><span class="dot"></span> Archivo de seguimiento · Argentina</div><h1>Observatorio de casos<br><span style="color:var(--teal)">Gestión Milei</span></h1><p class="lede">26 fichas en el registro, con novedades documentadas desde el 27 de octubre. Hacé clic en cualquier nombre para ver el caso, el último hito documentado y las fuentes. Incluye causas penales, denuncias y controversias diferenciadas.</p></div><div class="datebox">REVISIÓN PÚBLICA<strong>13 de noviembre de 2026</strong><span id="localState">Versión 2 · base actualizada</span></div></div>
+<div class="metrics"><div class="metric"><span id="countTotal" class="number">26</span><span class="sub">Fichas en el registro</span></div><div class="metric"><span id="countProc" class="number">0</span><span class="sub">Con procesamiento confirmado</span></div><div class="metric"><span id="countInvest" class="number">0</span><span class="sub">Investigaciones, pedidos o denuncias</span></div><div class="metric"><span id="countReview" class="number">0</span><span class="sub">Con verificación parcial o pendiente</span></div></div>
+<div class="toolbar"><input class="input" id="search" placeholder="🔎 Buscar caso, persona o palabra…" aria-label="Buscar casos"><select id="filterGroup" class="select" aria-label="Filtrar por grupo"><option value="all">Todas las áreas</option></select><select id="filterStatus" class="select" aria-label="Filtrar por situación"><option value="all">Todos los estados</option><option value="novedad">★ Novedades desde 27/10</option><option value="procesado">Procesamientos</option><option value="indagatoria">Indagatorias</option><option value="investigacion">Investigaciones</option><option value="denuncia">Denuncias</option><option value="sobreseimiento">Sobreseimientos</option><option value="archivado">Archivadas</option><option value="resto">Otros / transparencia</option></select><button class="btn" id="newBtn">＋ Nuevo caso</button><button class="btn" id="exportBtn">↓ Guardar copia</button><button class="btn ghost" id="importBtn">↑ Importar</button><input type="file" id="fileImport" accept=".json,application/json"></div>
+<p class="newsnote"><strong>Actualizaciones recientes:</strong> $LIBRA (PIA y Casación), ANDIS (audios y Suizo Argentina), Adorni (dictamen fiscal), Espert (apelación), Fundación Faro y <strong>nuevo caso por la visita papal</strong>. Seleccioná «★ Novedades» para ver las fichas modificadas.</p>
+<div class="layout"><section class="panel"><div class="panel-header"><span>CASOS</span><span id="shownCount">25 resultados</span></div><div id="cases" class="caselist"></div></section><section class="panel detail" id="detail"><div class="blank">Seleccioná un caso.</div></section></div>
+<p class="foot">ℹ️ Este es un archivo local, editable y consultable sin conexión. <strong>No consulta por sí solo tribunales ni noticias</strong> y no se actualiza automáticamente. Usá “Buscar novedades” y “Preparar consulta” para investigar cambios; cargá el resultado con “Editar” y conservá un respaldo con “Guardar copia”. Los procesamientos no son condenas, y las denuncias o menciones tampoco implican culpabilidad. <strong>Esta versión usa almacenamiento separado</strong> para evitar que la copia de octubre oculte las novedades de noviembre. Para traer cambios manuales anteriores, exportalos desde la versión vieja e importalos acá (al importar, reemplazás toda la base). Algunas fichas pertenecen al mismo expediente y no deben sumarse como causas independientes.</p></div>
+<div class="modal-cover" id="modalCover"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="editTitle"><h2 id="editTitle">Editar ficha</h2><form id="editForm"><div class="form-grid">
+<div class="field wide"><label for="fName">Nombre del caso</label><input id="fName" required maxlength="160"></div>
+<div class="field"><label for="fPeople">Personas involucradas</label><input id="fPeople"></div><div class="field"><label for="fGroup">Área / agrupación</label><input id="fGroup"></div>
+<div class="field"><label for="fStatusKey">Clase de estado</label><select id="fStatusKey"><option value="procesado">Procesado</option><option value="indagatoria">Indagatoria / pedido</option><option value="investigacion">Investigación</option><option value="denuncia">Denuncia</option><option value="sobreseimiento">Sobreseimiento</option><option value="archivado">Archivado</option><option value="judicial">Orden judicial</option><option value="transparencia">Transparencia</option><option value="controversia">Controversia</option><option value="mencionado">Mencionado</option></select></div><div class="field"><label for="fStatus">Estado, en palabras</label><input id="fStatus" required></div>
+<div class="field wide"><label for="fShort">Resumen breve</label><textarea id="fShort"></textarea></div><div class="field wide"><label for="fDetail">Qué se investiga / contexto</label><textarea id="fDetail"></textarea></div><div class="field wide"><label for="fLatest">Último hito comprobado</label><textarea id="fLatest"></textarea></div><div class="field"><label for="fDate">Fecha del último hito</label><input id="fDate" type="date"></div><div class="field"><label for="fQuality">Verificación</label><select id="fQuality"><option>Verificado</option><option>Parcial</option><option>Pendiente de verificar</option></select></div><div class="field wide"><label for="fSrc">URL fuente principal</label><input type="url" id="fSrc" placeholder="https://..."></div><div class="field wide"><label for="fSrcTitle">Título / medio de la fuente</label><input id="fSrcTitle"></div><div class="field wide"><label for="fNote">Observaciones / dudas</label><textarea id="fNote"></textarea></div>
+</div><div class="modal-actions"><button type="button" class="btn ghost" id="cancelEdit">Cancelar</button><button class="btn primary" type="submit">Guardar cambios</button></div></form></div></div><div class="toast" id="toast"></div>
+<script id="seed" type="application/json">{
+  "version": "2.0",
+  "corte": "2026-11-13",
+  "disclaimer": "Seguimiento documental con fuentes públicas hasta el 13/11/2026. Las menciones, denuncias, imputaciones y procesamientos no equivalen a condenas. No presupone culpabilidad. Este archivo no se sincroniza automáticamente.",
+  "cases": [
+    {
+      "id": "libra",
+      "name": "$LIBRA: Javier y Karina Milei",
+      "people": "Javier Milei, Karina Milei, Mauricio Novelli, Hayden Davis",
+      "group": "Presidencia",
+      "status_key": "sobreseimiento",
+      "status": "Sobreseimiento no firme; reapertura disputada",
+      "short": "Promoción presidencial del token $LIBRA y caída abrupta de su cotización.",
+      "detail": "El 23/10 el juez Martínez de Giorgi sobreseyó a once investigados, entre ellos Javier y Karina Milei. La Procuraduría de Investigaciones Administrativas (PIA) se presentó para impulsar la acción y cuestionó el cierre por pruebas pendientes. Taiano se opuso a la intervención de la PIA. Casación habilitó revisar la exclusión de querellantes, pero no anuló los sobreseimientos.",
+      "latest": "30/10: la PIA pidió continuar la investigación e impugnó el cierre. 04/11: Casación admitió revisar el apartamiento de querellantes. 11/11: el fiscal Taiano se opuso a que la PIA asuma la causa; decide el juez. No hay reapertura ni revocación firme del sobreseimiento comprobadas.",
+      "event_date": "2026-11-11",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "LA NACION, 11/11/2026: oposición de Taiano y revisión en Casación",
+          "url": "https://www.lanacion.com.ar/politica/taiano-rechazo-que-la-fiscalia-especializada-en-corrupcion-reabra-la-causa-libra-nid11112026/"
+        },
+        {
+          "title": "Infobae, 04/11/2026: revisión del apartamiento de querellantes",
+          "url": "https://www.infobae.com/judiciales/2026/11/04/la-camara-de-casacion-habilito-la-revision-de-los-sobreseimientos-dictados-en-la-causa-libra/"
+        },
+        {
+          "title": "Infobae, 11/11/2026: planteo de la PIA",
+          "url": "https://www.infobae.com/judiciales/2026/11/11/el-fiscal-taiano-se-pronuncio-en-contra-de-reabrir-la-causa-libra-y-que-la-pia-asuma-la-investigacion/"
+        },
+        {
+          "title": "LA NACION, apelación del 26/10",
+          "url": "https://www.lanacion.com.ar/politica/caso-libra-apelan-el-sobreseimiento-de-milei-con-durisimos-cuestionamientos-al-proceder-del-juez-y-nid26102026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "Atención: la Cámara de Casación revisa la legitimación de querellantes, no el fondo de la absolución. El planteo de PIA no es, por sí solo, una reapertura consumada.",
+      "origin": "Ambas",
+      "change_date": "2026-11-11",
+      "change_summary": "La PIA cuestionó el cierre; Taiano rechazó su intervención y Casación revisará la exclusión de querellantes."
+    },
+    {
+      "id": "andis-spagnuolo",
+      "name": "ANDIS: Diego Spagnuolo",
+      "people": "Diego Spagnuolo, otros exfuncionarios y proveedores",
+      "group": "ANDIS",
+      "status_key": "procesado",
+      "status": "Procesado; audios bajo peritaje controvertido",
+      "short": "Investigación por direccionamiento de contrataciones, coimas y sobreprecios en discapacidad.",
+      "detail": "La causa investiga presunto direccionamiento de contrataciones, coimas y sobreprecios. Los procesamientos previos no desaparecen por la controversia sobre los audios. Una pericia de Gendarmería detectó indicios técnicos de cortes o regrabaciones, pero no pudo atribuir o descartar concluyentemente la voz de Spagnuolo ni demostrar un uso de IA. La Fiscalía discutió las limitaciones de la pericia.",
+      "latest": "12/11/2026: se conoció el informe pericial de Gendarmería sobre audios atribuidos a Spagnuolo. No pudo identificar de forma concluyente su voz y señaló posibles alteraciones; esto no implica nulidad ni cierre automático del expediente. Persisten procesamientos y otras pruebas.",
+      "event_date": "2026-11-12",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "LA NACION, 12/11/2026: pericia Gendarmería y observaciones fiscales",
+          "url": "https://www.lanacion.com.ar/politica/caso-andis-el-peritaje-sobre-los-audios-habla-de-posibles-alteraciones-y-relativiza-lo-que-habia-nid12112026/"
+        },
+        {
+          "title": "TN, 12/11/2026: alcance y límites de la pericia",
+          "url": "https://tn.com.ar/politica/2026/11/12/causa-andis-la-pericia-de-gendarmeria-detecto-inconsistencias-en-los-audios-y-no-pudo-atribuirle-la-voz-a-diego-spagnuolo/"
+        },
+        {
+          "title": "Ministerio Público Fiscal, 21/10",
+          "url": "https://www.fiscales.gob.ar/corrupcion/pidieron-la-indagatoria-de-los-directivos-de-la-drogueria-suizo-argentina-por-tomar-el-control-sobre-la-andis/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "No afirmar que Gendarmería probó falsedad o clonación por IA. Tampoco atribuirle a Spagnuolo la voz con certeza forense. Las resoluciones sobre la causa siguen siendo judiciales.",
+      "origin": "Ambas",
+      "change_date": "2026-11-12",
+      "change_summary": "Pericia del 12/11: los audios no pudieron atribuirse concluyentemente a Spagnuolo; hallaron posibles cortes o regrabaciones."
+    },
+    {
+      "id": "andis-karina",
+      "name": "ANDIS: menciones a Karina y los Menem",
+      "people": "Karina Milei, Eduardo «Lule» Menem, Martín Menem",
+      "group": "ANDIS",
+      "status_key": "mencionado",
+      "status": "Menciones sin imputación acreditada; pericia discutida",
+      "short": "Audios atribuidos a Spagnuolo mencionaron supuestos retornos para personas del entorno presidencial.",
+      "detail": "Audios atribuidos a Diego Spagnuolo aludían a presuntos retornos del 3% para Karina Milei y a integrantes de la familia Menem. La pericia difundida el 12/11 no logró identificar de forma concluyente al hablante y detectó señales compatibles con edición o regrabación. Nada de ello prueba recepción de dinero ni convierte a las personas mencionadas en procesadas.",
+      "latest": "12/11/2026: Gendarmería presentó/conoció su pericia sobre los archivos; no pudo atribuir la voz de forma concluyente. No se corroboró en esta revisión un procesamiento formal de Karina Milei, Lule o Martín Menem por los dichos de esos audios.",
+      "event_date": "2026-11-12",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "LA NACION, 12/11/2026: informe pericial y audio que menciona a Karina",
+          "url": "https://www.lanacion.com.ar/politica/caso-andis-el-peritaje-sobre-los-audios-habla-de-posibles-alteraciones-y-relativiza-lo-que-habia-nid12112026/"
+        },
+        {
+          "title": "MPF: alcance de las indagatorias",
+          "url": "https://www.fiscales.gob.ar/corrupcion/pidieron-la-indagatoria-de-los-directivos-de-la-drogueria-suizo-argentina-por-tomar-el-control-sobre-la-andis/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "Diferenciar lo dicho en audios, su autenticidad discutida y la prueba judicial independiente sobre compras y contrataciones.",
+      "origin": "Ambas",
+      "change_date": "2026-11-12",
+      "change_summary": "Nueva pericia sobre los audios citados: no confirmó autoría, ni determinó que fueran falsificaciones con IA."
+    },
+    {
+      "id": "andis-suizo",
+      "name": "ANDIS: Suizo Argentina y Kovalivker",
+      "people": "Jonathan y Emmanuel Kovalivker, directivos de Suizo Argentina",
+      "group": "ANDIS",
+      "status_key": "indagatoria",
+      "status": "Directivos indagados; situación por resolver",
+      "short": "Presunto control empresarial de compras de medicamentos de ANDIS, con sobreprecios y competencia simulada.",
+      "detail": "Tras las indagatorias ordenadas por Lijo el 22/10, declararon en noviembre directivos y propietarios de Suizo Argentina, entre ellos Jonathan y Emmanuel Kovalivker. Presentaron escritos, rechazaron los cargos y solicitaron la nulidad y el levantamiento de la inhibición de bienes. El juez debe resolver la situación procesal de los nuevos indagados. Hay una agenda de declaraciones para otras firmas hasta fin de noviembre.",
+      "latest": "03-04/11/2026: se realizaron indagatorias de directivos y dueños de Suizo Argentina. Negaron las acusaciones mediante escritos. Las citaciones de otros acusados siguen con cronograma durante noviembre; sin procesamiento nuevo de los Kovalivker corroborado a esta fecha.",
+      "event_date": "2026-11-04",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "Infobae, 04/11/2026: indagatorias de los Kovalivker",
+          "url": "https://www.infobae.com/judiciales/2026/11/04/andis-indagaron-a-los-duenos-de-la-drogueria-suizo-argentina-y-dieron-su-version-de-los-hechos-por-escrito/"
+        },
+        {
+          "title": "Ámbito, 27/10/2026: calendario de citaciones e inhibiciones",
+          "url": "https://www.ambito.com/politica/andis-los-duenos-suizo-argentina-deberan-declarar-la-justicia-la-proxima-semana-n6336846"
+        },
+        {
+          "title": "TN, 22/10",
+          "url": "https://tn.com.ar/politica/2026/10/22/la-justicia-cito-a-indagatoria-a-los-duenos-de-la-drogueria-suizo-argentina-por-la-causa-de-presunta-corrupcion-en-la-andis/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "Las indagatorias no implican procesamiento. Las acusaciones fueron negadas por las defensas. No confundir este tramo con procesamientos previos a otros acusados.",
+      "origin": "Sol",
+      "change_date": "2026-11-04",
+      "change_summary": "Ya declararon los propietarios y directivos de la droguería; esperan definición procesal y siguen otras indagatorias."
+    },
+    {
+      "id": "menem-tech",
+      "name": "Martín Menem y Tech Security",
+      "people": "Martín Menem, familiares, Tech Security SRL",
+      "group": "Contrataciones",
+      "status_key": "controversia",
+      "status": "Contrato BNA; nuevas preguntas por visita papal",
+      "short": "Una empresa familiar de los Menem obtuvo un contrato de vigilancia con Banco Nación por casi $4.000 millones.",
+      "detail": "Tech Security, vinculada a familiares de Martín Menem, obtuvo en julio de 2025 una licitación pública del Banco Nación por $3.933 millones. Martín Menem había vendido sus cuotas sociales antes de asumir. Durante los eventos de la visita del papa León XIV se informó su participación en tareas de seguridad subcontratadas, que motivaron pedidos de explicaciones y denuncias contra responsables de contrataciones públicas. No hay evidencia verificada de que Martín Menem interviniera personalmente en esas adjudicaciones.",
+      "latest": "11/11/2026: se conocieron pedidos de información y denuncias por contrataciones del evento papal, incluidas referencias a Tech Security. La adjudicación del BNA de 2025 sigue registrada como licitación pública; no se confirmó procesamiento de Martín Menem.",
+      "event_date": "2026-11-11",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "LA NACION, 17/07/2025: licitación pública de Banco Nación",
+          "url": "https://www.lanacion.com.ar/politica/una-empresa-de-seguridad-privada-de-los-menem-se-alzo-con-una-licitacion-por-4000-millones-del-banco-nid17072025/"
+        },
+        {
+          "title": "Página/12, 11/11/2026: pedidos y denuncias por servicios papales",
+          "url": "https://www.pagina12.com.ar/2026/11/11/denuncias-penales-y-citaciones-al-congreso-por-el-escandalo-de-la-carpa-vip/"
+        },
+        {
+          "title": "LA NACION, 18/07/2025",
+          "url": "https://www.lanacion.com.ar/politica/tech-security-el-banco-nacion-dara-intervencion-a-la-oficina-anticorrupcion-en-el-proceso-nid18072025/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "La participación como proveedora es distinta de probar un direccionamiento. La investigación sobre la visita papal se muestra en una ficha separada.",
+      "origin": "Otra IA",
+      "change_date": "2026-11-11",
+      "change_summary": "Reapareció la empresa familiar en los cuestionamientos por los servicios de la visita papal."
+    },
+    {
+      "id": "papa-vip-contratos",
+      "name": "Visita del papa León XIV: carpa VIP y contratos",
+      "people": "Funcionarios nacionales y porteños; DF Entertainment; Tech Security; denunciante Marcela Pagano",
+      "group": "Contrataciones públicas",
+      "status_key": "denuncia",
+      "status": "Denuncias penales recientes; sin imputaciones confirmadas",
+      "short": "Cuestionamientos a un sector VIP y al procedimiento de contratación de servicios durante los eventos papales de noviembre de 2026.",
+      "detail": "Tras la misa del 09/11 en Palermo se cuestionaron el sector reservado y las adjudicaciones a proveedores. Chequeado documentó una contratación directa por $8.690 millones a DF Entertainment para la producción integral, no para la carpa solamente. La diputada Marcela Pagano denunció posibles irregularidades por la organización y la contratación de servicios; también se pidieron explicaciones parlamentarias. Se menciona a Tech Security como prestadora de seguridad, vinculada a familiares de Martín Menem. Nada de esto constituye una declaración judicial de ilegalidad.",
+      "latest": "11-12/11/2026: se presentaron denuncias y pedidos de informes. Las causas están en etapa inicial. No existe procesamiento o condena acreditada por estos hechos al corte.",
+      "event_date": "2026-11-12",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "Chequeado, 11/11/2026: verificación de montos y sector VIP",
+          "url": "https://chequeado.com/el-explicador/que-se-sabe-de-la-carpa-vip-en-la-misa-del-papa-leon-xiv-en-el-monumento-de-los-espanoles/"
+        },
+        {
+          "title": "Noticias Argentinas, 11/11/2026: denuncias presentadas",
+          "url": "https://noticiasargentinas.com/politica/judiciales/una-diputada-presento-una-denuncia-por-el-vip-en-la-misa-del-papa-leon-xiv_a6af4a59b72af9e905aac61f9"
+        },
+        {
+          "title": "LA NACION, 11/11/2026: respuesta del Gobierno",
+          "url": "https://www.lanacion.com.ar/politica/la-respuesta-oficial-del-gobierno-de-milei-sobre-la-carpa-vip-instalada-en-la-misa-del-papa-en-nid11112026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "La cifra de $8.690 millones corresponde a la producción integral. La polémica y la denuncia son hechos distintos de una irregularidad comprobada. No confundir con la contratación del BNA a Tech Security.",
+      "origin": "Incorporado 13/11/2026",
+      "change_date": "2026-11-12",
+      "change_summary": "Nueva ficha: denuncias por sector VIP y contrataciones de producción y seguridad en la visita papal."
+    },
+    {
+      "id": "espert",
+      "name": "José Luis Espert y Fred Machado",
+      "people": "José Luis Espert, Federico «Fred» Machado",
+      "group": "Entorno político",
+      "status_key": "procesado",
+      "status": "Procesamiento apelado (lavado)",
+      "short": "Transferencia de US$200.000 recibida por Espert en 2020 de una empresa vinculada a Fred Machado.",
+      "detail": "El caso tiene un nexo político con LLA, pero el pago ocurrió antes de la presidencia de Milei. El procesamiento no constituye condena.",
+      "latest": "22/10/2026: procesado por presunto lavado de activos. 27/10: Espert apeló y solicitó sobreseimiento, levantamiento del embargo de $1.000 millones y fin de la prohibición de salida del país. No hay revocación confirmada.",
+      "event_date": "2026-10-27",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "Infobae, 27/10/2026: apelación de Espert",
+          "url": "https://www.infobae.com/judiciales/2026/10/27/jose-luis-espert-apelo-su-procesamiento-por-lavado-de-dinero-y-pidio-su-sobreseimiento/"
+        },
+        {
+          "title": "LA NACION, 22/10",
+          "url": "https://www.lanacion.com.ar/politica/procesaron-a-jose-luis-espert-por-lavado-de-dinero-y-le-prohibieron-salir-del-pais-nid22102026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "El procesamiento no es una condena. El hecho investigado refiere a una transferencia de 2020, previa al gobierno de Milei.",
+      "origin": "Ambas",
+      "change_date": "2026-10-27",
+      "change_summary": "Espert apeló su procesamiento y pidió levantar las restricciones judiciales."
+    },
+    {
+      "id": "adorni-patrimonio",
+      "name": "Manuel Adorni: patrimonio",
+      "people": "Manuel Adorni",
+      "group": "Adorni",
+      "status_key": "investigacion",
+      "status": "Fiscal descarta sustento de enriquecimiento; pide investigar evasión",
+      "short": "Análisis patrimonial de Adorni; el fiscal pide traslado a Penal Económico por posible evasión tributaria.",
+      "detail": "El 06/11 Pollicita concluyó que la evidencia disponible no permite sostener enriquecimiento ilícito durante la función pública, ante el descargo sobre ganancias previas con Bitcoin; pidió remitir la investigación a la Justicia Penal Económica para examinar posibles omisiones tributarias de divisas y criptoactivos. Debe resolver el juez Ariel Lijo. El dictamen fiscal no es sobreseimiento ni cierre.",
+      "latest": "06/11/2026: el fiscal Pollicita pidió dejar de investigar enriquecimiento ilícito y derivar el expediente por eventual evasión fiscal. Hasta el corte no se verificó decisión definitiva del juez Lijo sobre la competencia. Adorni niega irregularidades.",
+      "event_date": "2026-11-06",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "Infobae, 06/11/2026: dictamen fiscal y posible evasión",
+          "url": "https://www.infobae.com/judiciales/2026/11/06/para-el-fiscal-gerardo-pollicita-no-hay-elementos-suficientes-para-sostener-que-manuel-adorni-se-enriquecio-ilicitamente/"
+        },
+        {
+          "title": "TN, 06/11/2026: no es sobreseimiento",
+          "url": "https://tn.com.ar/politica/2026/11/06/el-fiscal-considero-que-no-hay-elementos-para-acusar-a-adorni-por-enriquecimiento-ilicito-pero-pidio-investigar-posible-evasion/"
+        },
+        {
+          "title": "Chequeado, 27/06",
+          "url": "https://chequeado.com/el-explicador/declaracion-jurada-de-adorni-las-contradicciones-en-su-relato-sobre-ahorros-inversiones-en-bitcoin-y-bienes/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "No reducir el dictamen a “Adorni exonerado” ni afirmar que ya fue procesado por evasión: el fiscal pidió remisión y nuevas diligencias.",
+      "origin": "Ambas",
+      "change_date": "2026-11-06",
+      "change_summary": "Giro en la acusación: Pollicita no sostuvo enriquecimiento ilícito y pidió investigar presuntas irregularidades tributarias."
+    },
+    {
+      "id": "adorni-viajes",
+      "name": "Manuel Adorni: viajes",
+      "people": "Manuel Adorni y familia",
+      "group": "Adorni",
+      "status_key": "investigacion",
+      "status": "Controversia e investigación conexa",
+      "short": "Viajes privados y uso del avión presidencial con acompañantes generaron denuncias y pedidos de información.",
+      "detail": "Es necesario separar la denuncia por acompañantes del avión presidencial, desestimada según el relevamiento previo, de preguntas sobre gastos de vuelos privados incorporadas al análisis patrimonial.",
+      "latest": "Últimos antecedentes revisados: análisis de los viajes privados en la causa patrimonial; no se infiere delito de la mera realización de un viaje.",
+      "event_date": "2026-06-27",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "Chequeado, 27/06",
+          "url": "https://chequeado.com/el-explicador/declaracion-jurada-de-adorni-las-contradicciones-en-su-relato-sobre-ahorros-inversiones-en-bitcoin-y-bienes/"
+        }
+      ],
+      "quality": "Parcial",
+      "note": "Falta fuente primaria reciente para la situación separada de cada denuncia.",
+      "origin": "Sol"
+    },
+    {
+      "id": "adorni-contratos",
+      "name": "Adorni: Grandio y Angeletti",
+      "people": "Manuel Adorni, Marcelo Grandio, Bettina Angeletti",
+      "group": "Adorni",
+      "status_key": "investigacion",
+      "status": "Medidas de prueba",
+      "short": "Contratos de productoras y consultoras vinculadas al entorno de Adorni con empresas u organismos estatales.",
+      "detail": "La Justicia requirió documentación sobre +BE, consultora de Angeletti. También se examinan contratos entre la productora Imhouse y medios públicos. Tener contratos no prueba por sí solo favoritismo.",
+      "latest": "11/05/2026: pedidos judiciales de contratos y facturas vinculados a la consultora de la esposa.",
+      "event_date": "2026-05-11",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "Telefe, 11/05",
+          "url": "https://cordoba.mitelefe.com/politica-y-economia/caso-adorni-la-justicia-pidio-documentos-sobre-contratos-ligados-a-su-esposa-pid2552148"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Sol"
+    },
+    {
+      "id": "francisco-adorni",
+      "name": "Francisco Adorni: declaraciones juradas",
+      "people": "Francisco Adorni",
+      "group": "Adorni",
+      "status_key": "indagatoria",
+      "status": "Indagatoria solicitada",
+      "short": "Presuntas omisiones en declaraciones patrimoniales del funcionario y hermano de Manuel Adorni.",
+      "detail": "El fiscal Guillermo Marijuan pidió que se lo cite por presunta omisión maliciosa o falsedad en declaraciones. El juez debía resolver sobre el pedido.",
+      "latest": "18/06/2026: pedido fiscal de indagatoria. No se corroboró resolución posterior al corte.",
+      "event_date": "2026-06-18",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "LA NACION, 18/06",
+          "url": "https://www.lanacion.com.ar/politica/el-fiscal-marijuan-pidio-la-indagatoria-de-francisco-adorni-el-hermano-del-jefe-de-gabinete-nid18062026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Sol"
+    },
+    {
+      "id": "vazquez",
+      "name": "Andrés Vázquez: propiedades en Miami",
+      "people": "Andrés Vázquez (ARCA)",
+      "group": "Patrimonio",
+      "status_key": "investigacion",
+      "status": "Investigación abierta",
+      "short": "Se investiga la omisión de inmuebles y sociedades vinculadas a Florida en declaraciones juradas.",
+      "detail": "Documentos periodísticos identificaron tres propiedades en EE.UU. que no figuraban en declaraciones ante OA. La PIA solicitó indagatoria y existieron diligencias en la investigación.",
+      "latest": "27/08/2026: nueva declaración de bienes y continuidad de cuestionamientos sobre inmuebles omitidos.",
+      "event_date": "2026-08-27",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "LA NACION, 27/08",
+          "url": "https://www.lanacion.com.ar/politica/el-titular-de-la-arca-declaro-383-millones-mas-de-patrimonio-y-sigue-sin-informar-sus-propiedades-en-nid27082026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "frugoni",
+      "name": "Carlos Frugoni: bienes no declarados",
+      "people": "Carlos María Frugoni",
+      "group": "Patrimonio",
+      "status_key": "denuncia",
+      "status": "Denuncia / salida del cargo",
+      "short": "Exfuncionario de Infraestructura que reconoció la omisión de propiedades en EE.UU.",
+      "detail": "Se informaron al menos siete propiedades y sociedades en EE.UU. no incorporadas a declaraciones. Frugoni admitió errores; existen denuncias judiciales.",
+      "latest": "Abril de 2026: salida del Ministerio de Economía y presentación de denuncias; sin resolución judicial definitiva posterior corroborada.",
+      "event_date": "2026-04-28",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "Infobae, 23/04",
+          "url": "https://www.infobae.com/judiciales/2026/04/23/denunciaron-a-carlos-frugoni-funcionario-del-ministerio-de-economia-tiene-departamentos-y-sociedades-sin-declarar-en-eeuu/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "reidel",
+      "name": "Demian Reidel: Nucleoeléctrica",
+      "people": "Demian Reidel y usuarios de tarjetas corporativas",
+      "group": "Empresas públicas",
+      "status_key": "investigacion",
+      "status": "Imputado / investigación",
+      "short": "Investigación por gastos realizados con tarjetas corporativas de Nucleoeléctrica.",
+      "detail": "La fiscalía pidió identificar usuarios y consumos de las tarjetas de la sociedad estatal. Reidel sostuvo que no realizó los gastos cuestionados. No corresponde atribuirle individualmente todos los consumos reportados.",
+      "latest": "08/05/2026: impulso fiscal de la investigación. Sin procesamiento posterior corroborado.",
+      "event_date": "2026-05-08",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "LA NACION, 08/05",
+          "url": "https://www.lanacion.com.ar/politica/imputaron-a-demian-reidel-por-los-gastos-con-la-tarjeta-corporativa-de-nucleoelectrica-nid08052026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "leal",
+      "name": "Facundo Leal: ARSAT",
+      "people": "Facundo Leal, Gerardo Boschín",
+      "group": "Empresas públicas",
+      "status_key": "procesado",
+      "status": "Procesado (dos causas)",
+      "short": "Presunta trama de contratos direccionados en ARSAT; hallazgo de efectivo y drogas en allanamientos.",
+      "detail": "El procesamiento por contrataciones se vincula con operaciones que abarcarían 2020 a 2024, por lo que parte de los hechos son anteriores al gobierno de Milei. Hay una causa separada sobre estupefacientes.",
+      "latest": "15/10/2026: procesamiento por corrupción y embargo de $3.000 millones; causa de drogas con procesamiento firme y preventiva domiciliaria.",
+      "event_date": "2026-10-15",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "Infobae, 15/10",
+          "url": "https://www.infobae.com/judiciales/2026/10/15/procesaron-a-dos-exfuncionarios-de-arsat-por-una-presunta-trama-de-corrupcion-y-los-embargaron-por-3000-millones/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "creditos-bna",
+      "name": "Créditos hipotecarios del Banco Nación",
+      "people": "Funcionarios y legisladores que recibieron créditos",
+      "group": "Contrataciones",
+      "status_key": "investigacion",
+      "status": "Investigación unificada",
+      "short": "Se investiga si hubo trato preferencial en créditos hipotecarios a personas vinculadas con el oficialismo.",
+      "detail": "El banco niega preferencias y afirma que se respetaron las reglas vigentes. La investigación busca corroborar condiciones, legajos y procedimientos, no cuestiona automáticamente todo crédito a funcionarios.",
+      "latest": "12/05/2026: Cámara resolvió que la causa quede unificada en el juzgado de María Eugenia Capuchetti.",
+      "event_date": "2026-05-12",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "Infobae, 12/05",
+          "url": "https://www.infobae.com/judiciales/2026/05/12/la-causa-por-los-creditos-del-banco-nacion-quedara-en-manos-de-la-jueza-capuchetti/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "sisvial",
+      "name": "SISVIAL: fondos viales",
+      "people": "Javier Milei, Luis Caputo y responsables de fondos",
+      "group": "Fondos públicos",
+      "status_key": "investigacion",
+      "status": "Investigación / querellante",
+      "short": "Presunto uso financiero de dinero con afectación específica para infraestructura vial.",
+      "detail": "La denuncia plantea que recursos del tributo a los combustibles no se aplicaron a obras en la medida prevista y se invirtieron en instrumentos financieros. Es una hipótesis judicial, no delito probado.",
+      "latest": "23/08/2026: La Rioja se presentó como querellante según información publicada; sin condena verificada.",
+      "event_date": "2026-08-23",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "LA NACION, 23/08",
+          "url": "https://www.lanacion.com.ar/politica/la-rioja-pidio-ser-querellante-contra-milei-por-el-desvio-de-fondos-viales-nid23082026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "hidrico",
+      "name": "Fondo de Infraestructura Hídrica",
+      "people": "Javier Milei, Luis Caputo",
+      "group": "Fondos públicos",
+      "status_key": "denuncia",
+      "status": "Denuncia reciente",
+      "short": "Denuncia de la provincia de Buenos Aires por presunto desvío o uso de recursos específicos para obras hídricas.",
+      "detail": "El escrito bonaerense habla de subejecución de obras e inversiones en instrumentos de deuda con recursos del fondo; esas imputaciones deben demostrarse judicialmente.",
+      "latest": "21/10/2026: denuncia presentada ante la Justicia federal de San Martín. Etapa inicial.",
+      "event_date": "2026-10-21",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "LA NACION, 21/10",
+          "url": "https://www.lanacion.com.ar/politica/kicillof-demando-penalmente-a-milei-y-a-caputo-ante-la-justicia-federal-por-el-fondo-hidrico-nid21102026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "valijas",
+      "name": "Valijas del avión de Scatturice",
+      "people": "Leonardo Scatturice y personal aduanero",
+      "group": "Contrataciones",
+      "status_key": "archivado",
+      "status": "Expediente archivado",
+      "short": "Diez bultos ingresaron en avión privado sin revisión aduanera habitual.",
+      "detail": "El episodio originó una investigación sobre omisiones en controles de equipaje. El archivo del expediente no equivale a una condena ni permite atribuir contrabando sin pruebas.",
+      "latest": "02/09/2026: expediente archivado por juez del fuero penal económico.",
+      "event_date": "2026-09-02",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "LA NACION, 02/09",
+          "url": "https://www.lanacion.com.ar/politica/en-su-ultimo-dia-como-juez-en-lo-penal-economico-yadarola-archivo-el-caso-del-avion-de-scaturicce-nid02092026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "side-scatturice",
+      "name": "SIDE, Santiago Caputo y Tactic",
+      "people": "Santiago Caputo, Leonardo Scatturice, SIDE",
+      "group": "Contrataciones",
+      "status_key": "denuncia",
+      "status": "Denuncia sin condena",
+      "short": "Cuestionamientos por contrato de asesoría/lobby entre SIDE y Tactic Global, ligado a Scatturice.",
+      "detail": "Se denunció posible incompatibilidad o tráfico de influencias. El contrato se extinguió y se informó que no hubo pagos declarados. Esto no acredita por sí mismo ilicitud de la contratación.",
+      "latest": "10/09/2026: se informó finalización del contrato sin pagos declarados.",
+      "event_date": "2026-09-10",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "LA NACION, 10/09",
+          "url": "https://www.lanacion.com.ar/politica/sorpresivo-final-para-el-contrato-entre-la-side-y-una-empresa-de-leonardo-scatturice-nid09092026/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "pettovello-alimentos",
+      "name": "Pettovello: alimentos almacenados",
+      "people": "Sandra Pettovello, Ministerio de Capital Humano",
+      "group": "Capital Humano",
+      "status_key": "judicial",
+      "status": "Órdenes judiciales",
+      "short": "Alimentos en depósitos estatales sin distribuir durante 2024 pese a necesidades de comedores.",
+      "detail": "La Justicia ordenó medidas de distribución. La existencia de esa intervención judicial no significa que la ministra haya recibido condena por un delito.",
+      "latest": "2024: órdenes de distribución y rechazo de un recurso del ministerio. No se verificó aquí un pronunciamiento penal definitivo posterior.",
+      "event_date": "2024-08-16",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "LA NACION, 16/08/2024",
+          "url": "https://www.lanacion.com.ar/politica/la-justicia-rechazo-el-pedido-de-capital-humano-para-llevar-ante-la-corte-el-fallo-que-obliga-a-nid16082024/"
+        }
+      ],
+      "quality": "Parcial",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "oei",
+      "name": "Capital Humano: convenios OEI",
+      "people": "Sandra Pettovello, Pablo de la Torre, otros",
+      "group": "Capital Humano",
+      "status_key": "denuncia",
+      "status": "Denuncias / investigación",
+      "short": "Denuncias sobre contratación de consultores y presuntos sobresueldos mediante convenios con OEI.",
+      "detail": "Hubo declaraciones de funcionarios e investigaciones por posibles desvíos. Debe diferenciarse la denuncia contra la ministra de una responsabilidad ya establecida.",
+      "latest": "Denuncias originadas en 2024 y nuevas referencias periodísticas en 2026; sin resolución definitiva comprobada.",
+      "event_date": "2026-08-02",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "La Política Online, 02/08",
+          "url": "https://www.lapoliticaonline.com/politica/291533/"
+        }
+      ],
+      "quality": "Parcial",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "pami-aportes",
+      "name": "PAMI y ANSES: aportes partidarios",
+      "people": "Referentes territoriales y personal de organismos",
+      "group": "Entorno político",
+      "status_key": "denuncia",
+      "status": "Expedientes por jurisdicción",
+      "short": "Denuncias por presunta exigencia de aportes salariales destinados a actividades partidarias.",
+      "detail": "Se reportaron casos en distintas provincias; no representan un único expediente nacional. Su suerte judicial puede variar entre jurisdicciones.",
+      "latest": "Estado judicial heterogéneo. La desestimación mencionada para Chaco en la otra lista no fue corroborada independientemente en esta revisión.",
+      "event_date": "2026-10-27",
+      "review_date": "2026-10-27",
+      "sources": [],
+      "quality": "Pendiente de verificar",
+      "note": "Revisar expedientes provincia por provincia antes de afirmar un estado uniforme.",
+      "origin": "Ambas"
+    },
+    {
+      "id": "faro",
+      "name": "Fundación Faro: donantes y gastos",
+      "people": "Fundación Faro, Agustín Laje",
+      "group": "Transparencia",
+      "status_key": "transparencia",
+      "status": "Transparencia financiera; sin condena",
+      "short": "Cuestionamientos sobre transparencia del origen de fondos y gastos en publicidad política.",
+      "detail": "La fundación ligada a Agustín Laje declaró cerca de $5.000 millones de donaciones en 2024. La IGJ recibió la nómina de grandes aportantes, pero no la divulgó alegando confidencialidad antilavado. Un reporte del 31/10/2026 examinó aumentos de recaudación y gastos en producción de contenidos. Los movimientos declarados no prueban por sí mismos lavado o tráfico de influencias.",
+      "latest": "31/10/2026: LA NACION publicó una revisión del balance y movimientos financieros de Fundación Faro. Sigue sin establecerse en esta revisión un avance procesal penal relevante ni condena.",
+      "event_date": "2026-10-31",
+      "review_date": "2026-11-13",
+      "sources": [
+        {
+          "title": "LA NACION, 31/10/2026: ingresos y gastos de Fundación Faro",
+          "url": "https://www.lanacion.com.ar/politica/fundacion-faro-el-think-tank-libertario-que-incremento-sus-ingresos-a-partir-de-donaciones-y-cursos-nid31102026/"
+        },
+        {
+          "title": "Chequeado, 11/06/2026: donantes informados a IGJ",
+          "url": "https://chequeado.com/investigaciones/quienes-financian-a-fundacion-faro-la-igj-tiene-el-listado-de-donantes-pero-dice-que-no-puede-divulgarlo-por-la-ley-antilavado/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "El reporte de balances es información financiera; no confundir incremento de ingresos con indicio penal demostrado.",
+      "origin": "Ambas",
+      "change_date": "2026-10-31",
+      "change_summary": "Nuevo análisis documental de su recaudación y gastos difundido el 31/10."
+    },
+    {
+      "id": "ypf-pauta",
+      "name": "YPF: publicidad y acceso a información",
+      "people": "YPF, Chequeado, Poder Ciudadano",
+      "group": "Transparencia",
+      "status_key": "transparencia",
+      "status": "Litigio de información",
+      "short": "La petrolera con mayoría estatal no divulgó la distribución de sus gastos publicitarios.",
+      "detail": "Chequeado verificó $128.838 millones de gastos de publicidad en 2025. El reclamo para conocer beneficiarios llegó a la Corte Suprema. No es por sí una causa penal por corrupción.",
+      "latest": "Junio/agosto de 2026: reclamo de acceso a información ante la Corte.",
+      "event_date": "2026-08-26",
+      "review_date": "2026-10-27",
+      "sources": [
+        {
+          "title": "Chequeado, 26/08",
+          "url": "https://chequeado.com/investigaciones/fundacion-faro-ypf-y-libra-el-rastro-incompleto-del-dinero-y-las-conexiones-con-la-casa-rosada/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "",
+      "origin": "Ambas"
+    },
+    {
+      "id": "candidaturas",
+      "name": "LLA: denuncias por venta de candidaturas",
+      "people": "Dirigentes de La Libertad Avanza bonaerense",
+      "group": "Entorno político",
+      "status_key": "denuncia",
+      "status": "Denuncia electoral / penal",
+      "short": "Denuncias de presuntos pedidos de dinero para integrar listas electorales.",
+      "detail": "Las imputaciones formuladas por dirigentes políticos requieren documentación del expediente. No se debe presentar la apertura de una investigación como prueba de venta de candidaturas.",
+      "latest": "2025: denuncias difundidas. No se pudo verificar en esta revisión la afirmación sobre orden judicial de octubre de 2026.",
+      "event_date": "2025-07-01",
+      "review_date": "2026-10-27",
+      "sources": [],
+      "quality": "Pendiente de verificar",
+      "note": "La supuesta resolución de octubre de 2026 de la otra IA requiere cotejo con fuente judicial o periodística identificable.",
+      "origin": "Ambas"
+    }
+  ],
+  "previous_cutoff": "2026-10-27",
+  "methodology": "Se conserva la base anterior y se agregan novedades fechadas con fuentes identificadas. Se separan causas judiciales, investigaciones y controversias. No se interpretan ausencias de noticias como cierres de expedientes.",
+  "changelog": [
+    {
+      "id": "papa-vip-contratos",
+      "name": "Visita del papa León XIV: carpa VIP y contratos",
+      "date": "2026-11-12",
+      "summary": "Nueva ficha: denuncias por sector VIP y contrataciones de producción y seguridad en la visita papal."
+    },
+    {
+      "id": "andis-karina",
+      "name": "ANDIS: menciones a Karina y los Menem",
+      "date": "2026-11-12",
+      "summary": "Nueva pericia sobre los audios citados: no confirmó autoría, ni determinó que fueran falsificaciones con IA."
+    },
+    {
+      "id": "andis-spagnuolo",
+      "name": "ANDIS: Diego Spagnuolo",
+      "date": "2026-11-12",
+      "summary": "Pericia del 12/11: los audios no pudieron atribuirse concluyentemente a Spagnuolo; hallaron posibles cortes o regrabaciones."
+    },
+    {
+      "id": "menem-tech",
+      "name": "Martín Menem y Tech Security",
+      "date": "2026-11-11",
+      "summary": "Reapareció la empresa familiar en los cuestionamientos por los servicios de la visita papal."
+    },
+    {
+      "id": "libra",
+      "name": "$LIBRA: Javier y Karina Milei",
+      "date": "2026-11-11",
+      "summary": "La PIA cuestionó el cierre; Taiano rechazó su intervención y Casación revisará la exclusión de querellantes."
+    },
+    {
+      "id": "adorni-patrimonio",
+      "name": "Manuel Adorni: patrimonio",
+      "date": "2026-11-06",
+      "summary": "Giro en la acusación: Pollicita no sostuvo enriquecimiento ilícito y pidió investigar presuntas irregularidades tributarias."
+    },
+    {
+      "id": "andis-suizo",
+      "name": "ANDIS: Suizo Argentina y Kovalivker",
+      "date": "2026-11-04",
+      "summary": "Ya declararon los propietarios y directivos de la droguería; esperan definición procesal y siguen otras indagatorias."
+    },
+    {
+      "id": "faro",
+      "name": "Fundación Faro: donantes y gastos",
+      "date": "2026-10-31",
+      "summary": "Nuevo análisis documental de su recaudación y gastos difundido el 31/10."
+    },
+    {
+      "id": "espert",
+      "name": "José Luis Espert y Fred Machado",
+      "date": "2026-10-27",
+      "summary": "Espert apeló su procesamiento y pidió levantar las restricciones judiciales."
+    }
+  ]
+}</script>
+<script>
+(()=>{'use strict';
+const seed=JSON.parse(document.getElementById('seed').textContent), STORE='observatorio_milei_hugo_v2_20261113';let data=seed.cases.map(x=>JSON.parse(JSON.stringify(x)));let chosen='libra',editing=null;const $=x=>document.getElementById(x);const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));const today=()=>new Date().toLocaleDateString('en-CA');
+try{const s=localStorage.getItem(STORE);if(s){const parsed=JSON.parse(s);if(Array.isArray(parsed.cases)&&parsed.cases.length)data=parsed.cases;$('localState').textContent='Con cambios guardados en este navegador';}}catch(e){console.warn('No se pudo recuperar datos locales',e)}
+function persist(){try{localStorage.setItem(STORE,JSON.stringify({version:'2.0',updated:today(),cases:data}));$('localState').textContent='Cambios guardados en este navegador';}catch(e){notify('No se pudo guardar en el navegador: exportá el archivo JSON.')}}
+function notify(s){$('toast').textContent=s;$('toast').style.display='block';clearTimeout(notify.timer);notify.timer=setTimeout(()=>$('toast').style.display='none',3300)}
+function statusClass(c){return ['procesado','indagatoria','sobreseimiento','archivado','investigacion','denuncia','transparencia','controversia','judicial','mencionado'].includes(c.status_key)?c.status_key:'controversia'}
+function rebuildGroups(){let old=$('filterGroup').value;let groups=[...new Set(data.map(x=>x.group).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'));$('filterGroup').innerHTML='<option value="all">Todas las áreas</option>'+groups.map(g=>`<option value="${esc(g)}">${esc(g)}</option>`).join('');$('filterGroup').value=groups.includes(old)?old:'all'}
+function filtered(){let q=$('search').value.toLocaleLowerCase('es'),g=$('filterGroup').value,st=$('filterStatus').value;return data.filter(c=>{let hay=[c.name,c.people,c.short,c.detail,c.status,c.latest].join(' ').toLocaleLowerCase('es');let okSt=st==='all'||(st==='novedad'?Boolean(c.change_date):st==='resto'?!['procesado','indagatoria','investigacion','denuncia','sobreseimiento','archivado'].includes(c.status_key):c.status_key===st);return hay.includes(q)&&(g==='all'||c.group===g)&&okSt})}
+function metrics(){$('countTotal').textContent=data.length;$('countProc').textContent=data.filter(c=>c.status_key==='procesado').length;$('countInvest').textContent=data.filter(c=>['indagatoria','investigacion','denuncia'].includes(c.status_key)).length;$('countReview').textContent=data.filter(c=>c.quality!=='Verificado').length}
+function drawList(){const items=filtered();$('shownCount').textContent=items.length+' resultados';$('cases').innerHTML=items.length?items.map(c=>`<button class="case ${c.id===chosen?'on':''}" data-id="${esc(c.id)}" type="button"><span><span class="case-name">${esc(c.name)}${c.change_date?'<span class="upflag">ACTUALIZADO</span>':''}</span><span class="case-sub">${esc(c.status)} · ${esc(c.group)}</span></span><span class="chev">›</span></button>`).join(''):'<div class="blank">No hay casos que coincidan con los filtros.</div>';[...$('cases').querySelectorAll('.case')].forEach(b=>b.addEventListener('click',()=>{chosen=b.dataset.id;drawList();drawDetail()}))}
+function newsURL(c){return 'https://news.google.com/search?q='+encodeURIComponent(c.name+' Argentina causa judicial')+'&hl=es-419&gl=AR&ceid=AR:es-419'}
+function drawDetail(){const c=data.find(x=>x.id===chosen);if(!c){$('detail').innerHTML='<div class="blank">Seleccioná un caso.</div>';return}let src=(c.sources||[]).filter(s=>/^https?:\/\//.test(s.url)).map(s=>`<a class="source" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">↗ ${esc(s.title||'Fuente')}</a>`).join('');$('detail').innerHTML=`<div class="eyebrow">${esc(c.group)} · ${esc(c.people)}</div><h2>${esc(c.name)}</h2><div class="chips"><span class="chip ${statusClass(c)}">${esc(c.status)}</span><span class="chip">Revisión: ${esc(c.quality)}</span>${c.change_date?'<span class="chip">Novedad '+esc(c.change_date)+'</span>':''}</div><div class="sec"><h3>De qué se trata</h3><p class="focus">${esc(c.short)}</p></div><div class="sec"><h3>Contexto</h3><p>${esc(c.detail)}</p></div><div class="sec"><h3>Último movimiento documentado</h3><div class="callout"><small>${esc(c.event_date||'Fecha pendiente')} · corte documental 13/11/2026</small><p>${esc(c.latest)}</p></div></div>${c.change_date?`<div class="sec"><h3>Qué cambió desde la versión anterior</h3><p>${esc(c.change_summary||'Novedad documentada')}</p></div>`:''}${c.note?`<div class="sec"><div class="note">⚠ ${esc(c.note)}</div></div>`:''}<div class="sec"><h3>Fuentes verificables</h3><div class="sources">${src||'<span class="stamp">Sin fuente puntual comprobada todavía. Requiere revisión.</span>'}</div><div class="stamp" style="margin-top:8px">Las noticias nuevas deben cotejarse con la resolución judicial cuando esté disponible.</div></div><div class="actions"><button class="btn primary" id="editBtn">✎ Editar esta ficha</button><a class="btn" target="_blank" rel="noopener noreferrer" href="${esc(newsURL(c))}" style="text-decoration:none">↗ Buscar novedades</a><button class="btn" id="promptBtn">⧉ Preparar consulta</button><button class="btn danger" id="removeBtn">Quitar ficha</button></div>`;$('editBtn').onclick=()=>openEdit(c.id);$('promptBtn').onclick=()=>copyPrompt(c);$('removeBtn').onclick=()=>{if(confirm('¿Querés quitar esta ficha del registro? Podés recuperarla restableciendo datos iniciales o importando un respaldo.')){data=data.filter(x=>x.id!==c.id);chosen=data[0]?.id||null;persist();refresh()}}}
+function refresh(){rebuildGroups();metrics();drawList();drawDetail()}
+const fields={'Name':'name','People':'people','Group':'group','StatusKey':'status_key','Status':'status','Short':'short','Detail':'detail','Latest':'latest','Date':'event_date','Quality':'quality','Note':'note'};
+function openEdit(id){editing=id||null;const c=data.find(x=>x.id===id)||{name:'',people:'',group:'Otros',status_key:'denuncia',status:'Denuncia / información pendiente',short:'',detail:'',latest:'',event_date:today(),quality:'Pendiente de verificar',note:'',sources:[]};$('editTitle').textContent=id?'Editar ficha':'Agregar caso';for(const [k,v] of Object.entries(fields))$('f'+k).value=c[v]??'';$('fSrc').value=c.sources?.[0]?.url||'';$('fSrcTitle').value=c.sources?.[0]?.title||'';$('modalCover').classList.add('show');$('fName').focus()}
+function closeEdit(){$('modalCover').classList.remove('show');editing=null}
+$('editForm').onsubmit=e=>{e.preventDefault();const prev=data.find(x=>x.id===editing);const rec=prev?JSON.parse(JSON.stringify(prev)):{id:'nuevo-'+Date.now(),origin:'Agregado por usuario'};for(const [k,v] of Object.entries(fields))rec[v]=$('f'+k).value.trim();const url=$('fSrc').value.trim();if(url&&!/^https?:\/\//i.test(url)){notify('La URL debe comenzar por https:// o http://');return}rec.sources=url?[{url,title:$('fSrcTitle').value.trim()||'Fuente agregada'},...(prev?.sources||[]).filter(x=>x.url!==url)]:[];rec.review_date=today();rec.change_date=today();rec.change_summary='Edición manual: revisá el detalle y la fuente principal.';if(prev){data[data.findIndex(x=>x.id===editing)]=rec}else data.unshift(rec);chosen=rec.id;persist();closeEdit();refresh();notify('Ficha guardada')};
+$('cancelEdit').onclick=closeEdit;$('modalCover').onclick=e=>{if(e.target===$('modalCover'))closeEdit()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeEdit()});$('newBtn').onclick=()=>openEdit(null);$('search').oninput=drawList;$('filterGroup').onchange=drawList;$('filterStatus').onchange=drawList;
+function download(text,name,type){const b=new Blob([text],{type});const url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),500)}
+$('exportBtn').onclick=()=>{download(JSON.stringify({version:'2.0',updated:today(),cases:data},null,2),'observatorio-milei-'+today()+'.json','application/json');notify('Copia JSON generada. Guardala como respaldo.')};$('importBtn').onclick=()=>$('fileImport').click();$('fileImport').onchange=async e=>{let file=e.target.files?.[0];if(!file)return;try{const obj=JSON.parse(await file.text());if(!Array.isArray(obj.cases)||!obj.cases.every(c=>typeof c.id==='string'&&typeof c.name==='string'))throw Error('El JSON no contiene fichas válidas');if(!confirm('¿Importar '+obj.cases.length+' fichas? Esto reemplaza las que ves ahora.'))return;data=obj.cases;chosen=data[0]?.id||null;persist();refresh();notify('Datos importados correctamente')}catch(err){notify('No se pudo importar: '+err.message)}finally{e.target.value=''}};
+async function copyPrompt(c){let msg=`Actualizá al día de hoy el caso judicial/político argentino "${c.name}". Revisá fuentes periodísticas confiables y, si existen, resoluciones judiciales. Estado actualmente anotado: ${c.status}. Última novedad: ${c.latest} (${c.event_date}). Separá hechos verificados de denuncias y afirmaciones sin sustento. Devolveme: 1) estado actualizado preciso, 2) cambios desde esa fecha, 3) fuentes con URLs y fecha, 4) un texto breve para pegar en la ficha del observatorio.`;try{await navigator.clipboard.writeText(msg);notify('Pedido copiado. Pegalo en ChatGPT para pedir la actualización.')}catch(e){let t=document.createElement('textarea');t.value=msg;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();notify('Pedido listo para pegar en ChatGPT.')}}
+refresh();
+})();
+</script></body></html>

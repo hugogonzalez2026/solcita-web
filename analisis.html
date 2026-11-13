@@ -71,6 +71,7 @@
           <button type="button" class="sample" data-symbol="ETH" data-type="crypto">Ξ ETH</button>
           <button type="button" class="sample" data-symbol="SOL" data-type="crypto">◎ SOL</button>
           <button type="button" class="sample" data-symbol="DOT" data-type="crypto">◈ DOT</button>
+          <button type="button" class="sample" data-symbol="PAXG" data-type="crypto">🟡 PAXG</button>
           <button type="button" class="sample" data-symbol="AAPL" data-type="equity">AAPL</button>
           <button type="button" class="sample" data-symbol="MOLA.BA" data-type="equity">MOLA.BA</button>
           <button type="button" class="sample" data-symbol="IVV" data-type="equity">IVV</button>
@@ -125,6 +126,7 @@
         ETH:{id:"ethereum",name:"Ethereum",kraken:"ETHUSD"},
         SOL:{id:"solana",name:"Solana",kraken:"SOLUSD"},
         DOT:{id:"polkadot",name:"Polkadot",kraken:"DOTUSD"},
+        PAXG:{id:"pax-gold",name:"PAX Gold (oro tokenizado)",kraken:"PAXGUSD"},
         ADA:{id:"cardano",name:"Cardano",kraken:"ADAUSD"},
         XRP:{id:"ripple",name:"XRP",kraken:"XRPUSD"},
         LTC:{id:"litecoin",name:"Litecoin",kraken:"LTCUSD"},
@@ -230,7 +232,7 @@
       }
       async function crypto(ticker){
         const conf=CRYPTO[ticker];
-        if(!conf)throw new Error("Criptomoneda sin identificación inequívoca. Por ahora probá BTC, ETH, SOL, DOT, ADA, XRP, LINK, LTC u otra de la lista soportada.");
+        if(!conf)throw new Error("Criptomoneda sin identificación inequívoca. Por ahora probá BTC, ETH, PAXG, SOL, DOT, ADA, XRP, LINK, LTC u otra de la lista soportada.");
         let market=null,benchmark=null,series=[],source="CoinGecko",marketError="";
         try{
           const other=conf.id==="bitcoin"?"ethereum":"bitcoin";
@@ -259,7 +261,7 @@
             d7:Number.isFinite(market.price_change_percentage_7d_in_currency)?market.price_change_percentage_7d_in_currency:null,
             d30:Number.isFinite(market.price_change_percentage_30d_in_currency)?market.price_change_percentage_30d_in_currency:null,
             benchmark:benchmark?{name:benchmark.symbol.toUpperCase(),d30:benchmark.price_change_percentage_30d_in_currency}:null,
-            series,periods:365,sourceNote:"Datos globales agregados por CoinGecko; precios indicativos. Histórico de 90 días si la API lo permite."
+            series,periods:365,sourceNote:"Datos globales agregados por CoinGecko; precios indicativos. Histórico de 90 días si la API lo permite."+(ticker==="PAXG"?" PAXG sigue al oro, pero incorpora riesgos de emisor, custodia, rescate y desviación respecto del metal.":"")
           };
         }
         // Kraken fallback: no market-cap or fundamental metrics are guessed.
@@ -283,7 +285,7 @@
           kind:"crypto",ticker,realTicker:ticker==="XBT"?"BTC":ticker,name:conf.name,
           currency:"USD",source:"Kraken (respaldo)",url:"https://www.kraken.com/prices",
           updatedAt:Date.now(),timeType:"consulted",current:price,dayChange:valid(open)?100*(price/open-1):null,
-          series,periods:365,sourceNote:"CoinGecko no respondió ("+safeText(marketError,75)+"). Respaldo Kraken: variación aproximada desde la apertura del día del exchange; no es una variación móvil de 24 h. No hay datos de capitalización. Histórico diario Kraken si está disponible."
+          series,periods:365,sourceNote:"CoinGecko no respondió ("+safeText(marketError,75)+"). Respaldo Kraken: variación aproximada desde la apertura del día del exchange; no es una variación móvil de 24 h. No hay datos de capitalización. Histórico diario Kraken si está disponible."+(ticker==="PAXG"?" Oro tokenizado: verificar custodia, emisor y paridad con oro.":"")
         };
       }
       async function equity(ticker){

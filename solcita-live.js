@@ -5,7 +5,7 @@
   const msg=document.getElementById("debian-market-message");
   if(!holder || !msg)return;
 
-  const assets=new Set(["BTC","ETH","SOL","DOT"]);
+  const assets=new Set(["BTC","ETH","SOL","DOT","PAXG"]);
   const quotes=new Set(["USD","USDT","USDC"]);
   const format=new Intl.NumberFormat("es-AR",{maximumFractionDigits:4,minimumFractionDigits:2});
   const deltaFmt=new Intl.NumberFormat("es-AR",{maximumFractionDigits:2,minimumFractionDigits:2});

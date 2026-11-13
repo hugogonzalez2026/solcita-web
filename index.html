@@ -41,8 +41,8 @@
     .footer{border-top:1px solid #2a3b50;margin-top:60px;padding:28px 0 40px;display:flex;justify-content:space-between;align-items:center;color:#7894ad;font-size:12px;gap:12px}
     @media(max-width:850px){nav{display:none}.hero{grid-template-columns:1fr;padding-top:48px}.illustration{min-height:330px}.cards{grid-template-columns:1fr 1fr}.progress-grid{grid-template-columns:1fr}.shell{padding:0 18px}}
     @media(max-width:540px){.top-right{font-size:0;padding:9px 12px}.top-right .dot{margin:0}h1{letter-spacing:-2.2px}.hero{gap:26px}.illustration{min-height:300px}.robo{transform:scale(.9) rotate(-4deg)}.cards{grid-template-columns:1fr}.footer{display:block}.btn{width:100%;justify-content:center}}
-    /* Cotizaciones publicas: cuatro instrumentos, optimizadas para celulares */
-    .crypto-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+    /* Cotizaciones publicas: cinco instrumentos, optimizadas para celulares */
+    .crypto-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:15px}
     .crypto-card{min-width:0;min-height:185px}
     .crypto-card .card-head{margin-bottom:24px}
     .crypto-name{color:var(--sub);font-size:12px;font-weight:700;margin-top:2px}
@@ -62,7 +62,7 @@
     .crypto-pulse{margin-top:18px}
     .crypto-pulse strong{display:block;margin-bottom:4px}
     @media(max-width:540px){.crypto-card{min-height:222px}.crypto-feel{font-size:10.5px}}
-    .debian-market-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+    .debian-market-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:16px}
     .debian-market-item{min-width:0;border:1px solid #37516b;border-radius:16px;background:#0b1c2d;padding:16px;display:flex;flex-direction:column;gap:6px}
     .debian-market-head{font-weight:800;font-size:13px;color:#a6eedd}
     .debian-market-price{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
@@ -116,7 +116,7 @@
 
       <section id="cotizaciones" style="padding-top:40px;padding-bottom:26px" aria-labelledby="cotizaciones-titulo">
         <div class="kicker">Cotizaciones / USD</div>
-        <h2 id="cotizaciones-titulo">Las cripto que seguimos.</h2>
+        <h2 id="cotizaciones-titulo">Los activos que seguimos.</h2>
         <p class="section-desc">Últimos precios indicativos en USD, variaciones de 1 y 24 horas y el pulso de corto plazo que interpreta Solcita. Se consulta al abrir la web y cada cinco minutos mientras permanezca abierta.</p>
         <div class="notice" style="margin-bottom:19px" aria-live="polite" role="status"><i id="crypto-led">◌</i><div><strong id="crypto-status">Consultando cotizaciones…</strong><div class="small" id="crypto-updated">Esperando datos del proveedor público</div></div></div>
         <div class="crypto-cards">
@@ -124,6 +124,7 @@
           <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">Ξ</span><span class="tag">ETH</span></div><div class="crypto-price" id="crypto-eth">—</div><div class="crypto-name">Ethereum</div><span class="crypto-change crypto-hour" id="crypto-eth-1h">1 h: —</span><span class="crypto-change" id="crypto-eth-change">24 h: —</span><span class="crypto-feel" id="crypto-eth-feel">Pulso: esperando datos</span></article>
           <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">◎</span><span class="tag">SOL</span></div><div class="crypto-price" id="crypto-sol">—</div><div class="crypto-name">Solana</div><span class="crypto-change crypto-hour" id="crypto-sol-1h">1 h: —</span><span class="crypto-change" id="crypto-sol-change">24 h: —</span><span class="crypto-feel" id="crypto-sol-feel">Pulso: esperando datos</span></article>
           <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">◈</span><span class="tag">DOT</span></div><div class="crypto-price" id="crypto-dot">—</div><div class="crypto-name">Polkadot</div><span class="crypto-change crypto-hour" id="crypto-dot-1h">1 h: —</span><span class="crypto-change" id="crypto-dot-change">24 h: —</span><span class="crypto-feel" id="crypto-dot-feel">Pulso: esperando datos</span></article>
+          <article class="card crypto-card"><div class="card-head"><span class="card-icon" aria-hidden="true">🟡</span><span class="tag">PAXG</span></div><div class="crypto-price" id="crypto-paxg">—</div><div class="crypto-name">PAX Gold · oro tokenizado</div><span class="crypto-change crypto-hour" id="crypto-paxg-1h">1 h: —</span><span class="crypto-change" id="crypto-paxg-change">24 h: —</span><span class="crypto-feel" id="crypto-paxg-feel">Pulso: esperando datos</span></article>
         </div>
         <div class="notice crypto-pulse" aria-live="polite" role="status">
           <i aria-hidden="true">🧭</i>
@@ -131,7 +132,7 @@
             <div class="small" id="crypto-feeling-detail">Voy a contrastar los movimientos de la última hora y del último día.</div>
           </div>
         </div>
-        <p class="small" style="margin-top:16px">Fuente: <a id="crypto-source-link" class="mint" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">CoinGecko</a> (respaldo: Kraken). La variación de 1 hora se consulta en CoinGecko cuando está disponible; si no, aparece N/D. El «feeling» es una lectura automática de tendencia de 1 y 24 horas, no una predicción, una recomendación ni una conclusión del análisis fundamental. Datos públicos, independientes de la HP Mini.</p>
+        <p class="small" style="margin-top:16px">Fuente: <a id="crypto-source-link" class="mint" href="https://www.coingecko.com/" target="_blank" rel="noopener noreferrer">CoinGecko</a> (respaldo: Kraken). La variación de 1 hora se consulta en CoinGecko cuando está disponible; si no, aparece N/D. El «feeling» agregado considera BTC, ETH, SOL y DOT (excluye PAXG, ligado al oro); es una lectura automática de tendencia de 1 y 24 horas, no una predicción, una recomendación ni una conclusión del análisis fundamental. Datos públicos, independientes de la HP Mini.</p>
       </section>
 
       <section id="debian-mercado" aria-labelledby="debian-mercado-titulo" style="padding-top:22px;padding-bottom:20px">
@@ -150,7 +151,7 @@
           <div style="flex:1 1 300px">
             <div class="kicker">Nuevo / Laboratorio de inversión</div>
             <h2 id="research-title">Un ticker, siete capas.</h2>
-            <p class="section-desc" style="margin-bottom:0">Escribí BTC, ETH, AAPL, IVV o MOLA.BA y obtené una ficha con precio, historial, riesgo y siete preguntas clave. Cada conclusión distingue datos comprobables de fundamentos pendientes.</p>
+            <p class="section-desc" style="margin-bottom:0">Escribí BTC, ETH, PAXG, AAPL, IVV o MOLA.BA y obtené una ficha con precio, historial, riesgo y siete preguntas clave. Cada conclusión distingue datos comprobables de fundamentos pendientes.</p>
           </div>
           <div class="hero-buttons"><a class="btn primary" href="analisis.html">🔎 Abrir analizador ↗</a><a class="btn secondary" href="memoria.html">🧠 Revisar hipótesis ↗</a></div>
         </div>
@@ -192,6 +193,7 @@
             <div class="status-row"><span class="status-label">Ξ &nbsp; Ethereum (ETH)</span><span class="status-right">Seguimiento local</span></div>
             <div class="status-row"><span class="status-label">◎ &nbsp; Solana (SOL)</span><span class="status-right">Seguimiento local</span></div>
             <div class="status-row"><span class="status-label">◈ &nbsp; Polkadot (DOT)</span><span class="status-right">Seguimiento local</span></div>
+            <div class="status-row"><span class="status-label">🟡 &nbsp; PAX Gold (PAXG)</span><span class="status-right">Integración local pendiente</span></div>
           </div>
           <div class="panel">
             <div class="kicker">Nuestro criterio</div>
@@ -288,13 +290,14 @@
         {id:"bitcoin",symbol:"btc",kraken:"XXBTZUSD"},
         {id:"ethereum",symbol:"eth",kraken:"XETHZUSD"},
         {id:"solana",symbol:"sol",kraken:"SOLUSD"},
-        {id:"polkadot",symbol:"dot",kraken:"DOTUSD"}
+        {id:"polkadot",symbol:"dot",kraken:"DOTUSD"},
+        {id:"pax-gold",symbol:"paxg",kraken:"PAXGUSD"}
       ];
       // /coins/markets admite price_change_percentage=1h,24h.
       // Los proveedores pueden limitar solicitudes sin API key: nunca inventar valores.
-      const cgMarkets = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Csolana%2Cpolkadot&sparkline=false&price_change_percentage=1h%2C24h";
-      const cgSimple = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Csolana%2Cpolkadot&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true";
-      const kr = "https://api.kraken.com/0/public/Ticker?pair=XBTUSD%2CETHUSD%2CSOLUSD%2CDOTUSD";
+      const cgMarkets = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Csolana%2Cpolkadot%2Cpax-gold&sparkline=false&price_change_percentage=1h%2C24h";
+      const cgSimple = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Csolana%2Cpolkadot%2Cpax-gold&vs_currencies=usd&include_24hr_change=true&include_last_updated_at=true";
+      const kr = "https://api.kraken.com/0/public/Ticker?pair=XBTUSD%2CETHUSD%2CSOLUSD%2CDOTUSD%2CPAXGUSD";
       const q = id => document.getElementById(id);
       const money = new Intl.NumberFormat("es-AR", {minimumFractionDigits:2,maximumFractionDigits:2});
       const percent = new Intl.NumberFormat("es-AR", {minimumFractionDigits:2,maximumFractionDigits:2});
@@ -353,7 +356,7 @@
         feelNode.className = "crypto-feel"+(feeling.style?" "+feeling.style:"");
       }
       function overall(quotes) {
-        const complete=quotes.filter(x=>validPrice(x.price)&&validChange(x.delta1h)&&validChange(x.delta24h));
+        const complete=quotes.filter(x=>x.symbol!=="paxg"&&validPrice(x.price)&&validChange(x.delta1h)&&validChange(x.delta24h));
         const headline=q("crypto-feeling-title"),detail=q("crypto-feeling-detail");
         if (complete.length < 3) {
           headline.textContent="Feeling de Solcita · lectura incompleta";

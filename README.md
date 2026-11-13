@@ -49,6 +49,10 @@ En [analisis.html](https://hugogonzalez2026.github.io/solcita-web/analisis.html)
 
 El analizador no califica un activo como "comprar" o "vender" y nunca estima precio objetivo sin fundamentos.
 
+## 📈 Acciones argentinas en seguimiento
+
+Se agregaron accesos directos a **COME.BA, CRES.BA, IRSA.BA y MOLA.BA** en el inicio y botones en el analizador de siete capas. El analizador consulta Yahoo Finance mediante su pasarela pública experimental al abrir la ficha, no desde el recolector de Debian. No hay garantía de disponibilidad. **La lista pública no publica cantidades, posiciones ni precios de compra**. La hipótesis de treinta días queda en el navegador que realizó el análisis. La capacidad 8 en la HP se limita por ahora a los criptoactivos soportados.
+
 ## 🧠 Memoria financiera de las siete capas (primera versión)
 
 Abrí [Memoria financiera](https://hugogonzalez2026.github.io/solcita-web/memoria.html) desde la portada o el analizador.

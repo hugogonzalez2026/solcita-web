@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_at_utc": "2026-11-14T12:50:15Z",
+  "updated_at_utc": "2026-11-14T13:05:11Z",
   "battery_pct": 100,
   "power_state": "full",
-  "memory_used_pct": 36,
+  "memory_used_pct": 35,
   "disk_used_pct": 2
 }

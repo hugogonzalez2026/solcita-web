@@ -1,7 +1,7 @@
 {
-  "version": "2.2",
+  "version": "2.3",
   "corte": "2026-11-17",
-  "disclaimer": "Revisión documental selectiva al 17/11/2026 (30 fichas). Se incluye una categoría diferenciada de aliados/exaliados legislativos, sin atribuir al gobierno hechos anteriores o ajenos. Procesamientos, denuncias, menciones y condenas apeladas no son equivalentes; no se presume culpabilidad. Web solo lectura.",
+  "disclaimer": "Revisión documental selectiva al 17/11/2026 (31 fichas). Incluye causas penales, controversias institucionales y aliados legislativos diferenciados. Las denuncias, imputaciones, procesamientos, fallos no firmes y condenas no firmes no equivalen entre sí. Sitio de solo lectura.",
   "cases": [
     {
       "id": "libra",
@@ -42,6 +42,46 @@
       "origin": "Ambas",
       "change_date": "2026-11-16",
       "change_summary": "La defensa de Novelli recusó a Ángela Ledesma en Casación, que debe revisar la exclusión de querellantes."
+    },
+    {
+      "id": "corte-jueces-decreto",
+      "name": "Corte Suprema: Lijo y García-Mansilla designados por decreto",
+      "people": "Javier Milei; Mariano Cúneo Libarona; Ariel Lijo; Manuel García-Mansilla; Alejo Ramos Padilla",
+      "group": "Presidencia / Poder Judicial",
+      "status_key": "judicial",
+      "status": "Decreto declarado inconstitucional en primera instancia; nombramientos frustrados",
+      "short": "Milei nombró a Ariel Lijo y Manuel García-Mansilla jueces de la Corte Suprema 'en comisión' mediante el Decreto 137/2025, sin acuerdo previo del Senado. El Senado rechazó los dos pliegos y un juez declaró inconstitucional el decreto.",
+      "detail": "El 25/02/2025 el Poder Ejecutivo dictó el Decreto 137/2025 y designó en comisión a Ariel Lijo y Manuel García-Mansilla para dos vacantes de la Corte Suprema. El Gobierno invocó el artículo 99, inciso 19, de la Constitución, que contempla nombramientos en comisión durante el receso del Senado; quienes impugnaron el decreto sostuvieron que para ministros de la Corte debe respetarse el procedimiento específico de acuerdo senatorial del artículo 99, inciso 4. García-Mansilla juró el 27/02/2025 y ejerció por 39 días; Lijo nunca asumió porque la Corte rechazó su pedido de licencia para conservar el juzgado federal. El Senado rechazó ambos pliegos el 03/04/2025. El juez Alejo Ramos Padilla ordenó cautelarmente a García-Mansilla abstenerse de intervenir en asuntos de la Corte y luego, el 17/04/2025, dictó sentencia en un amparo colectivo declarando la inconstitucionalidad e inconvencionalidad del decreto. García-Mansilla renunció el 07/04/2025. No se verificó resolución posterior que permita afirmar que la sentencia haya quedado firme. Este es un conflicto de constitucionalidad del procedimiento de designación, no una condena penal de Milei, Lijo o García-Mansilla.",
+      "latest": "25/02/2025: decreto 137 de designaciones en comisión. 27/02/2025: asumió García-Mansilla; Lijo no asumió. 03/04/2025: Senado rechazó ambos pliegos y Ramos Padilla dictó una cautelar. 07/04/2025: García-Mansilla renunció. 17/04/2025: sentencia de primera instancia declaró inconstitucional el decreto. Al 17/11/2026 no se pudo verificar sentencia firme posterior que modifique ese estado.",
+      "event_date": "2025-04-17",
+      "review_date": "2026-11-17",
+      "sources": [
+        {
+          "title": "Boletín Oficial: Decreto 137/2025",
+          "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-137-2025-410114/texto"
+        },
+        {
+          "title": "Chequeado: rechazo del Senado y medidas judiciales (03/04/2025)",
+          "url": "https://chequeado.com/el-explicador/corte-suprema-que-puede-pasar-si-el-senado-rechaza-los-pliegos-de-lijo-y-garcia-mansilla/"
+        },
+        {
+          "title": "Chequeado: renuncia de García-Mansilla y situación de Lijo (07/04/2025)",
+          "url": "https://chequeado.com/el-explicador/la-salida-de-garcia-mansilla-de-la-corte-suprema-que-dice-su-carta-de-renuncia-y-en-que-situacion-queda-el-tribunal/"
+        },
+        {
+          "title": "LA NACION: sentencia de inconstitucionalidad (17/04/2025)",
+          "url": "https://www.lanacion.com.ar/politica/a-pesar-de-que-no-estan-en-la-corte-un-juez-declaro-inconstitucional-los-nombramientos-por-decreto-nid17042025/"
+        },
+        {
+          "title": "Observatorio del Derecho a la Ciudad: comunicado sobre el amparo (17/04/2025)",
+          "url": "https://www.observatoriociudad.org/hist%C3%B3rico-logramos-que-la-justicia-federal-declare-inconstitucional-el-decreto-137-2025-que-desing%C3%B3-como-jueces-de-la-corte-suprema-a-garc%C3%ADa-mansilla-y-lijo/"
+        }
+      ],
+      "quality": "Verificado (hechos principales); firmeza no verificada",
+      "note": "No describir como 'condena penal' ni confundir una designación por decreto con los nombramientos ordinarios de jueces que sí obtuvieron acuerdo del Senado. La declaración de inconstitucionalidad fue de primera instancia; no se comprobó su firmeza posterior. Fueron dos candidatos en un mismo decreto, por lo que se cuenta una ficha.",
+      "origin": "Incorporado 17/11/2026",
+      "change_date": "2026-11-17",
+      "change_summary": "Nueva ficha: designación en comisión de Lijo y García-Mansilla por Decreto 137/2025, rechazo del Senado, renuncia de García-Mansilla y sentencia de inconstitucionalidad."
     },
     {
       "id": "andis-spagnuolo",
@@ -809,8 +849,14 @@
     }
   ],
   "previous_cutoff": "2026-11-17",
-  "methodology": "Seguimiento documental con fuentes fechadas. Se separan integrantes del Poder Ejecutivo, legisladores LLA, aliados legislativos PRO y exaliados. Cada ficha individual indica su fecha de evento y revisión. Se mantiene el histórico; una falta de novedades periodísticas no implica cierre judicial. Archivos y condenas no firmes deben describirse con su alcance y fuente.",
+  "methodology": "Conservar historial, fecha de último evento y fecha de revisión por ficha. Distinguir expresamente hechos acreditados, investigaciones pendientes, controversias institucionales y sentencias firmes/no firmes. Una controversia constitucional no implica condena penal. Las acciones de los aliados legislativos no se imputan automáticamente al Poder Ejecutivo.",
   "changelog": [
+    {
+      "id": "corte-jueces-decreto",
+      "name": "Corte Suprema: Lijo y García-Mansilla designados por decreto",
+      "date": "2026-11-17",
+      "summary": "Nueva ficha: designación en comisión de Lijo y García-Mansilla por Decreto 137/2025, rechazo del Senado, renuncia de García-Mansilla y sentencia de inconstitucionalidad."
+    },
     {
       "id": "quintar-pami",
       "name": "Manuel Quintar: PAMI Jujuy y clínicas familiares",

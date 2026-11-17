@@ -1,7 +1,7 @@
 {
-  "version": "2.1",
+  "version": "2.2",
   "corte": "2026-11-17",
-  "disclaimer": "Revisión documental selectiva al 17/11/2026: las fichas con cambios conservan la fecha de su última novedad y las demás pueden tener revisión anterior. Las menciones, denuncias, imputaciones y procesamientos no equivalen a condenas ni acreditan culpabilidad. El sitio es de solo lectura.",
+  "disclaimer": "Revisión documental selectiva al 17/11/2026 (30 fichas). Se incluye una categoría diferenciada de aliados/exaliados legislativos, sin atribuir al gobierno hechos anteriores o ajenos. Procesamientos, denuncias, menciones y condenas apeladas no son equivalentes; no se presume culpabilidad. Web solo lectura.",
   "cases": [
     {
       "id": "libra",
@@ -246,6 +246,114 @@
       "origin": "Incorporado 17/11/2026",
       "change_date": "2026-11-17",
       "change_summary": "Nueva ficha sobre la denuncia por el doctorado y la acreditación de la institución, diferenciando los hechos comprobados y las acusaciones."
+    },
+    {
+      "id": "quintar-pami",
+      "name": "Manuel Quintar: PAMI Jujuy y clínicas familiares",
+      "people": "Manuel Quintar; Natalia Castillo Aurane; Evaristo Bautista; Facundo Pérez Ernst",
+      "group": "Legisladores LLA y PAMI",
+      "status_key": "archivado",
+      "status": "Una denuncia archivada; vínculos y otras presentaciones cuestionadas",
+      "short": "Denuncias por posibles conflictos de intereses y derivaciones de prestaciones PAMI hacia clínicas vinculadas a la familia del diputado libertario de Jujuy, conocido por su Tesla Cybertruck.",
+      "detail": "El diputado de La Libertad Avanza Manuel Quintar y su entorno familiar tienen vínculos empresariales con el sanatorio Los Lapachos y la Clínica San Francisco de Jujuy. En octubre de 2025 el denunciante Facundo Pérez Ernst acusó a Quintar, familiares y funcionarios de haber direccionado prestaciones, controles de pensiones y pagos del PAMI a prestadores relacionados con ellos. Entre los involucrados señalados figura Evaristo Bautista, entonces titular local de PAMI, señalado por vínculos previos con Los Lapachos; Quintar negó la irregularidad y rechazó que Bautista tuviera relación con sus empresas. En mayo y julio de 2026 hubo ampliaciones y cuestionamientos adicionales a designaciones y habilitaciones. El medio Jujuy Dice informó el 29/09/2026, citando al denunciante, que la fiscalía había archivado una causa por estos hechos aproximadamente dos semanas antes. No se tuvo acceso a la resolución fiscal ni puede darse por demostrado que todas las presentaciones o denuncias conexas hayan concluido. La expresión 'monopolio del PAMI' aparece en acusaciones periodísticas, pero no se verificó una declaración judicial de monopolio ni de conducta ilícita.",
+      "latest": "29/09/2026: Jujuy Dice informó que el fiscal archivó una causa vinculada a Quintar y las prestaciones PAMI, según confirmó el denunciante. No se encontró resolución fiscal pública que permitiera constatar su alcance, ni nuevas decisiones judiciales corroboradas hasta el 17/11/2026.",
+      "event_date": "2026-09-29",
+      "review_date": "2026-11-17",
+      "sources": [
+        {
+          "title": "Jujuy Dice, 29/09/2026: archivo fiscal informado por el denunciante",
+          "url": "https://www.jujuydice.com.ar/noticias/politica-1/la-justicia-archivo-una-causa-contra-manuel-quintar-era-senialado-por-favorecer-a-su-esposa-con-un-contrato-con-el-pami-57369"
+        },
+        {
+          "title": "LA NACION, 14/05/2026: redes de prestadores, denuncia y descargo",
+          "url": "https://www.lanacion.com.ar/politica/manuel-quintar-el-diputado-del-tesla-que-quedo-en-la-mira-por-sus-nexos-con-clinicas-del-pami-nid14052026/"
+        },
+        {
+          "title": "Ámbito, mayo de 2026: denuncia penal por contrataciones PAMI",
+          "url": "https://www.ambito.com/politica/denuncian-al-diputado-manuel-quintar-presuntas-irregularidades-el-pami-jujuy-n6279059"
+        },
+        {
+          "title": "La Política Online, 24/07/2026: denuncia por designación en PAMI Jujuy",
+          "url": "https://www.lapoliticaonline.com/politica/denuncian-al-director-del-pami-por-designar-en-jujuy-al-empleado-de-un-diputado-libertario/"
+        }
+      ],
+      "quality": "Verificación parcial",
+      "note": "ARCHIVO reportado por un medio local con testimonio del denunciante, no verificado mediante copia de la resolución. No afirmar que el supuesto monopolio esté probado. Diferenciar denuncia penal, archivo de uno de los expedientes y otras presentaciones.",
+      "origin": "Incorporado 17/11/2026",
+      "change_date": "2026-11-17",
+      "change_summary": "Nueva ficha: denuncia por prestaciones PAMI en Jujuy y noticia del archivo fiscal de una de las causas en septiembre."
+    },
+    {
+      "id": "ritondo",
+      "name": "Cristian Ritondo: patrimonio y sociedades offshore",
+      "people": "Cristian Ritondo; Romina Aldana Diago; fiscal Eduardo Taiano",
+      "group": "Aliados legislativos (PRO)",
+      "status_key": "investigacion",
+      "status": "Investigación patrimonial abierta; sin procesamiento verificado",
+      "short": "Denuncias por presuntos bienes y operaciones en el exterior no declarados en relación con sociedades de la esposa del jefe del bloque PRO, aliado legislativo del Gobierno.",
+      "detail": "Una investigación periodística de elDiarioAR y CLIP identificó vínculos de Romina Diago, esposa de Cristian Ritondo, con sociedades offshore y adquisiciones inmobiliarias en Miami. El abogado Jeremías Rodríguez formuló una denuncia penal en diciembre de 2024 por posible enriquecimiento ilícito y otras figuras; el expediente CFP 5212/2024 quedó en el juzgado federal de Sebastián Ramos y la fiscalía de Eduardo Taiano. En 2025-2026 hubo ampliaciones por emprendimientos inmobiliarios y activos, incluido un lote en Uruguay; notas de septiembre de 2026 documentaron pedidos y respuestas de información bancaria y financiera. Ritondo negó irregularidades y sostiene que sus empresas y bienes están declarados. Es dirigente del PRO, no funcionario de Milei; se incluye por su relación parlamentaria de apoyo a iniciativas del Ejecutivo, sin atribuir al Presidente los hechos investigados.",
+      "latest": "Septiembre de 2026: reportes sobre diligencias patrimoniales y cuentas vinculadas a Ritondo, su esposa y la constructora Emprendimientos Rivadavia. No se encontró procesamiento ni condena corroborados hasta la revisión del 17/11/2026.",
+      "event_date": "2026-09-09",
+      "review_date": "2026-11-17",
+      "sources": [
+        {
+          "title": "EL PAÍS, 10/12/2024: investigación de origen y vínculo con el oficialismo",
+          "url": "https://elpais.com/argentina/2024-12-10/dos-escandalos-de-corrupcion-ponen-en-cuestion-el-discurso-anticasta-de-milei.html"
+        },
+        {
+          "title": "LA NACION, 06/02/2025: descargo de Ritondo",
+          "url": "https://www.lanacion.com.ar/politica/ritondo-respondio-por-las-denuncias-en-su-contra-por-emprendimientos-inmobiliarios-nid06022025/"
+        },
+        {
+          "title": "El Patagónico, 09/09/2026: investigación sobre patrimonio",
+          "url": "https://www.elpatagonico.com/la-justicia-investiga-el-patrimonio-cristian-ritondo-n6093079"
+        },
+        {
+          "title": "El Disenso, junio de 2026: ampliación de denuncia por terreno en Uruguay",
+          "url": "https://eldisenso.com/judiciales/lote-vip-uruguay-denuncia-cristian-ritondo/"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "La existencia del expediente está documentada; no se acreditó delito. Distinguir dirigente PRO y aliado legislativo de integrante del Poder Ejecutivo. Algunas operaciones patrimoniales investigadas son previas al actual Gobierno.",
+      "origin": "Incorporado 17/11/2026",
+      "change_date": "2026-11-17",
+      "change_summary": "Nueva ficha: investigación por patrimonio, sociedades y bienes en el exterior del dirigente PRO."
+    },
+    {
+      "id": "kueider",
+      "name": "Edgardo Kueider: contrabando y causas patrimoniales",
+      "people": "Edgardo Darío Kueider; Iara Guinsel",
+      "group": "Exaliados legislativos",
+      "status_key": "condena",
+      "status": "Condena en Paraguay apelada; otras causas abiertas",
+      "short": "Exsenador elegido por el Frente de Todos que apoyó leyes centrales de Milei. Fue condenado en Paraguay por tentativa de contrabando de divisas y enfrenta investigaciones por lavado y patrimonio.",
+      "detail": "Kueider fue elegido senador en 2019 por el Frente de Todos, se apartó del bloque peronista y en 2024 apoyó iniciativas del gobierno de Milei, incluida la Ley Bases. Fue interceptado el 04/12/2024 en la frontera paraguaya junto a Iara Guinsel con más de US$200.000 sin declarar. El 13/07/2026 un tribunal paraguayo lo condenó a dos años de prisión con ejecución suspendida por tentativa de contrabando y condenó a Guinsel a un año y diez meses; ambos apelaron el fallo en agosto. Kueider enfrenta además una causa por presunto lavado de activos en Paraguay, separada de la condena. En Argentina se investigan posibles sobornos vinculados a Securitas y ENERSA en el fuero federal de San Isidro y presunto enriquecimiento ilícito en Entre Ríos. La Corte Suprema resolvió el 23/09/2026 que ambos expedientes argentinos continuaran separados. Gran parte de los hechos patrimoniales investigados datan de antes de la presidencia de Milei; el vínculo registrado es político-legislativo, no pertenencia al gabinete.",
+      "latest": "13/07/2026: condenado en Paraguay a dos años de prisión de ejecución suspendida por tentativa de contrabando. Agosto: apelación presentada. 23/09/2026: la Corte argentina dispuso que las investigaciones de San Isidro y Entre Ríos continúen separadas. Sin resultado definitivo de la apelación verificado al 17/11/2026.",
+      "event_date": "2026-09-23",
+      "review_date": "2026-11-17",
+      "sources": [
+        {
+          "title": "ABC Color Paraguay, 13/07/2026: sentencia por tentativa de contrabando",
+          "url": "https://www.abc.com.py/nacionales/2026/07/13/condenan-a-exsenador-argentino-dario-kueider-y-su-pareja-por-tentativa-de-contrabando/"
+        },
+        {
+          "title": "Infobae, 13/08/2026: apelación de la condena",
+          "url": "https://www.infobae.com/politica/2026/08/13/edgardo-kueider-presento-la-apelacion-de-su-condena-por-contrabando-en-paraguay/"
+        },
+        {
+          "title": "TN, 25/09/2026: Corte argentina resolvió investigaciones por separado",
+          "url": "https://tn.com.ar/politica/2026/09/25/la-corte-suprema-resolvio-que-se-investigue-al-exsenador-kueider-por-sobornos-y-enriquecimiento-ilicito-en-causas-separadas/"
+        },
+        {
+          "title": "EL PAÍS, 10/12/2024: historia del apoyo legislativo al Gobierno",
+          "url": "https://elpais.com/argentina/2024-12-10/dos-escandalos-de-corrupcion-ponen-en-cuestion-el-discurso-anticasta-de-milei.html"
+        }
+      ],
+      "quality": "Verificado",
+      "note": "Condena de primera instancia en Paraguay apelada, no presentada como firme. Las causas argentinas no son condenas. No era integrante del gobierno ni dirigente de LLA cuando se produjo el caso.",
+      "origin": "Incorporado 17/11/2026",
+      "change_date": "2026-11-17",
+      "change_summary": "Nueva ficha: condena paraguaya apelada e investigaciones argentinas diferenciadas."
     },
     {
       "id": "espert",
@@ -700,9 +808,27 @@
       "origin": "Ambas"
     }
   ],
-  "previous_cutoff": "2026-11-13",
-  "methodology": "Se conserva el histórico, se incorporan hechos con fuentes fechadas y se diferencia el estado judicial de los cuestionamientos políticos. La actualización del 17/11 es selectiva sobre las novedades verificadas; no implica búsqueda exhaustiva de todos los expedientes ni ausencia de otros movimientos. Los casos anteriores mantienen sus fechas de revisión individuales.",
+  "previous_cutoff": "2026-11-17",
+  "methodology": "Seguimiento documental con fuentes fechadas. Se separan integrantes del Poder Ejecutivo, legisladores LLA, aliados legislativos PRO y exaliados. Cada ficha individual indica su fecha de evento y revisión. Se mantiene el histórico; una falta de novedades periodísticas no implica cierre judicial. Archivos y condenas no firmes deben describirse con su alcance y fuente.",
   "changelog": [
+    {
+      "id": "quintar-pami",
+      "name": "Manuel Quintar: PAMI Jujuy y clínicas familiares",
+      "date": "2026-11-17",
+      "summary": "Nueva ficha: denuncia por prestaciones PAMI en Jujuy y noticia del archivo fiscal de una de las causas en septiembre."
+    },
+    {
+      "id": "ritondo",
+      "name": "Cristian Ritondo: patrimonio y sociedades offshore",
+      "date": "2026-11-17",
+      "summary": "Nueva ficha: investigación por patrimonio, sociedades y bienes en el exterior del dirigente PRO."
+    },
+    {
+      "id": "kueider",
+      "name": "Edgardo Kueider: contrabando y causas patrimoniales",
+      "date": "2026-11-17",
+      "summary": "Nueva ficha: condena paraguaya apelada e investigaciones argentinas diferenciadas."
+    },
     {
       "id": "baravalle",
       "name": "Adriana Baravalle: doctorado en IA cuestionado",

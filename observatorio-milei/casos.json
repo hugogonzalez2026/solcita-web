@@ -1,7 +1,7 @@
 {
-  "version": "2.3",
+  "version": "2.4",
   "corte": "2026-11-17",
-  "disclaimer": "Revisión documental selectiva al 17/11/2026 (31 fichas). Incluye causas penales, controversias institucionales y aliados legislativos diferenciados. Las denuncias, imputaciones, procesamientos, fallos no firmes y condenas no firmes no equivalen entre sí. Sitio de solo lectura.",
+  "disclaimer": "Seguimiento documental selectivo al 17/11/2026 (32 fichas). Las denuncias, imputaciones, procesamientos, fallos no firmes y condenas no firmes no son equivalentes. No se presume culpabilidad; la ausencia de novedad verificable no implica cierre. Sitio de solo lectura.",
   "cases": [
     {
       "id": "libra",
@@ -82,6 +82,46 @@
       "origin": "Incorporado 17/11/2026",
       "change_date": "2026-11-17",
       "change_summary": "Nueva ficha: designación en comisión de Lijo y García-Mansilla por Decreto 137/2025, rechazo del Senado, renuncia de García-Mansilla y sentencia de inconstitucionalidad."
+    },
+    {
+      "id": "olivos-catering",
+      "name": "Quinta de Olivos: alimentos y catering privado",
+      "people": "María Belén Agudiez; Analía Agudiez; Osvaldo Javier Sosa; Marcela Pagano; Secretaría General de la Presidencia",
+      "group": "Presidencia / Contrataciones",
+      "status_key": "denuncia",
+      "status": "Denuncia penal por presunto desvío; sin procesamiento verificado",
+      "short": "Denuncia sobre un posible desvío de alimentos destinados a Olivos y Casa Rosada hacia el catering privado 'Pancitos Caseros', vinculado a personas que desempeñaban funciones en la residencia presidencial.",
+      "detail": "La diputada Marcela Pagano presentó y amplió en septiembre de 2026 una denuncia que pide investigar si alimentos previstos para la Quinta de Olivos y la Casa Rosada fueron utilizados por el emprendimiento privado 'Pancitos Caseros', vinculado a Analía Agudiez, hermana de María Belén Agudiez y pareja del exintendente de Olivos Osvaldo Javier Sosa. María Belén Agudiez ejerció como subsecretaria de Planificación General bajo la Secretaría General conducida por Karina Milei. La denuncia señaló una póliza privada de accidentes personales que incluía a personas vinculadas a Olivos como personal de catering para un evento privado. También cuestionó las cantidades previstas en pliegos oficiales de contratación de alimentos: 29.505 kg de productos cárnicos y pescados en seis meses para Casa Rosada y Olivos, de los que 9.135 kg correspondían a Olivos. Esos números son cantidades previstas en pliegos, no mercadería cuya entrega o desvío haya quedado acreditado. La renuncia de María Belén Agudiez fue aceptada desde el 20/09 por Decreto 1055/2026; el Gobierno reorganizó funciones de la residencia. El entorno de la exfuncionaria negó utilizar productos e instalaciones estatales en emprendimientos privados. La relación funcional con la Secretaría General no demuestra que Karina Milei participara de la conducta denunciada.",
+      "latest": "20-21/09/2026: renuncia de María Belén Agudiez, aceptada por Decreto 1055/2026. 20-26/09: Pagano denunció y amplió su presentación con pliegos de compras, referencias al catering privado y pólizas. Al 17/11/2026 no se pudo verificar una decisión pública posterior de fondo, procesamiento ni condena por el supuesto desvío.",
+      "event_date": "2026-09-26",
+      "review_date": "2026-11-17",
+      "sources": [
+        {
+          "title": "Chequeado, 24/09/2026: actores, denuncia y cantidades previstas",
+          "url": "https://chequeado.com/nota/quinta-de-olivos-quien-es-quien-en-la-investigacion-por-la-presunta-compra-irregular-de-comida-vinculada-a-personas-cercanas-a-karina-milei/"
+        },
+        {
+          "title": "TN, 24/09/2026: denuncia, cantidades y descargo",
+          "url": "https://tn.com.ar/politica/2026/09/24/denuncian-un-presunto-desvio-de-alimentos-de-la-quinta-de-olivos-a-una-empresa-de-catering-vinculada-a-exfuncionarios/"
+        },
+        {
+          "title": "Boletín Oficial, Decreto 1055/2026: renuncia de Belén Agudiez",
+          "url": "https://www.boletinoficial.gov.ar/detalleAviso/primera/347711/20260921"
+        },
+        {
+          "title": "Noticias Argentinas, 26/09/2026: póliza de catering aportada a denuncia",
+          "url": "https://noticiasargentinas.com/politica/una-poliza-privada-aseguro-como--personal-de-catering--al-intendente-de-olivos-y-a-coordinadoras-de-la-quinta_a6ab7f5c29a676c64cfd09614"
+        },
+        {
+          "title": "LA NACION, 21/09/2026: salida de Agudiez y explicaciones oficiales",
+          "url": "https://www.lanacion.com.ar/politica/filtraciones-en-la-quinta-de-olivos-desconfianza-y-una-denuncia-judicial-la-trastienda-de-la-salida-nid21092026/"
+        }
+      ],
+      "quality": "Verificado (presentación y decreto); alegaciones no probadas",
+      "note": "No confundir cantidades consignadas en pliegos con compras entregadas o consumidas. La investigación no ha acreditado que se desviaran alimentos a Pancitos Caseros. Hay referencias de prensa divergentes sobre expedientes vinculados; no se asigna aquí un número de causa sin documentación judicial primaria.",
+      "origin": "Incorporado 17/11/2026",
+      "change_date": "2026-11-17",
+      "change_summary": "Nueva ficha: denuncia por compras de alimentos para Olivos, posible uso en catering privado, póliza y renuncia oficial de Belén Agudiez."
     },
     {
       "id": "andis-spagnuolo",
@@ -849,8 +889,14 @@
     }
   ],
   "previous_cutoff": "2026-11-17",
-  "methodology": "Conservar historial, fecha de último evento y fecha de revisión por ficha. Distinguir expresamente hechos acreditados, investigaciones pendientes, controversias institucionales y sentencias firmes/no firmes. Una controversia constitucional no implica condena penal. Las acciones de los aliados legislativos no se imputan automáticamente al Poder Ejecutivo.",
+  "methodology": "Fichas con fuentes, fechas y estado procesal diferenciado; registrar alegaciones, descargos y hechos comprobados sin confundir pliegos con compras efectivamente entregadas. Los grupos distinguen Ejecutivo, legisladores LLA, aliados y exaliados. Las fichas sin cambio conservan su fecha individual de revisión.",
   "changelog": [
+    {
+      "id": "olivos-catering",
+      "name": "Quinta de Olivos: alimentos y catering privado",
+      "date": "2026-11-17",
+      "summary": "Nueva ficha: denuncia por compras de alimentos para Olivos, posible uso en catering privado, póliza y renuncia oficial de Belén Agudiez."
+    },
     {
       "id": "corte-jueces-decreto",
       "name": "Corte Suprema: Lijo y García-Mansilla designados por decreto",

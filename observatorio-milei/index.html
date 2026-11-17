@@ -14,7 +14,7 @@
 .newsnote{background:#143047;border:1px solid #2b6b72;border-radius:14px;padding:12px 16px;color:#d7eee9;font-size:13px;margin:0 0 16px}.upflag{font-size:10px;background:#2c485b;border:1px solid #4b8a99;border-radius:5px;padding:3px 6px;color:#a9f4e4;margin-left:8px;white-space:nowrap}.changelog{margin:0;padding-left:20px}.changelog li{margin:5px 0} .stale-note{color:var(--muted);font-size:12px}
 </style>
 </head><body>
-<div class="wrap"><div class="top"><div><div class="brand"><span class="dot"></span> Archivo de seguimiento · Argentina</div><h1>Observatorio de casos<br><span style="color:var(--teal)">Gestión Milei</span></h1><p class="lede">26 fichas en el registro, con novedades documentadas desde el 27 de octubre. Hacé clic en cualquier nombre para ver el caso, el último hito documentado y las fuentes. Incluye causas penales, denuncias y controversias diferenciadas.</p></div><div class="datebox">REVISIÓN PÚBLICA<strong>13 de noviembre de 2026</strong><span id="localState">Solo lectura · sin edición</span></div></div>
+<div class="wrap"><div class="top"><div><div class="brand"><span class="dot"></span> Archivo de seguimiento · Argentina</div><h1>Observatorio de casos<br><span style="color:var(--teal)">Gestión Milei</span></h1><p class="lede">27 fichas en el registro, con novedades documentadas desde el 27 de octubre. Hacé clic en cualquier nombre para ver el caso, el último hito documentado y las fuentes. Incluye causas penales, denuncias y controversias diferenciadas.</p></div><div class="datebox">REVISIÓN PÚBLICA<strong>13 de noviembre de 2026</strong><span id="localState">Solo lectura · sin edición</span></div></div>
 <div class="metrics"><div class="metric"><span id="countTotal" class="number">26</span><span class="sub">Fichas en el registro</span></div><div class="metric"><span id="countProc" class="number">0</span><span class="sub">Con procesamiento confirmado</span></div><div class="metric"><span id="countInvest" class="number">0</span><span class="sub">Investigaciones, pedidos o denuncias</span></div><div class="metric"><span id="countReview" class="number">0</span><span class="sub">Con verificación parcial o pendiente</span></div></div>
 <div class="toolbar"><input class="input" id="search" placeholder="🔎 Buscar caso, persona o palabra…" aria-label="Buscar casos"><select id="filterGroup" class="select" aria-label="Filtrar por grupo"><option value="all">Todas las áreas</option></select><select id="filterStatus" class="select" aria-label="Filtrar por situación"><option value="all">Todos los estados</option><option value="novedad">★ Novedades desde 27/10</option><option value="procesado">Procesamientos</option><option value="indagatoria">Indagatorias</option><option value="investigacion">Investigaciones</option><option value="denuncia">Denuncias</option><option value="sobreseimiento">Sobreseimientos</option><option value="archivado">Archivadas</option><option value="resto">Otros / transparencia</option></select></div>
 <p class="newsnote"><strong>Actualizaciones recientes:</strong> $LIBRA (PIA y Casación), ANDIS (audios y Suizo Argentina), Adorni (dictamen fiscal), Espert (apelación), Fundación Faro y <strong>nuevo caso por la visita papal</strong>. Seleccioná «★ Novedades» para ver las fichas modificadas.</p>
@@ -22,9 +22,9 @@
 <p class="foot">ℹ️ <strong>Observatorio público de solo lectura.</strong> Nadie puede modificar fichas desde esta página: no hay edición, importación, eliminación ni almacenamiento de cambios en el navegador. Los filtros y la búsqueda no modifican datos. <strong>La información no se actualiza automáticamente desde esta página:</strong> las revisiones documentales se publican mediante actualizaciones del repositorio GitHub por cuentas autorizadas. “Buscar novedades” abre noticias externas y “Preparar consulta” solo copia un pedido de investigación. Los procesamientos no son condenas, y las denuncias o menciones tampoco implican culpabilidad. Algunas fichas pertenecen al mismo expediente y no deben sumarse como causas independientes.</p></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script id="seed" type="application/json">{
-  "version": "2.0",
-  "corte": "2026-11-13",
-  "disclaimer": "Seguimiento documental con fuentes públicas hasta el 13/11/2026. Las menciones, denuncias, imputaciones y procesamientos no equivalen a condenas. No presupone culpabilidad. Este archivo no se sincroniza automáticamente.",
+  "version": "2.1",
+  "corte": "2026-11-17",
+  "disclaimer": "Revisión documental selectiva al 17/11/2026: las fichas con cambios conservan la fecha de su última novedad y las demás pueden tener revisión anterior. Las menciones, denuncias, imputaciones y procesamientos no equivalen a condenas ni acreditan culpabilidad. El sitio es de solo lectura.",
   "cases": [
     {
       "id": "libra",
@@ -32,13 +32,17 @@
       "people": "Javier Milei, Karina Milei, Mauricio Novelli, Hayden Davis",
       "group": "Presidencia",
       "status_key": "sobreseimiento",
-      "status": "Sobreseimiento no firme; reapertura disputada",
+      "status": "Sobreseimientos de primera instancia; recursos y recusación pendientes",
       "short": "Promoción presidencial del token $LIBRA y caída abrupta de su cotización.",
-      "detail": "El 23/10 el juez Martínez de Giorgi sobreseyó a once investigados, entre ellos Javier y Karina Milei. La Procuraduría de Investigaciones Administrativas (PIA) se presentó para impulsar la acción y cuestionó el cierre por pruebas pendientes. Taiano se opuso a la intervención de la PIA. Casación habilitó revisar la exclusión de querellantes, pero no anuló los sobreseimientos.",
-      "latest": "30/10: la PIA pidió continuar la investigación e impugnó el cierre. 04/11: Casación admitió revisar el apartamiento de querellantes. 11/11: el fiscal Taiano se opuso a que la PIA asuma la causa; decide el juez. No hay reapertura ni revocación firme del sobreseimiento comprobadas.",
-      "event_date": "2026-11-11",
-      "review_date": "2026-11-13",
+      "detail": "El 23/10 el juez Martínez de Giorgi sobreseyó a once investigados, entre ellos Javier y Karina Milei. La Procuraduría de Investigaciones Administrativas (PIA) se presentó para impulsar la acción y cuestionó el cierre por pruebas pendientes. Taiano se opuso a la intervención de la PIA. Casación habilitó revisar la exclusión de querellantes, pero no anuló los sobreseimientos. El 13-16/11 se informó que la defensa de Mauricio Novelli recusó a la jueza de Casación Ángela Ledesma, quien integra la sala que debe revisar la legitimación de los querellantes. Se trata de un planteo de la defensa cuya procedencia aún debe decidirse; no revoca ni confirma por sí mismo el sobreseimiento.",
+      "latest": "23/10: sobreseimientos en primera instancia. 04/11: Casación habilitó revisar la exclusión de querellantes. 11/11: Taiano se opuso al planteo de la PIA. 13-16/11: la defensa de Novelli pidió apartar a la camarista Ángela Ledesma. Sigue pendiente la decisión sobre las recusaciones y la situación de los querellantes; no se verificó reapertura de la causa.",
+      "event_date": "2026-11-16",
+      "review_date": "2026-11-17",
       "sources": [
+        {
+          "title": "Infobae, 16/11/2026: recusación contra jueza Ledesma",
+          "url": "https://www.infobae.com/politica/2026/11/16/libra-uno-de-los-imputados-busca-apartar-a-la-jueza-ledesma-y-frenar-la-revision-que-podria-reactivar-la-causa/"
+        },
         {
           "title": "LA NACION, 11/11/2026: oposición de Taiano y revisión en Casación",
           "url": "https://www.lanacion.com.ar/politica/taiano-rechazo-que-la-fiscalia-especializada-en-corrupcion-reabra-la-causa-libra-nid11112026/"
@@ -59,8 +63,8 @@
       "quality": "Verificado",
       "note": "Atención: la Cámara de Casación revisa la legitimación de querellantes, no el fondo de la absolución. El planteo de PIA no es, por sí solo, una reapertura consumada.",
       "origin": "Ambas",
-      "change_date": "2026-11-11",
-      "change_summary": "La PIA cuestionó el cierre; Taiano rechazó su intervención y Casación revisará la exclusión de querellantes."
+      "change_date": "2026-11-16",
+      "change_summary": "La defensa de Novelli recusó a Ángela Ledesma en Casación, que debe revisar la exclusión de querellantes."
     },
     {
       "id": "andis-spagnuolo",
@@ -160,13 +164,17 @@
       "people": "Martín Menem, familiares, Tech Security SRL",
       "group": "Contrataciones",
       "status_key": "controversia",
-      "status": "Contrato BNA; nuevas preguntas por visita papal",
+      "status": "Licitación BNA y subcontratación papal cuestionadas",
       "short": "Una empresa familiar de los Menem obtuvo un contrato de vigilancia con Banco Nación por casi $4.000 millones.",
-      "detail": "Tech Security, vinculada a familiares de Martín Menem, obtuvo en julio de 2025 una licitación pública del Banco Nación por $3.933 millones. Martín Menem había vendido sus cuotas sociales antes de asumir. Durante los eventos de la visita del papa León XIV se informó su participación en tareas de seguridad subcontratadas, que motivaron pedidos de explicaciones y denuncias contra responsables de contrataciones públicas. No hay evidencia verificada de que Martín Menem interviniera personalmente en esas adjudicaciones.",
-      "latest": "11/11/2026: se conocieron pedidos de información y denuncias por contrataciones del evento papal, incluidas referencias a Tech Security. La adjudicación del BNA de 2025 sigue registrada como licitación pública; no se confirmó procesamiento de Martín Menem.",
-      "event_date": "2026-11-11",
-      "review_date": "2026-11-13",
+      "detail": "Tech Security, vinculada a familiares de Martín Menem, obtuvo en julio de 2025 una licitación pública del Banco Nación por $3.933 millones. Martín Menem había vendido sus cuotas sociales antes de asumir. Durante los eventos de la visita del papa León XIV se informó su participación en tareas de seguridad subcontratadas, que motivaron pedidos de explicaciones y denuncias contra responsables de contrataciones públicas. No hay evidencia verificada de que Martín Menem interviniera personalmente en esas adjudicaciones. El 13/11 LA NACION informó que legisladores presentaron pedidos de informes sobre Tech Security y Purgato S.A., ambas vinculadas a familiares de Martín Menem, por servicios de seguridad y limpieza durante la visita papal. Fuentes cercanas a Menem y a las compañías señalaron que fueron subcontratadas por DF Entertainment y que Martín Menem ya no integraba esas sociedades. Esta participación, por sí sola, no prueba direccionamiento.",
+      "latest": "13/11/2026: diputados solicitaron informes sobre Tech Security y Purgato S.A. por servicios de la visita papal; se reportó que fueron subcontratadas por DF Entertainment. No se comprobó procesamiento de Martín Menem por estas contrataciones.",
+      "event_date": "2026-11-13",
+      "review_date": "2026-11-17",
       "sources": [
+        {
+          "title": "LA NACION, 13/11/2026: pedidos de informe sobre Tech Security y Purgato",
+          "url": "https://www.lanacion.com.ar/politica/piden-informes-a-dos-empresas-vinculadas-a-los-menem-por-su-contratacion-en-los-eventos-del-papa-nid13112026/"
+        },
         {
           "title": "LA NACION, 17/07/2025: licitación pública de Banco Nación",
           "url": "https://www.lanacion.com.ar/politica/una-empresa-de-seguridad-privada-de-los-menem-se-alzo-con-una-licitacion-por-4000-millones-del-banco-nid17072025/"
@@ -183,8 +191,8 @@
       "quality": "Verificado",
       "note": "La participación como proveedora es distinta de probar un direccionamiento. La investigación sobre la visita papal se muestra en una ficha separada.",
       "origin": "Otra IA",
-      "change_date": "2026-11-11",
-      "change_summary": "Reapareció la empresa familiar en los cuestionamientos por los servicios de la visita papal."
+      "change_date": "2026-11-13",
+      "change_summary": "Pedidos legislativos de información sobre Tech Security y Purgato, empresas vinculadas a familiares de Martín Menem, por la visita papal."
     },
     {
       "id": "papa-vip-contratos",
@@ -194,11 +202,19 @@
       "status_key": "denuncia",
       "status": "Denuncias penales recientes; sin imputaciones confirmadas",
       "short": "Cuestionamientos a un sector VIP y al procedimiento de contratación de servicios durante los eventos papales de noviembre de 2026.",
-      "detail": "Tras la misa del 09/11 en Palermo se cuestionaron el sector reservado y las adjudicaciones a proveedores. Chequeado documentó una contratación directa por $8.690 millones a DF Entertainment para la producción integral, no para la carpa solamente. La diputada Marcela Pagano denunció posibles irregularidades por la organización y la contratación de servicios; también se pidieron explicaciones parlamentarias. Se menciona a Tech Security como prestadora de seguridad, vinculada a familiares de Martín Menem. Nada de esto constituye una declaración judicial de ilegalidad.",
-      "latest": "11-12/11/2026: se presentaron denuncias y pedidos de informes. Las causas están en etapa inicial. No existe procesamiento o condena acreditada por estos hechos al corte.",
-      "event_date": "2026-11-12",
-      "review_date": "2026-11-13",
+      "detail": "Tras la misa del 09/11 en Palermo se cuestionaron el sector reservado y las adjudicaciones a proveedores. Chequeado documentó una contratación directa por $8.690 millones a DF Entertainment para la producción integral, no para la carpa solamente. La diputada Marcela Pagano denunció posibles irregularidades por la organización y la contratación de servicios; también se pidieron explicaciones parlamentarias. Se menciona a Tech Security como prestadora de seguridad, vinculada a familiares de Martín Menem. Nada de esto constituye una declaración judicial de ilegalidad. Chequeado publicó el desglose de los gastos de la visita, con montos de distintas jurisdicciones, y recalcó que la contratación de $8.690 millones a DF Entertainment correspondía a la producción integral del evento. LA NACION informó pedidos de informes por servicios subcontratados a empresas vinculadas a familiares de Martín Menem.",
+      "latest": "11-12/11: denuncias penales y pedidos de informes. 13/11: se informó de pedidos de informes sobre la subcontratación de Tech Security y Purgato. 16/11: Chequeado publicó un desglose ampliado del gasto nacional y bonaerense. No se verificaron procesamientos por estos hechos.",
+      "event_date": "2026-11-16",
+      "review_date": "2026-11-17",
       "sources": [
+        {
+          "title": "LA NACION, 13/11/2026: pedidos de informes por dos empresas vinculadas a los Menem",
+          "url": "https://www.lanacion.com.ar/politica/piden-informes-a-dos-empresas-vinculadas-a-los-menem-por-su-contratacion-en-los-eventos-del-papa-nid13112026/"
+        },
+        {
+          "title": "Chequeado, 16/11/2026: desglose de los gastos de la visita papal",
+          "url": "https://chequeado.com/el-explicador/cuanto-gasto-el-gobierno-de-axel-kicillof-en-la-visita-del-papa-leon-xiv-a-don-orione-y-lujan/"
+        },
         {
           "title": "Chequeado, 11/11/2026: verificación de montos y sector VIP",
           "url": "https://chequeado.com/el-explicador/que-se-sabe-de-la-carpa-vip-en-la-misa-del-papa-leon-xiv-en-el-monumento-de-los-espanoles/"
@@ -215,8 +231,44 @@
       "quality": "Verificado",
       "note": "La cifra de $8.690 millones corresponde a la producción integral. La polémica y la denuncia son hechos distintos de una irregularidad comprobada. No confundir con la contratación del BNA a Tech Security.",
       "origin": "Incorporado 13/11/2026",
-      "change_date": "2026-11-12",
-      "change_summary": "Nueva ficha: denuncias por sector VIP y contrataciones de producción y seguridad en la visita papal."
+      "change_date": "2026-11-16",
+      "change_summary": "Nuevo desglose documentado de costos de la visita papal y pedidos de informes por empresas subcontratadas."
+    },
+    {
+      "id": "baravalle",
+      "name": "Adriana Baravalle: doctorado en IA cuestionado",
+      "people": "Adriana Baravalle, Marcela Pagano",
+      "group": "Credenciales y designaciones",
+      "status_key": "denuncia",
+      "status": "Denuncia penal por credenciales; sin resolución verificada",
+      "short": "Cuestionamiento al doctorado en inteligencia artificial atribuido a la secretaria de Innovación, Ciencia y Tecnología, obtenido en una institución de Hawái cuya acreditación fue objetada.",
+      "detail": "El Decreto 730/2026 designó a Adriana Baravalle secretaria de Innovación, Ciencia y Tecnología y la identificó formalmente como magíster. En comunicaciones y antecedentes públicos también fue presentada como doctora en Inteligencia Artificial por American Andragogy University. En septiembre, la diputada Marcela Pagano presentó una denuncia penal y mostró documentación de una gestión en la que esa institución supuestamente ofreció un doctorado a cambio de US$400 y en pocos días. Esa prueba, de ser auténtica, no acredita cómo ni bajo qué condiciones obtuvo su diploma la funcionaria. El Departamento de Comercio y Asuntos del Consumidor de Hawái informa de un juicio civil histórico contra una entidad de nombre muy similar, American Androgogy University Inc. (con 'o'); no está establecida en estas fuentes la identidad jurídica entre las dos denominaciones. Baravalle tiene también otros antecedentes académicos publicados. La controversia debe distinguirse de la validez de su designación y de una eventual responsabilidad penal, que no están resueltas.",
+      "latest": "13/08/2026: designación por Decreto 730/2026, que la identifica como magíster. 02-03/09/2026: denuncia penal de la diputada Pagano y difusión de la oferta de un diploma por US$400. Al 17/11/2026 no se encontró resolución judicial posterior corroborada sobre el fondo de esa denuncia.",
+      "event_date": "2026-09-03",
+      "review_date": "2026-11-17",
+      "sources": [
+        {
+          "title": "Boletín Oficial, Decreto 730/2026 (13/08): designación como magíster",
+          "url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/345877/20260813"
+        },
+        {
+          "title": "LA NACION, 03/09/2026: denuncia de Pagano y antecedentes académicos",
+          "url": "https://www.lanacion.com.ar/politica/marcela-pagano-denuncio-que-la-secretaria-de-ciencia-adriana-baravelle-compro-un-doctorado-en-ia-nid03092026/"
+        },
+        {
+          "title": "Tiempo Argentino, 03/09/2026: presentación y prueba relatada",
+          "url": "https://www.tiempoar.com.ar/ta_article/pagano-denuncio-que-la-secretaria-de-ciencia-hizo-su-doctorado-en-una-universidad-que-vende-titulos-por-400-dolares/"
+        },
+        {
+          "title": "Hawái, Oficina de Protección del Consumidor: listado histórico de causas contra universidades no acreditadas",
+          "url": "https://cca.hawaii.gov/ocp/notices/udgi/lawsuits/"
+        }
+      ],
+      "quality": "Verificación parcial",
+      "note": "La denuncia no demuestra que Baravalle haya comprado su diploma ni que exista una condena o procesamiento. La institución del expediente hawaiano figura con grafía distinta (Androgogy); no presumir que sea la misma entidad legal sin más pruebas. El nombramiento oficial consigna 'magíster'.",
+      "origin": "Incorporado 17/11/2026",
+      "change_date": "2026-11-17",
+      "change_summary": "Nueva ficha sobre la denuncia por el doctorado y la acreditación de la institución, diferenciando los hechos comprobados y las acusaciones."
     },
     {
       "id": "espert",
@@ -671,14 +723,32 @@
       "origin": "Ambas"
     }
   ],
-  "previous_cutoff": "2026-10-27",
-  "methodology": "Se conserva la base anterior y se agregan novedades fechadas con fuentes identificadas. Se separan causas judiciales, investigaciones y controversias. No se interpretan ausencias de noticias como cierres de expedientes.",
+  "previous_cutoff": "2026-11-13",
+  "methodology": "Se conserva el histórico, se incorporan hechos con fuentes fechadas y se diferencia el estado judicial de los cuestionamientos políticos. La actualización del 17/11 es selectiva sobre las novedades verificadas; no implica búsqueda exhaustiva de todos los expedientes ni ausencia de otros movimientos. Los casos anteriores mantienen sus fechas de revisión individuales.",
   "changelog": [
+    {
+      "id": "baravalle",
+      "name": "Adriana Baravalle: doctorado en IA cuestionado",
+      "date": "2026-11-17",
+      "summary": "Nueva ficha sobre la denuncia por el doctorado y la acreditación de la institución, diferenciando los hechos comprobados y las acusaciones."
+    },
+    {
+      "id": "libra",
+      "name": "$LIBRA: Javier y Karina Milei",
+      "date": "2026-11-16",
+      "summary": "La defensa de Novelli recusó a Ángela Ledesma en Casación, que debe revisar la exclusión de querellantes."
+    },
     {
       "id": "papa-vip-contratos",
       "name": "Visita del papa León XIV: carpa VIP y contratos",
-      "date": "2026-11-12",
-      "summary": "Nueva ficha: denuncias por sector VIP y contrataciones de producción y seguridad en la visita papal."
+      "date": "2026-11-16",
+      "summary": "Nuevo desglose documentado de costos de la visita papal y pedidos de informes por empresas subcontratadas."
+    },
+    {
+      "id": "menem-tech",
+      "name": "Martín Menem y Tech Security",
+      "date": "2026-11-13",
+      "summary": "Pedidos legislativos de información sobre Tech Security y Purgato, empresas vinculadas a familiares de Martín Menem, por la visita papal."
     },
     {
       "id": "andis-karina",
@@ -691,18 +761,6 @@
       "name": "ANDIS: Diego Spagnuolo",
       "date": "2026-11-12",
       "summary": "Pericia del 12/11: los audios no pudieron atribuirse concluyentemente a Spagnuolo; hallaron posibles cortes o regrabaciones."
-    },
-    {
-      "id": "menem-tech",
-      "name": "Martín Menem y Tech Security",
-      "date": "2026-11-11",
-      "summary": "Reapareció la empresa familiar en los cuestionamientos por los servicios de la visita papal."
-    },
-    {
-      "id": "libra",
-      "name": "$LIBRA: Javier y Karina Milei",
-      "date": "2026-11-11",
-      "summary": "La PIA cuestionó el cierre; Taiano rechazó su intervención y Casación revisará la exclusión de querellantes."
     },
     {
       "id": "adorni-patrimonio",
@@ -740,7 +798,7 @@ function filtered(){let q=$('search').value.toLocaleLowerCase('es'),g=$('filterG
 function metrics(){$('countTotal').textContent=data.length;$('countProc').textContent=data.filter(c=>c.status_key==='procesado').length;$('countInvest').textContent=data.filter(c=>['indagatoria','investigacion','denuncia'].includes(c.status_key)).length;$('countReview').textContent=data.filter(c=>c.quality!=='Verificado').length}
 function drawList(){const items=filtered();$('shownCount').textContent=items.length+' resultados';$('cases').innerHTML=items.length?items.map(c=>`<button class="case ${c.id===chosen?'on':''}" data-id="${esc(c.id)}" type="button"><span><span class="case-name">${esc(c.name)}${c.change_date?'<span class="upflag">ACTUALIZADO</span>':''}</span><span class="case-sub">${esc(c.status)} · ${esc(c.group)}</span></span><span class="chev">›</span></button>`).join(''):'<div class="blank">No hay casos que coincidan con los filtros.</div>';[...$('cases').querySelectorAll('.case')].forEach(b=>b.addEventListener('click',()=>{chosen=b.dataset.id;drawList();drawDetail()}))}
 function newsURL(c){return 'https://news.google.com/search?q='+encodeURIComponent(c.name+' Argentina causa judicial')+'&hl=es-419&gl=AR&ceid=AR:es-419'}
-function drawDetail(){const c=data.find(x=>x.id===chosen);if(!c){$('detail').innerHTML='<div class="blank">Seleccioná un caso.</div>';return}let src=(c.sources||[]).filter(s=>/^https?:\/\//.test(s.url)).map(s=>`<a class="source" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">↗ ${esc(s.title||'Fuente')}</a>`).join('');$('detail').innerHTML=`<div class="eyebrow">${esc(c.group)} · ${esc(c.people)}</div><h2>${esc(c.name)}</h2><div class="chips"><span class="chip ${statusClass(c)}">${esc(c.status)}</span><span class="chip">Revisión: ${esc(c.quality)}</span>${c.change_date?'<span class="chip">Novedad '+esc(c.change_date)+'</span>':''}</div><div class="sec"><h3>De qué se trata</h3><p class="focus">${esc(c.short)}</p></div><div class="sec"><h3>Contexto</h3><p>${esc(c.detail)}</p></div><div class="sec"><h3>Último movimiento documentado</h3><div class="callout"><small>${esc(c.event_date||'Fecha pendiente')} · corte documental 13/11/2026</small><p>${esc(c.latest)}</p></div></div>${c.change_date?`<div class="sec"><h3>Qué cambió desde la versión anterior</h3><p>${esc(c.change_summary||'Novedad documentada')}</p></div>`:''}${c.note?`<div class="sec"><div class="note">⚠ ${esc(c.note)}</div></div>`:''}<div class="sec"><h3>Fuentes verificables</h3><div class="sources">${src||'<span class="stamp">Sin fuente puntual comprobada todavía. Requiere revisión.</span>'}</div><div class="stamp" style="margin-top:8px">Las noticias nuevas deben cotejarse con la resolución judicial cuando esté disponible.</div></div><div class="actions"><a class="btn" target="_blank" rel="noopener noreferrer" href="${esc(newsURL(c))}" style="text-decoration:none">↗ Buscar novedades</a><button class="btn" id="promptBtn">⧉ Preparar consulta</button></div>`;$('promptBtn').onclick=()=>copyPrompt(c)}
+function drawDetail(){const c=data.find(x=>x.id===chosen);if(!c){$('detail').innerHTML='<div class="blank">Seleccioná un caso.</div>';return}let src=(c.sources||[]).filter(s=>/^https?:\/\//.test(s.url)).map(s=>`<a class="source" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">↗ ${esc(s.title||'Fuente')}</a>`).join('');$('detail').innerHTML=`<div class="eyebrow">${esc(c.group)} · ${esc(c.people)}</div><h2>${esc(c.name)}</h2><div class="chips"><span class="chip ${statusClass(c)}">${esc(c.status)}</span><span class="chip">Revisión: ${esc(c.quality)}</span>${c.change_date?'<span class="chip">Novedad '+esc(c.change_date)+'</span>':''}</div><div class="sec"><h3>De qué se trata</h3><p class="focus">${esc(c.short)}</p></div><div class="sec"><h3>Contexto</h3><p>${esc(c.detail)}</p></div><div class="sec"><h3>Último movimiento documentado</h3><div class="callout"><small>${esc(c.event_date||'Fecha pendiente')} · corte documental 17/11/2026</small><p>${esc(c.latest)}</p></div></div>${c.change_date?`<div class="sec"><h3>Qué cambió desde la versión anterior</h3><p>${esc(c.change_summary||'Novedad documentada')}</p></div>`:''}${c.note?`<div class="sec"><div class="note">⚠ ${esc(c.note)}</div></div>`:''}<div class="sec"><h3>Fuentes verificables</h3><div class="sources">${src||'<span class="stamp">Sin fuente puntual comprobada todavía. Requiere revisión.</span>'}</div><div class="stamp" style="margin-top:8px">Las noticias nuevas deben cotejarse con la resolución judicial cuando esté disponible.</div></div><div class="actions"><a class="btn" target="_blank" rel="noopener noreferrer" href="${esc(newsURL(c))}" style="text-decoration:none">↗ Buscar novedades</a><button class="btn" id="promptBtn">⧉ Preparar consulta</button></div>`;$('promptBtn').onclick=()=>copyPrompt(c)}
 function refresh(){rebuildGroups();metrics();drawList();drawDetail()}
 $('search').oninput=drawList;$('filterGroup').onchange=drawList;$('filterStatus').onchange=drawList;
 async function copyPrompt(c){let msg=`Actualizá al día de hoy el caso judicial/político argentino "${c.name}". Revisá fuentes periodísticas confiables y, si existen, resoluciones judiciales. Estado actualmente anotado: ${c.status}. Última novedad: ${c.latest} (${c.event_date}). Separá hechos verificados de denuncias y afirmaciones sin sustento. Devolveme: 1) estado actualizado preciso, 2) cambios desde esa fecha, 3) fuentes con URLs y fecha, 4) una propuesta breve, documentada, para que se actualice el repositorio oficial del observatorio.`;try{await navigator.clipboard.writeText(msg);notify('Pedido copiado. Pegalo en ChatGPT para pedir la actualización.')}catch(e){let t=document.createElement('textarea');t.value=msg;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();notify('Pedido listo para pegar en ChatGPT.')}}

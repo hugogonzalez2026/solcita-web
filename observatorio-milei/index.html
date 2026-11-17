@@ -14,17 +14,17 @@
 .newsnote{background:#143047;border:1px solid #2b6b72;border-radius:14px;padding:12px 16px;color:#d7eee9;font-size:13px;margin:0 0 16px}.upflag{font-size:10px;background:#2c485b;border:1px solid #4b8a99;border-radius:5px;padding:3px 6px;color:#a9f4e4;margin-left:8px;white-space:nowrap}.changelog{margin:0;padding-left:20px}.changelog li{margin:5px 0} .stale-note{color:var(--muted);font-size:12px}
 </style>
 </head><body>
-<div class="wrap"><div class="top"><div><div class="brand"><span class="dot"></span> Archivo de seguimiento · Argentina</div><h1>Observatorio de casos<br><span style="color:var(--teal)">Gestión Milei</span></h1><p class="lede">30 fichas en el registro, con novedades documentadas desde el 27 de octubre. Hacé clic en cualquier nombre para ver el caso, el último hito documentado y las fuentes. Incluye causas penales, denuncias y controversias diferenciadas.</p></div><div class="datebox">REVISIÓN PÚBLICA<strong>17 de noviembre de 2026</strong><span id="localState">Solo lectura · sin edición</span></div></div>
-<div class="metrics"><div class="metric"><span id="countTotal" class="number">30</span><span class="sub">Fichas en el registro</span></div><div class="metric"><span id="countProc" class="number">0</span><span class="sub">Con procesamiento confirmado</span></div><div class="metric"><span id="countInvest" class="number">0</span><span class="sub">Investigaciones, pedidos o denuncias</span></div><div class="metric"><span id="countReview" class="number">0</span><span class="sub">Con verificación parcial o pendiente</span></div></div>
+<div class="wrap"><div class="top"><div><div class="brand"><span class="dot"></span> Archivo de seguimiento · Argentina</div><h1>Observatorio de casos<br><span style="color:var(--teal)">Gestión Milei</span></h1><p class="lede">31 fichas en el registro, con novedades documentadas desde el 27 de octubre. Hacé clic en cualquier nombre para ver el caso, el último hito documentado y las fuentes. Incluye causas penales, denuncias y controversias diferenciadas.</p></div><div class="datebox">REVISIÓN PÚBLICA<strong>17 de noviembre de 2026</strong><span id="localState">Solo lectura · sin edición</span></div></div>
+<div class="metrics"><div class="metric"><span id="countTotal" class="number">31</span><span class="sub">Fichas en el registro</span></div><div class="metric"><span id="countProc" class="number">0</span><span class="sub">Con procesamiento confirmado</span></div><div class="metric"><span id="countInvest" class="number">0</span><span class="sub">Investigaciones, pedidos o denuncias</span></div><div class="metric"><span id="countReview" class="number">0</span><span class="sub">Con verificación parcial o pendiente</span></div></div>
 <div class="toolbar"><input class="input" id="search" placeholder="🔎 Buscar caso, persona o palabra…" aria-label="Buscar casos"><select id="filterGroup" class="select" aria-label="Filtrar por grupo"><option value="all">Todas las áreas</option></select><select id="filterStatus" class="select" aria-label="Filtrar por situación"><option value="all">Todos los estados</option><option value="novedad">★ Novedades desde 27/10</option><option value="procesado">Procesamientos</option><option value="indagatoria">Indagatorias</option><option value="condena">Condenas (incluidas apeladas)</option><option value="investigacion">Investigaciones</option><option value="denuncia">Denuncias</option><option value="sobreseimiento">Sobreseimientos</option><option value="archivado">Archivadas</option><option value="resto">Otros / transparencia</option></select></div>
-<p class="newsnote"><strong>3 NUEVAS FICHAS · 17/11/2026:</strong> <a href="?caso=quintar-pami&amp;v=20261117-2#detail">Manuel Quintar y PAMI Jujuy</a> · <a href="?caso=ritondo&amp;v=20261117-2#detail">Cristian Ritondo</a> · <a href="?caso=kueider&amp;v=20261117-2#detail">Edgardo Kueider</a>. Incluyen estado judicial y vínculo con el oficialismo. También: <a href="?caso=baravalle&amp;v=20261117-2#detail">Adriana Baravalle</a>.</p>
-<div class="layout"><section class="panel"><div class="panel-header"><span>CASOS</span><span id="shownCount">30 resultados</span></div><div id="cases" class="caselist"></div></section><section class="panel detail" id="detail"><div class="blank">Seleccioná un caso.</div></section></div>
+<p class="newsnote"><strong>NUEVA FICHA · 17/11/2026:</strong> <a href="?caso=corte-jueces-decreto&amp;v=20261117-3#detail">Lijo y García-Mansilla: nombramientos por decreto y rechazo judicial</a>. También se incorporaron recientemente <a href="?caso=quintar-pami&amp;v=20261117-3#detail">Manuel Quintar</a>, <a href="?caso=ritondo&amp;v=20261117-3#detail">Cristian Ritondo</a>, <a href="?caso=kueider&amp;v=20261117-3#detail">Edgardo Kueider</a> y <a href="?caso=baravalle&amp;v=20261117-3#detail">Adriana Baravalle</a>.</p>
+<div class="layout"><section class="panel"><div class="panel-header"><span>CASOS</span><span id="shownCount">31 resultados</span></div><div id="cases" class="caselist"></div></section><section class="panel detail" id="detail"><div class="blank">Seleccioná un caso.</div></section></div>
 <p class="foot">ℹ️ <strong>Observatorio público de solo lectura.</strong> Nadie puede modificar fichas desde esta página: no hay edición, importación, eliminación ni almacenamiento de cambios en el navegador. Los filtros y la búsqueda no modifican datos. <strong>La información no se actualiza automáticamente desde esta página:</strong> las revisiones documentales se publican mediante actualizaciones del repositorio GitHub por cuentas autorizadas. “Buscar novedades” abre noticias externas y “Preparar consulta” solo copia un pedido de investigación. Los procesamientos no son condenas, y las denuncias o menciones tampoco implican culpabilidad. Algunas fichas pertenecen al mismo expediente y no deben sumarse como causas independientes.</p></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script id="seed" type="application/json">{
-  "version": "2.2",
+  "version": "2.3",
   "corte": "2026-11-17",
-  "disclaimer": "Revisión documental selectiva al 17/11/2026 (30 fichas). Se incluye una categoría diferenciada de aliados/exaliados legislativos, sin atribuir al gobierno hechos anteriores o ajenos. Procesamientos, denuncias, menciones y condenas apeladas no son equivalentes; no se presume culpabilidad. Web solo lectura.",
+  "disclaimer": "Revisión documental selectiva al 17/11/2026 (31 fichas). Incluye causas penales, controversias institucionales y aliados legislativos diferenciados. Las denuncias, imputaciones, procesamientos, fallos no firmes y condenas no firmes no equivalen entre sí. Sitio de solo lectura.",
   "cases": [
     {
       "id": "libra",
@@ -65,6 +65,46 @@
       "origin": "Ambas",
       "change_date": "2026-11-16",
       "change_summary": "La defensa de Novelli recusó a Ángela Ledesma en Casación, que debe revisar la exclusión de querellantes."
+    },
+    {
+      "id": "corte-jueces-decreto",
+      "name": "Corte Suprema: Lijo y García-Mansilla designados por decreto",
+      "people": "Javier Milei; Mariano Cúneo Libarona; Ariel Lijo; Manuel García-Mansilla; Alejo Ramos Padilla",
+      "group": "Presidencia / Poder Judicial",
+      "status_key": "judicial",
+      "status": "Decreto declarado inconstitucional en primera instancia; nombramientos frustrados",
+      "short": "Milei nombró a Ariel Lijo y Manuel García-Mansilla jueces de la Corte Suprema 'en comisión' mediante el Decreto 137/2025, sin acuerdo previo del Senado. El Senado rechazó los dos pliegos y un juez declaró inconstitucional el decreto.",
+      "detail": "El 25/02/2025 el Poder Ejecutivo dictó el Decreto 137/2025 y designó en comisión a Ariel Lijo y Manuel García-Mansilla para dos vacantes de la Corte Suprema. El Gobierno invocó el artículo 99, inciso 19, de la Constitución, que contempla nombramientos en comisión durante el receso del Senado; quienes impugnaron el decreto sostuvieron que para ministros de la Corte debe respetarse el procedimiento específico de acuerdo senatorial del artículo 99, inciso 4. García-Mansilla juró el 27/02/2025 y ejerció por 39 días; Lijo nunca asumió porque la Corte rechazó su pedido de licencia para conservar el juzgado federal. El Senado rechazó ambos pliegos el 03/04/2025. El juez Alejo Ramos Padilla ordenó cautelarmente a García-Mansilla abstenerse de intervenir en asuntos de la Corte y luego, el 17/04/2025, dictó sentencia en un amparo colectivo declarando la inconstitucionalidad e inconvencionalidad del decreto. García-Mansilla renunció el 07/04/2025. No se verificó resolución posterior que permita afirmar que la sentencia haya quedado firme. Este es un conflicto de constitucionalidad del procedimiento de designación, no una condena penal de Milei, Lijo o García-Mansilla.",
+      "latest": "25/02/2025: decreto 137 de designaciones en comisión. 27/02/2025: asumió García-Mansilla; Lijo no asumió. 03/04/2025: Senado rechazó ambos pliegos y Ramos Padilla dictó una cautelar. 07/04/2025: García-Mansilla renunció. 17/04/2025: sentencia de primera instancia declaró inconstitucional el decreto. Al 17/11/2026 no se pudo verificar sentencia firme posterior que modifique ese estado.",
+      "event_date": "2025-04-17",
+      "review_date": "2026-11-17",
+      "sources": [
+        {
+          "title": "Boletín Oficial: Decreto 137/2025",
+          "url": "https://www.argentina.gob.ar/normativa/nacional/decreto-137-2025-410114/texto"
+        },
+        {
+          "title": "Chequeado: rechazo del Senado y medidas judiciales (03/04/2025)",
+          "url": "https://chequeado.com/el-explicador/corte-suprema-que-puede-pasar-si-el-senado-rechaza-los-pliegos-de-lijo-y-garcia-mansilla/"
+        },
+        {
+          "title": "Chequeado: renuncia de García-Mansilla y situación de Lijo (07/04/2025)",
+          "url": "https://chequeado.com/el-explicador/la-salida-de-garcia-mansilla-de-la-corte-suprema-que-dice-su-carta-de-renuncia-y-en-que-situacion-queda-el-tribunal/"
+        },
+        {
+          "title": "LA NACION: sentencia de inconstitucionalidad (17/04/2025)",
+          "url": "https://www.lanacion.com.ar/politica/a-pesar-de-que-no-estan-en-la-corte-un-juez-declaro-inconstitucional-los-nombramientos-por-decreto-nid17042025/"
+        },
+        {
+          "title": "Observatorio del Derecho a la Ciudad: comunicado sobre el amparo (17/04/2025)",
+          "url": "https://www.observatoriociudad.org/hist%C3%B3rico-logramos-que-la-justicia-federal-declare-inconstitucional-el-decreto-137-2025-que-desing%C3%B3-como-jueces-de-la-corte-suprema-a-garc%C3%ADa-mansilla-y-lijo/"
+        }
+      ],
+      "quality": "Verificado (hechos principales); firmeza no verificada",
+      "note": "No describir como 'condena penal' ni confundir una designación por decreto con los nombramientos ordinarios de jueces que sí obtuvieron acuerdo del Senado. La declaración de inconstitucionalidad fue de primera instancia; no se comprobó su firmeza posterior. Fueron dos candidatos en un mismo decreto, por lo que se cuenta una ficha.",
+      "origin": "Incorporado 17/11/2026",
+      "change_date": "2026-11-17",
+      "change_summary": "Nueva ficha: designación en comisión de Lijo y García-Mansilla por Decreto 137/2025, rechazo del Senado, renuncia de García-Mansilla y sentencia de inconstitucionalidad."
     },
     {
       "id": "andis-spagnuolo",
@@ -832,8 +872,14 @@
     }
   ],
   "previous_cutoff": "2026-11-17",
-  "methodology": "Seguimiento documental con fuentes fechadas. Se separan integrantes del Poder Ejecutivo, legisladores LLA, aliados legislativos PRO y exaliados. Cada ficha individual indica su fecha de evento y revisión. Se mantiene el histórico; una falta de novedades periodísticas no implica cierre judicial. Archivos y condenas no firmes deben describirse con su alcance y fuente.",
+  "methodology": "Conservar historial, fecha de último evento y fecha de revisión por ficha. Distinguir expresamente hechos acreditados, investigaciones pendientes, controversias institucionales y sentencias firmes/no firmes. Una controversia constitucional no implica condena penal. Las acciones de los aliados legislativos no se imputan automáticamente al Poder Ejecutivo.",
   "changelog": [
+    {
+      "id": "corte-jueces-decreto",
+      "name": "Corte Suprema: Lijo y García-Mansilla designados por decreto",
+      "date": "2026-11-17",
+      "summary": "Nueva ficha: designación en comisión de Lijo y García-Mansilla por Decreto 137/2025, rechazo del Senado, renuncia de García-Mansilla y sentencia de inconstitucionalidad."
+    },
     {
       "id": "quintar-pami",
       "name": "Manuel Quintar: PAMI Jujuy y clínicas familiares",

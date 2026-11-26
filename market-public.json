@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
-  "published_at_utc": "2026-11-26T06:35:14Z",
-  "data_asof_utc": "2026-11-26T06:33:01Z",
+  "published_at_utc": "2026-11-26T06:50:13Z",
+  "data_asof_utc": "2026-11-26T06:48:02Z",
   "source": "HP Mini · observaciones públicas Kraken/Pionex",
   "assets": [
     {
       "asset": "BTC",
       "exchange": "Kraken",
       "quote_currency": "USDT",
-      "price": 60581.7,
-      "asof_utc": "2026-11-26T06:30:02Z",
+      "price": 60474.1,
+      "asof_utc": "2026-11-26T06:45:03Z",
       "stale": false,
-      "change_1h_pct": -0.651,
-      "change_24h_pct": 2.396,
-      "spread_pct": 0.01615,
+      "change_1h_pct": -0.788,
+      "change_24h_pct": 2.082,
+      "spread_pct": 0.00942,
       "volume_24h_quote": null
     },
     {
       "asset": "ETH",
       "exchange": "Kraken",
       "quote_currency": "USDT",
-      "price": 1687.57,
-      "asof_utc": "2026-11-26T06:30:02Z",
+      "price": 1686.42,
+      "asof_utc": "2026-11-26T06:45:03Z",
       "stale": false,
-      "change_1h_pct": -0.766,
-      "change_24h_pct": 1.764,
-      "spread_pct": 0.00769,
+      "change_1h_pct": -0.77,
+      "change_24h_pct": 1.579,
+      "spread_pct": 0.03142,
       "volume_24h_quote": null
     },
     {
@@ -33,11 +33,11 @@
       "exchange": "Kraken",
       "quote_currency": "USDT",
       "price": 70.78,
-      "asof_utc": "2026-11-26T06:30:02Z",
+      "asof_utc": "2026-11-26T06:45:03Z",
       "stale": false,
-      "change_1h_pct": -0.771,
-      "change_24h_pct": 3.118,
-      "spread_pct": 0.0141,
+      "change_1h_pct": -0.59,
+      "change_24h_pct": 2.758,
+      "spread_pct": 0.0283,
       "volume_24h_quote": null
     },
     {
@@ -45,11 +45,11 @@
       "exchange": "Kraken",
       "quote_currency": "USDT",
       "price": 0.6631,
-      "asof_utc": "2026-11-26T06:30:02Z",
+      "asof_utc": "2026-11-26T06:45:03Z",
       "stale": false,
       "change_1h_pct": -1.207,
       "change_24h_pct": 2.157,
-      "spread_pct": 0.09018,
+      "spread_pct": 0.07534,
       "volume_24h_quote": null
     }
   ],
